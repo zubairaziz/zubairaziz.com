@@ -2,12 +2,11 @@ import React from "react"
 import Layout from "../layouts/main-layout"
 import Head from "../components/head"
 
-const HomePage = () => (
+const ContactPage = () => (
   <Layout>
-    <Head pageTitle="Home" />
-    <h1>Zubair Aziz</h1>
-    <div>Hello, World!</div>
+    <Head pageTitle="Contact" />
+    <h1>Contact Page</h1>
   </Layout>
 )
 
-export default HomePage
+export default ContactPage

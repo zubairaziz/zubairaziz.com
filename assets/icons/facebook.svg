@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256px" height="255px" viewBox="0 0 256 255" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>f-Logo_White</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Fluid-RX-App" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Login" transform="translate(-37.000000, -358.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="f-Logo_White" transform="translate(37.000000, 358.000000)">
+                <path d="M256,128.251473 C256,57.4125737 198.7,0 128,0 C57.3,0 0,57.4125737 0,128.251473 C0,192.277014 46.8,245.331041 108,254.949902 L108,165.324165 L75.5,165.324165 L75.5,128.251473 L108,128.251473 L108,99.9960707 C108,67.858055 127.1,50.0982318 156.35,50.0982318 C170.35,50.0982318 185,52.6031434 185,52.6031434 L185,84.1650295 L168.85,84.1650295 C152.95,84.1650295 148,94.0594303 148,104.204322 L148,128.251473 L183.5,128.251473 L177.825,165.324165 L148,165.324165 L148,254.949902 C209.2,245.331041 256,192.277014 256,128.251473 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
