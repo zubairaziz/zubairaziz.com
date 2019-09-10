@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../layouts/home-layout"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import { OutboundLink } from "gatsby-plugin-google-analytics"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 import Head from "../components/head"
 import FacebookIcon from "../../assets/icons/facebook.svg"
 import InstagramIcon from "../../assets/icons/instagram.svg"
