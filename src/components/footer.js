@@ -12,7 +12,7 @@ const Footer = () => {
       site {
         siteMetadata {
           author
-          social {
+          socialLinks {
             facebook
             twitter
             instagram

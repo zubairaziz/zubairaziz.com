@@ -2,12 +2,15 @@ module.exports = {
   siteMetadata: {
     title: "Zubair Aziz",
     author: "Zubair Aziz",
-    social: {
-      facebook: "",
-      twitter: "",
-      instagram: "",
-      github: "",
-      email: "",
+    siteUrl: `https://www.zubairaziz.com`,
+    socialLinks: {
+      facebook: "https://www.facebook.com/zubair0496",
+      twitter: "https://twitter.com/zbr_aziz/",
+      instagram: "https://www.instagram.com/zbr.aziz/",
+      github: "https://github.com/zubairaziz",
+      stackoverflow: "https://stackoverflow.com/users/8369042/zubair?tab=profile",
+      linkedin: "https://www.linkedin.com/in/zubairabaziz/",
+      email: "admin@zubairaziz.com",
     },
   },
   plugins: [
@@ -50,6 +53,23 @@ module.exports = {
         rule: {
           include: /assets/,
         },
+      },
+    },
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+        pageTransitionDelay: 0,
+        optimizeId: process.env.GOOGLE_OPTIMIZE_TRACKING_ID,
+        experimentId: process.env.GOOGLE_EXPERIMENT_ID,
+        variationId: process.env.GOOGLE_OPTIMIZE_VARIATION_ID,
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: "zubairaziz.com",
       },
     },
   ],

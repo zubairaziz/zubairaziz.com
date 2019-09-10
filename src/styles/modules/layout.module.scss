@@ -10,3 +10,9 @@
   flex-grow: 1;
   background-color: lighten($secondary, 20);
 }
+
+.home-container {
+  height: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}

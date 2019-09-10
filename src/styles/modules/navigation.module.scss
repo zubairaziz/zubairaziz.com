@@ -8,11 +8,12 @@
 
   a {
     text-decoration: none;
+    text-transform: uppercase;
     color: darken($white, 5);
+    transition: all ease-in-out 0.35s;
 
     &:hover {
       color: $primary;
-      transition: all ease-in-out 0.35s;
     }
   }
 
