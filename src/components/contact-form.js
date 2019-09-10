@@ -11,6 +11,7 @@ const ContactForm = () => {
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
+      <input type="hidden" name="form-name" value="contact" />
       <div className={formStyles.row}>
         <div className={formStyles.formControl}>
           <label for="name">Name</label>
@@ -23,7 +24,7 @@ const ContactForm = () => {
       </div>
       <div className={formStyles.formControl}>
         <label for="message">Message</label>
-        <textarea rows="6" name="message"></textarea>
+        <textarea rows="6" name="message" />
       </div>
       <input type="text" name="bot-field" hidden />
       <div className={formStyles.buttonContainer}>
