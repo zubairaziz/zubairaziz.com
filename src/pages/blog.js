@@ -30,6 +30,9 @@ const BlogPage = () => {
                 <p>
                   <small>{edge.node.date}</small>
                 </p>
+                <p>
+                  <strong>Read this blog post</strong>
+                </p>
               </Link>
             </li>
           ))}

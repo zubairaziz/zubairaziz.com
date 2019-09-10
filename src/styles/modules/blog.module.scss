@@ -5,9 +5,11 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
-    li + li {
-      margin-top: 2rem;
-    }
+    display: grid;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+
     li {
       &:hover {
         opacity: 0.8;
@@ -29,6 +31,9 @@
         small {
           color: $primary;
           font-style: italic;
+        }
+        p + p {
+          margin-top: 2rem;
         }
       }
     }

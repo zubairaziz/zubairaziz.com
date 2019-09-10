@@ -12,7 +12,13 @@ const Head = ({ pageTitle }) => {
       }
     }
   `)
-  return <Helmet title={`${pageTitle} | ${data.site.siteMetadata.title}`} />
+  return (
+    <Helmet>
+      <title>{`${pageTitle} | ${data.site.siteMetadata.title}`}</title>
+      <meta name="google-site-verification" content="vcszfyvttpbLnrwUknzvdQBvVZQD5IpYJsy9-hLcPEw" />
+      <meta name="description" content="Zubair's website" />
+    </Helmet>
+  )
 }
 
 export default Head
