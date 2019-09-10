@@ -57,19 +57,23 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
-        head: false,
-        anonymize: true,
-        respectDNT: true,
-        pageTransitionDelay: 0,
-        optimizeId: process.env.GOOGLE_OPTIMIZE_TRACKING_ID,
-        experimentId: process.env.GOOGLE_EXPERIMENT_ID,
-        variationId: process.env.GOOGLE_OPTIMIZE_VARIATION_ID,
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: "zubairaziz.com",
+        trackingIds: [
+          process.env.GOOGLE_ANALYTICS_TRACKING_ID, // Google Analytics / GA
+          // "AW-CONVERSION_ID", // Google Ads / Adwords / AW
+          // "DC-FLOODIGHT_ID", // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
+        ],
+        gtagConfig: {
+          optimize_id: process.env.GOOGLE_EXPERIMENT_ID,
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          head: false,
+          respectDNT: true,
+          // exclude: ["/preview/**", "/do-not-track/me/too/"],
+        },
       },
     },
   ],
