@@ -26,7 +26,7 @@ const ContactForm = () => {
         <label for="message">Message</label>
         <textarea rows="6" name="message" />
       </div>
-      <input type="text" name="bot-field" hidden />
+      <input className={formStyles.spam} name="bot-field" />
       <div className={formStyles.buttonContainer}>
         <button className={formStyles.button} type="submit">
           Submit

@@ -44,6 +44,15 @@
     }
   }
 
+  .spam {
+    opacity: 0;
+    height: 1rem;
+    width: 1rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
   .button-container {
     margin: 20px 0;
   }
