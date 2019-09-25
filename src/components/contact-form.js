@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import formStyles from "../styles/modules/form.module.scss"
+// import { Button } from "./button"
 
 const ContactForm = () => {
   return (
@@ -28,7 +29,7 @@ const ContactForm = () => {
       </div>
       <input className={formStyles.spam} name="bot-field" />
       <div className={formStyles.buttonContainer}>
-        <button className={formStyles.button} type="submit">
+        <button className="bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded" type="submit">
           Submit
         </button>
       </div>

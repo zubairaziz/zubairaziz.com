@@ -1,4 +1,62 @@
+// ------ //
+// Colors //
+// ------ //
+
 $primary: #6abedb;
+$primary-dark: darken($primary, 15);
+$primary-light: lighten($primary, 15);
+
 $secondary: #2a2a2af2;
+$secondary-dark: darken($secondary, 15);
+$secondary-light: lighten($secondary, 15);
+
 $white: #f0f0f0;
 $black: #0f0f0f;
+
+$gray: #8e8e8e;
+$light-gray: lighten($gray, 15);
+$dark-gray: darken($gray, 15);
+
+// ------------ //
+// Screen Sizes //
+// ------------ //
+
+$screen-sm-min: 576px; // Small tablets and large smartphones
+$screen-md-min: 768px; // Small tablets
+$screen-lg-min: 992px; // Tablets and small desktops
+$screen-xl-min: 1200px; // Large tablets and most desktops
+
+// Small devices
+@mixin breakpoint-sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin breakpoint-md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin breakpoint-lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin breakpoint-xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+// Custom sizes
+@mixin breakpoint-rwd($screen) {
+  @media (min-width: $screen+'px') {
+    @content;
+  }
+}
