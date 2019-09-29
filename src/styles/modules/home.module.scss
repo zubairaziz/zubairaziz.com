@@ -40,7 +40,7 @@ a {
   color: darken($white, 5);
 
   &:hover {
-    color: $primary;
+    color: $teal-normal;
     transition: all ease-in-out 0.35s;
   }
 }
@@ -70,7 +70,7 @@ a {
   &:hover {
     transform: translateY(-15px) scale(2.25) rotate(10deg);
     path {
-      fill: $primary;
+      fill: $teal-normal;
     }
   }
   transition: all ease-in-out 0.5s;

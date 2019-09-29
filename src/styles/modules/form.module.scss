@@ -3,7 +3,7 @@
 .form {
   margin: 3rem;
   padding: 3rem;
-  background-color: $secondary;
+  background-color: $dark-dark;
   border-radius: 5px;
   width: 50%;
   margin: 0 auto;
@@ -17,19 +17,19 @@
   input {
     outline: none;
     height: 1.75rem;
-    border: 3px solid darken($secondary, 10);
+    border: 3px solid darken($dark-dark, 10);
     font-size: 1.1rem;
-    color: darken($secondary, 10);
+    color: darken($dark-dark, 10);
     border-radius: 5px;
-    background-color: lighten($secondary, 35);
+    background-color: lighten($dark-dark, 35);
   }
   textarea {
     outline: none;
-    border: 3px solid darken($secondary, 10);
+    border: 3px solid darken($dark-dark, 10);
     font-size: 1.1rem;
-    color: darken($secondary, 10);
+    color: darken($dark-dark, 10);
     border-radius: 5px;
-    background-color: lighten($secondary, 20);
+    background-color: lighten($dark-dark, 20);
   }
   label {
     font-size: 1.2rem;
@@ -40,7 +40,7 @@
   textarea {
     &:focus,
     &:active {
-      border: 3px solid $primary;
+      border: 3px solid $teal-normal;
     }
   }
 
@@ -67,9 +67,9 @@
 
     &:hover {
       cursor: pointer;
-      background-color: $primary;
-      border: 3px solid darken($secondary, 10);
-      color: darken($secondary, 10);
+      background-color: $teal-normal;
+      border: 3px solid darken($dark-dark, 10);
+      color: darken($dark-dark, 10);
     }
   }
 }

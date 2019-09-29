@@ -9,10 +9,10 @@
 
   a {
     text-decoration: none;
-    color: darken($white, 5);
+    color: white;
 
     &:hover {
-      color: $primary;
+      color: $teal-dark;
       transition: all ease-in-out 0.35s;
     }
   }
@@ -41,7 +41,7 @@
 
     &:hover {
       path {
-        fill: $primary;
+        fill: $teal-normal;
       }
     }
     transition: all ease-in-out 0.5s;
