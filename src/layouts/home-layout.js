@@ -40,7 +40,7 @@ const Layout = styled.div`
 
 const Content = styled.div`
   flex-grow: 1;
-  background-color: ${colors.black};
+  background-color: ${colors.dark.darker};
 `
 
 const HomeContainer = styled.main`
