@@ -43,10 +43,20 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-contentful`,
+      resolve: "gatsby-source-sanity",
       options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        projectId: "os3vs9ur",
+        dataset: "zubairaziz",
+        watchMode: true,
+        overlayDrafts: true,
+        token: process.env.SANITY_TOKEN,
+      },
+    },
+    "gatsby-source-sanity-transform-images",
+    {
+      resolve: `gatsby-transform-portable-text`,
+      options: {
+        extendTypes: [{ typeName: `SanityPost`, contentFieldName: "body" }],
       },
     },
     {

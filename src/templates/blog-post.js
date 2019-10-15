@@ -1,40 +1,61 @@
 import React from "react"
 import Layout from "../layouts/main-layout"
-import { Link, graphql } from "gatsby"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { graphql } from "gatsby"
+import BlockContent from "@sanity/block-content-to-react"
 import Head from "../components/head"
 
 export const query = graphql`
   query($slug: String!) {
-    contentfulBlogPost(slug: { eq: $slug }) {
+    sanityPost(slug: { current: { eq: $slug } }) {
+      slug {
+        current
+      }
       title
-      date(formatString: "MMMM Do, YYYY")
-      body {
-        json
+      _rawBody
+      publishedAt(formatString: "MMMM Do, YYYY")
+      readingTimeInMinutes
+      excerpt
+      mainImage {
+        asset {
+          fluid(maxWidth: 500) {
+            src
+          }
+        }
+      }
+      author {
+        name
+        image {
+          asset {
+            fluid(maxWidth: 500) {
+              src
+            }
+          }
+        }
       }
     }
   }
 `
 
 const Blog = props => {
-  const options = {
-    renderNode: {
-      "embedded-asset-block": node => {
-        const alt = node.data.target.fields.title["en-US"]
-        const url = node.data.target.fields.file["en-US"].url
-        return <img alt={alt} src={url} />
-      },
+  const serializers = {
+    types: {
+      code: props => (
+        <pre data-language={props.node.language}>
+          <code>{props.node.code}</code>
+        </pre>
+      ),
     },
   }
   return (
     <Layout>
-      <Head pageTitle={props.data.contentfulBlogPost.title} />
-      <h1>{props.data.contentfulBlogPost.title}</h1>
-      <p>{props.data.contentfulBlogPost.date}</p>
-      {documentToReactComponents(
-        props.data.contentfulBlogPost.body.json,
-        options
-      )}
+      <Head pageTitle={props.data.sanityPost.title} />
+      <img src={props.data.sanityPost.mainImage.asset.fluid.src} alt={`${props.data.sanityPost.title} Main Image`} />
+      <h1>{props.data.sanityPost.title}</h1>
+      <p>
+        <small>{props.data.sanityPost.publishedAt}</small>
+      </p>
+      <BlockContent blocks={props.data.sanityPost._rawBody} serializers={serializers} />
+      {/* {documentToReactComponents(props.data.sanityPost._rawBody, options)} */}
       {/* <div dangerouslySetInnerHTML={{ __html: props.data.body }}></div> */}
     </Layout>
   )

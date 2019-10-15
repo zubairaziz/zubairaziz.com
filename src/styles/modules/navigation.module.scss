@@ -9,13 +9,13 @@
   a {
     text-decoration: none;
     text-transform: uppercase;
-    color: darken($white, 5);
+    color: var(--white);
     transition: all ease-in-out 0.35s;
     border: 2px solid transparent;
 
     &:hover {
-      color: $teal-normal;
-      border-bottom: 2px solid $teal-normal;
+      color: var(--teal-normal);
+      border-bottom: 2px solid var(--teal-normal);
     }
   }
 
@@ -31,7 +31,7 @@
 
         a {
           &.active {
-            color: darken($teal-normal, 10);
+            color: var(--teal-normal);
           }
         }
       }

@@ -3,7 +3,7 @@
 .form {
   margin: 3rem;
   padding: 3rem;
-  background-color: $dark-dark;
+  background-color: var(--dark-dark);
   border-radius: 5px;
   width: 50%;
   margin: 0 auto;
@@ -17,19 +17,19 @@
   input {
     outline: none;
     height: 1.75rem;
-    border: 3px solid darken($dark-dark, 10);
+    border: 3px solid var(--dark-dark);
     font-size: 1.1rem;
-    color: darken($dark-dark, 10);
+    color: var(--dark-dark);
     border-radius: 5px;
-    background-color: lighten($dark-dark, 35);
+    background-color: var(--dark-dark);
   }
   textarea {
     outline: none;
-    border: 3px solid darken($dark-dark, 10);
+    border: 3px solid var(--dark-dark);
     font-size: 1.1rem;
-    color: darken($dark-dark, 10);
+    color: var(--dark-dark);
     border-radius: 5px;
-    background-color: lighten($dark-dark, 20);
+    background-color: var(--dark-dark);
   }
   label {
     font-size: 1.2rem;
@@ -40,7 +40,7 @@
   textarea {
     &:focus,
     &:active {
-      border: 3px solid $teal-normal;
+      border: 3px solid var(--teal-normal);
     }
   }
 
@@ -62,14 +62,14 @@
     font-size: 1.2rem;
     background-color: transparent;
     text-transform: uppercase;
-    border: 3px solid $white;
+    border: 3px solid var(--white);
     border-radius: 3px;
 
     &:hover {
       cursor: pointer;
-      background-color: $teal-normal;
-      border: 3px solid darken($dark-dark, 10);
-      color: darken($dark-dark, 10);
+      background-color: var(--teal-normal);
+      border: 3px solid var(--dark-dark);
+      color: var(--dark-dark);
     }
   }
 }

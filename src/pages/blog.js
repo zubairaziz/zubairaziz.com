@@ -32,13 +32,41 @@ const BlogHolder = styled.div`
       grid-column-gap: 20px;
     }
     li {
-
-      background-color: ${colors.dark.darker};
       border: 3px solid ${colors.teal.normal};
-      /* box-shadow: 0px 0px 3px 3px ${colors.teal.lighter}; */
       animation: frame-glow 1s ease-in-out infinite alternate;
-      padding: 1rem;
+      padding: 0;
       border-radius: 5px;
+
+      figure {
+        height: 150px;
+        background-color: var(--teal-lighter);
+        margin: 0;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        &::after {
+          background-color: var(--teal-light);
+          content: "";
+          height: 100%;
+          width: 100%;
+          z-index: 2;
+          position: absolute;
+          opacity: 0.6;
+          filter: blur(5px);
+        }
+      }
+
+      div {
+        background-color: var(--dark-darker);
+        padding: 0 1.25rem;
+        margin: 0;
+      }
+      a {
+        text-decoration: none;
+      }
     }
   }
 `
@@ -46,12 +74,21 @@ const BlogHolder = styled.div`
 const BlogPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulBlogPost(sort: { fields: date, order: DESC }) {
+      allSanityPost(sort: { fields: publishedAt, order: DESC }) {
         edges {
           node {
-            slug
+            slug {
+              current
+            }
             title
-            date(formatString: "MMMM Do, YYYY")
+            publishedAt(formatString: "MM-D-YYYY")
+            mainImage {
+              asset {
+                fluid(maxWidth: 500) {
+                  src
+                }
+              }
+            }
           }
         }
       }
@@ -63,17 +100,24 @@ const BlogPage = () => {
       <h1>Blog Page</h1>
       <BlogHolder>
         <ol>
-          {data.allContentfulBlogPost.edges.map(edge => (
+          {data.allSanityPost.edges.map(edge => (
             <li>
-              <Link to={`blog/${edge.node.slug}`}>
-                <h2>{edge.node.title}</h2>
-                <p>
-                  <small>{edge.node.date}</small>
-                </p>
-                <p>
-                  <strong>Read this blog post</strong>
-                </p>
+              <Link to={`blog/${edge.node.slug.current}`}>
+                <figure>
+                  <img src={edge.node.mainImage.asset.fluid.src} alt="" />
+                </figure>
               </Link>
+              <div>
+                <Link to={`blog/${edge.node.slug.current}`}>
+                  <h2>{edge.node.title}</h2>
+                  <p>
+                    <small>Published: {edge.node.publishedAt}</small>
+                  </p>
+                  <p>
+                    <strong>Read this blog post &raquo;</strong>
+                  </p>
+                </Link>
+              </div>
             </li>
           ))}
         </ol>

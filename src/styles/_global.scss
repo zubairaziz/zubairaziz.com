@@ -1,17 +1,17 @@
 * {
-  color: $teal-normal;
-  font-family: 'Source Code Pro', 'Fira Code', 'system-ui', 'BlinkMacSystemFont', '-apple-system', 'Segoe UI', 'Roboto',
+  color: var(--teal-normal);
+  font-family: 'Fira Code', 'Source Code Pro', 'system-ui', 'BlinkMacSystemFont', '-apple-system', 'Segoe UI', 'Roboto',
     'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif';
 }
 
 footer {
-  background-color: $dark-dark;
+  background-color: var(--dark-dark);
 }
 
 h1 {
   padding-top: 1rem;
   font-family: 'Press Start 2P', monospace;
-  color: $teal-lighter;
+  color: var(--teal-lighter);
   font-size: 3rem;
   // animation: glow 1s ease-in-out infinite alternate;
 }
@@ -30,16 +30,37 @@ main.container {
 }
 
 img {
+  position: relative;
   max-width: 100%;
   height: auto;
+  filter: grayscale(65%);
+  animation: img-flicker 3s infinite cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .highlight {
-  color: $teal-normal;
+  color: var(--teal-normal);
 }
 
 .heading {
   font-size: 6rem;
+}
+
+@keyframes img-flicker {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.83891;
+  }
+  50% {
+    opacity: 0.96019;
+  }
+  75% {
+    opacity: 0.57288;
+  }
+  100% {
+    opacity: 0.98765;
+  }
 }
 
 @keyframes flicker {
@@ -110,12 +131,14 @@ img {
 
 @-webkit-keyframes glow {
   from {
-    text-shadow: 0 0 2.5px $white, 0 0 5px $white, 0 0 7.5px $green-normal, 0 0 10px $green-normal,
-      0 0 12.5px $green-normal, 0 0 15px $green-normal, 0 0 17.5px $green-normal;
+    text-shadow: 0 0 2.5px var(--white), 0 0 5px var(--white), 0 0 7.5px var(--green-normal),
+      0 0 10px var(--green-normal), 0 0 12.5px var(--green-normal), 0 0 15px var(--green-normal),
+      0 0 17.5px var(--green-normal);
   }
   to {
-    text-shadow: 0 0 5px $white, 0 0 7.5px $green-lighter, 0 0 10px $green-lighter, 0 0 12.5px $green-lighter,
-      0 0 15px $green-lighter, 0 0 17.5px $green-lighter, 0 0 20px $green-lighter;
+    text-shadow: 0 0 5px var(--white), 0 0 7.5px var(--green-lighter), 0 0 10px var(--green-lighter),
+      0 0 12.5px var(--green-lighter), 0 0 15px var(--green-lighter), 0 0 17.5px var(--green-lighter),
+      0 0 20px var(--green-lighter);
   }
 }
 
@@ -208,18 +231,18 @@ img {
 
 @-webkit-keyframes frame-glow {
   from {
-    box-shadow: 0px 0px 2px 2px $teal-lighter;
+    box-shadow: 0px 0px 2px 2px var(--teal-lighter);
   }
   to {
-    box-shadow: 0px 0px 3px 3px $teal-normal;
+    box-shadow: 0px 0px 3px 3px var(--teal-normal);
   }
 }
 
 @-webkit-keyframes frame-glow-green {
   from {
-    box-shadow: 0px 0px 2px 2px $green-lighter;
+    box-shadow: 0px 0px 2px 2px var(--green-lighter);
   }
   to {
-    box-shadow: 0px 0px 3px 3px $green-normal;
+    box-shadow: 0px 0px 3px 3px var(--green-normal);
   }
 }

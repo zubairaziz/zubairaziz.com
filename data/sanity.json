@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "project": {
+    "name": "zubairaziz.com"
+  },
+  "api": {
+    "projectId": "os3vs9ur",
+    "dataset": "zubairaziz"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema.js"
+    }
+  ]
+}
