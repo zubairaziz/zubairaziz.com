@@ -4,7 +4,7 @@ path: /blog/my-first-post
 date: '2019-04-04'
 type: post
 authors:
-  - scott-byrne
+  - zubair-aziz
 draft: true
 ---
 

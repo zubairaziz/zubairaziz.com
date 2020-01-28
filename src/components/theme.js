@@ -108,6 +108,8 @@ export const globalThemeFragment = graphql`
     }
     radius {
       small
+      medium
+      large
     }
     header {
       overline

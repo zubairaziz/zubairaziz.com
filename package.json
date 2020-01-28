@@ -1,9 +1,9 @@
 {
-  "name": "tina-grande",
+  "name": "zubairaziz.com",
   "private": true,
-  "description": "A configurable starter for Gatsby & Tina",
-  "version": "0.1.0",
-  "author": "Scott Byrne <scott.byrne@forestry.io>",
+  "description": "Zubair's website - Built with Gatsby and Tina",
+  "version": "1.0",
+  "author": "Zubair Aziz <zubairabaziz@gmail.com>",
   "dependencies": {
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
@@ -59,7 +59,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "clean": "rm -rf ./cache",
     "dev": "npm run clean && npm run develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",

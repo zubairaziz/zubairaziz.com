@@ -1,29 +1,20 @@
-import React from "react"
-import { Button } from "../components/style"
-import styled, { css } from "styled-components"
-import { mix } from "polished"
-import slugify from "react-slugify"
+import React from 'react';
+import { Button } from '../components/style';
+import styled, { css } from 'styled-components';
+import { mix } from 'polished';
+import slugify from 'react-slugify';
 
 export function Form({ form }) {
   return (
-    <StyledForm
-      name="contact"
-      action={`https://formspree.io/${form.recipient}`}
-      method="POST"
-    >
+    <StyledForm name='contact' action={`https://formspree.io/${form.recipient}`} method='POST'>
       {form.fields.map(field => {
-        if (field.inputType === "textarea") {
+        if (field.inputType === 'textarea') {
           return (
             <FormField wide>
               <label for={slugify(field.label)}>{field.label}</label>
-              <textarea
-                cols="40"
-                rows="5"
-                name={slugify(field.label)}
-                id={slugify(field.label)}
-              ></textarea>
+              <textarea cols='40' rows='5' name={slugify(field.label)} id={slugify(field.label)} />
             </FormField>
-          )
+          );
         } else {
           return (
             <FormField>
@@ -32,112 +23,112 @@ export function Form({ form }) {
                 id={slugify(field.label)}
                 name={slugify(field.label)}
                 type={field.inputType}
-                autocorrect="off"
+                autocorrect='off'
                 autocomplete={field.autocomplete | ``}
               />
             </FormField>
-          )
+          );
         }
       })}
       {form.fields.length > 0 && (
         <FormField wide>
-          <Button primary type="submit" value="Submit">
+          <Button primary type='submit' value='Submit'>
             Submit
           </Button>
         </FormField>
       )}
     </StyledForm>
-  )
+  );
 }
 
 const base = {
-  name: "customInput",
-  key: "label",
-  component: "group",
+  name: 'customInput',
+  key: 'label',
+  component: 'group',
   fields: [
-    { name: "label", label: "Label", component: "text" },
-    { name: "inputType", label: "Input Type", component: "text" },
-    { name: "autocomplete", label: "Autocomplete", component: "text" },
+    { name: 'label', label: 'Label', component: 'text' },
+    { name: 'inputType', label: 'Input Type', component: 'text' },
+    { name: 'autocomplete', label: 'Autocomplete', component: 'text' },
   ],
-}
+};
 
 export const customInputBlock = {
-  label: "Custom Input",
+  label: 'Custom Input',
   ...base,
-}
+};
 
 export const nameInputBlock = {
-  label: "Name Input",
+  label: 'Name Input',
   defaultItem: {
-    label: "Name",
-    inputType: "text",
-    autocomplete: "name",
+    label: 'Name',
+    inputType: 'text',
+    autocomplete: 'name',
   },
   ...base,
-}
+};
 
 export const emailInputBlock = {
-  label: "Email Input",
+  label: 'Email Input',
   defaultItem: {
-    label: "Email",
-    inputType: "text",
-    autocomplete: "email",
+    label: 'Email',
+    inputType: 'text',
+    autocomplete: 'email',
   },
   ...base,
-}
+};
 
 export const phoneInputBlock = {
-  label: "Phone Input",
+  label: 'Phone Input',
   defaultItem: {
-    label: "Phone",
-    inputType: "text",
-    autocomplete: "tel",
+    label: 'Phone',
+    inputType: 'text',
+    autocomplete: 'tel',
   },
   ...base,
-}
+};
 
 export const companyInputBlock = {
-  label: "Company Input",
+  label: 'Company Input',
   defaultItem: {
-    label: "Company",
-    inputType: "text",
-    autocomplete: "organization",
+    label: 'Company',
+    inputType: 'text',
+    autocomplete: 'organization',
   },
   ...base,
-}
+};
 
 export const messageInputBlock = {
-  label: "Message Input",
+  label: 'Message Input',
   defaultItem: {
-    label: "Message",
-    inputType: "textarea",
-    autocomplete: "",
+    label: 'Message',
+    inputType: 'textarea',
+    autocomplete: '',
   },
   ...base,
-}
+};
 
 export const FormBlock = {
-  label: "Form",
-  key: "name",
-  name: "form",
-  component: "group",
+  label: 'Form',
+  key: 'name',
+  name: 'form',
+  component: 'group',
   defaultItem: {
-    name: "Form",
-    recipient: "",
+    name: 'Form',
+    recipient: '',
     fields: [],
   },
   fields: [
-    { name: "name", label: "Name", component: "text" },
+    { name: 'name', label: 'Name', component: 'text' },
     {
-      name: "recipient",
-      label: "Recipient",
-      description: "Form is sent via formspree.io.",
-      component: "text",
+      name: 'recipient',
+      label: 'Recipient',
+      description: 'Form is sent via formspree.io.',
+      component: 'text',
     },
     {
-      label: "Fields",
-      name: "fields",
-      component: "blocks",
+      label: 'Fields',
+      name: 'fields',
+      component: 'blocks',
       templates: {
         customInputBlock,
         nameInputBlock,
@@ -148,7 +139,7 @@ export const FormBlock = {
       },
     },
   ],
-}
+};
 
 export const StyledForm = styled.form`
   display: grid;
@@ -160,7 +151,7 @@ export const StyledForm = styled.form`
   @media (min-width: ${props => props.theme.breakpoints.medium}) {
     grid-template-columns: 1fr 1fr;
   }
-`
+`;
 
 export const FormField = styled.div`
   input,
@@ -174,19 +165,14 @@ export const FormField = styled.div`
     width: 100%;
     transition: box-shadow 150ms ${props => props.theme.easing};
     color: ${props => props.theme.color.foreground};
-    background-color: ${props =>
-      mix(0.95, props.theme.color.background, props.theme.color.foreground)};
+    background-color: ${props => mix(0.95, props.theme.color.background, props.theme.color.foreground)};
 
     &:focus {
       outline: none;
       box-shadow: 0 0 0 3px ${props => props.theme.color.secondary};
     }
 
-    ${props =>
-      props.theme.isDarkMode &&
-      css`
-        background-color: ${props => props.theme.color.background};
-      `};
+    ${props => props.theme.isDarkMode && css`background-color: ${props => props.theme.color.background};`};
   }
 
   textarea {
@@ -208,4 +194,4 @@ export const FormField = styled.div`
         grid-column-end: 3;
       }
     `};
-`
+`;

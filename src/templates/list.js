@@ -11,7 +11,6 @@ import {
 import { ListAuthors, AuthorsForm } from "../components/authors"
 import { Link } from "gatsby"
 import { PageLayout } from "../components/pageLayout"
-
 import { useLocalJsonForm } from "gatsby-tinacms-json"
 
 export default function List({ data, pageContext }) {

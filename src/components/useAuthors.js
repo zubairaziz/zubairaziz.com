@@ -1,21 +1,19 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
 export const useAuthors = () => {
   const { settingsJson } = useStaticQuery(
     graphql`
       query authorsQuery {
-        settingsJson(
-          fileRelativePath: { eq: "/content/settings/authors.json" }
-        ) {
+        settingsJson(fileRelativePath: { eq: "/content/settings/authors.json" }) {
           ...authors
         }
       }
     `
-  )
+  );
 
-  return settingsJson.authors
-}
+  return settingsJson.authors;
+};
 
 export const authorsFragment = graphql`
   fragment authors on SettingsJson {
@@ -26,4 +24,4 @@ export const authorsFragment = graphql`
       link
     }
   }
-`
+`;

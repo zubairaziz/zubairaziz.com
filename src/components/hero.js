@@ -1,17 +1,15 @@
-import React from "react"
-import styled, { css } from "styled-components"
-import { transparentize } from "polished"
-import { Wrapper, Overlay, LinkButton } from "../components/style"
-import BackgroundImage from "gatsby-background-image"
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { transparentize } from 'polished';
+import { Wrapper, Overlay, LinkButton } from '../components/style';
+import BackgroundImage from 'gatsby-background-image';
 
 export const Hero = ({ hero }) => {
   return (
     <HeroWrapper>
       <HeroBackground>
         {hero.overlay && <Overlay />}
-        {hero.image && (
-          <HeroImage fluid={hero.image.childImageSharp.fluid}></HeroImage>
-        )}
+        {hero.image && <HeroImage fluid={hero.image.childImageSharp.fluid} />}
       </HeroBackground>
       {(hero.headline || hero.textline || hero.ctas) && (
         <HeroContent large={hero.large}>
@@ -22,14 +20,11 @@ export const Hero = ({ hero }) => {
               <Actions>
                 {Object.keys(hero.ctas).map(key => {
                   return (
-                    <LinkButton
-                      primary={hero.ctas[key].primary}
-                      to={hero.ctas[key].link}
-                    >
+                    <LinkButton primary={hero.ctas[key].primary} to={hero.ctas[key].link}>
                       {hero.ctas[key].label}
                       {hero.ctas[key].arrow && <span>&nbsp;&nbsp;→</span>}
                     </LinkButton>
-                  )
+                  );
                 })}
               </Actions>
             )}
@@ -37,36 +32,25 @@ export const Hero = ({ hero }) => {
         </HeroContent>
       )}
     </HeroWrapper>
-  )
-}
+  );
+};
 
 const HeroWrapper = styled.div`
   position: relative;
   flex: 0 0 auto;
   top: 0;
   padding-top: ${props => props.theme.header.height};
-  min-height: calc(
-    ${props => props.theme.header.height} +
-      ${props => props.theme.header.height}
-  );
+  min-height: calc(${props => props.theme.header.height} + ${props => props.theme.header.height});
 
-  ${props =>
-    props.theme.hero.parallax &&
-    css`
-      transform-style: preserve-3d;
-    `}
-`
+  ${props => props.theme.hero.parallax && css`transform-style: preserve-3d;`};
+`;
 
 const HeroContent = styled.div`
   display: block;
   padding: 3rem 0;
 
-  ${props =>
-    props.large &&
-    css`
-      padding: 8rem 0;
-    `}
-`
+  ${props => props.large && css`padding: 8rem 0;`};
+`;
 
 const HeroBackground = styled.div`
   position: absolute !important;
@@ -90,8 +74,8 @@ const HeroBackground = styled.div`
     css`
       transform-style: preserve-3d;
       transform: translateZ(-1px) scale(2) translateY(25%);
-    `}
-`
+    `};
+`;
 
 export const Headline = styled.h2`
   font-size: 2.6em;
@@ -100,7 +84,7 @@ export const Headline = styled.h2`
   word-spacing: 1px;
   font-weight: 700;
   text-transform: none;
-`
+`;
 
 export const Textline = styled.p`
   font-size: 1.3rem;
@@ -110,14 +94,14 @@ export const Textline = styled.p`
   font-weight: 500;
   text-transform: none;
   padding-bottom: 0.3rem;
-`
+`;
 
 export const Actions = styled.div`
   padding-bottom: 0.5rem;
   > * {
     margin-right: 1rem;
   }
-`
+`;
 
 export const HeroImage = styled(BackgroundImage)`
   position: absolute !important;
@@ -129,4 +113,4 @@ export const HeroImage = styled(BackgroundImage)`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-`
+`;

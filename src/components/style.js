@@ -503,7 +503,7 @@ export const Paper = styled.div`
   position: relative;
   background-color: ${props => props.theme.color.background};
   box-shadow: 0 0.5rem 1rem -0.5rem ${props => transparentize(0.9, props.theme.color.black)};
-  border-radius: ${props => props.theme.radius.small};
+  border-radius: ${props => props.theme.radius.large};
 
   --paper-padding-y: 2.5rem;
   --paper-padding-x: 2.5rem;
@@ -592,57 +592,17 @@ const ButtonStyles = css`
   text-align: center;
   text-decoration: none;
   min-width: 8rem;
-  border-radius: ${props => props.theme.radius.small};
+  border-radius: ${props => props.theme.radius.medium};
   border: none;
   transition: all 150ms ${props => props.theme.easing};
   color: ${props => props.theme.color.foreground};
   background-color: ${props => props.theme.color.background};
-  border-bottom: 3px solid
-    ${props => transparentize(0.8, props.theme.color.black)};
+  text-transform: uppercase;
   cursor: pointer;
   z-index: 1;
-  box-shadow: 0 3px 4px ${props => transparentize(0.8, props.theme.color.black)};
-  text-shadow: 0 1px 1px
-    ${props => transparentize(0.5, props.theme.color.black)};
-
-  &:after,
-  &:before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: ${props => props.theme.radius.small}
-      ${props => props.theme.radius.small} 0 0;
-    transition: all 150ms ${props => props.theme.easing};
-  }
-
-  &:after {
-    box-shadow: inset 0 0 3px
-      ${props => transparentize(0.6, props.theme.color.black)};
-  }
-
-  &:before {
-    background-color: ${props => props.theme.color.foreground};
-    opacity: 0;
-  }
 
   &:hover {
-    &:before {
-      opacity: 0.1;
-    }
-  }
-
-  &:active {
-    &:before {
-      opacity: 0;
-    }
-    &:after {
-      opacity: 0;
-    }
-    box-shadow: none;
+    opacity: 0.85;
   }
 
   &:focus {
