@@ -24,7 +24,7 @@
     "underline": true
   },
   "hero": {
-    "image": "../images/cafe.jpg",
+    "image": "../images/code.jpg",
     "large": false,
     "overlay": true,
     "overlap": "8rem",
