@@ -1,77 +1,60 @@
-# [![Tina Grande](https://res.cloudinary.com/forestry-demo/image/upload/h_40/v1573060726/tina-grande-wordmark.png)](https://tina-starter-grande.netlify.com/)
+# 🚀 Quick start
 
-**Tina Grande** is a Gatsby starter with full TinaCMS integration. You can use Tina to add and remove posts, customize the theme, write content and more! :tada:
+1.  **Start developing.**
 
-<br />
+    Navigate into your new site’s directory and start it up.
 
-<a href="https://tina-starter-grande.netlify.com/" title="Tina Grande - Netlify Preview"><img src="https://res.cloudinary.com/forestry-demo/video/upload/w_700,e_loop/v1573145194/Tina_Grande_Alpha_Demo_1_-_Encoded.gif" align="center" /></a>
+    ```sh
+    cd my-hello-world-starter/
+    gatsby develop
+    ```
 
-<br />
+2.  **Open the source code and start editing!**
 
-## :sparkles: Features
+    Your site is now running at `http://localhost:8000`!
 
-<img src="https://res.cloudinary.com/forestry-demo/image/upload/v1573156074/Tina%20Grande/colors.png" align="right" width="250px" />
+    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-- **Full [TinaCMS](http://tinacms.org) integration**
-- Easy Theme Customization
-- Form Builder
-  - Pre-defined fields
-  - Custom fields
-  - Formspree Integration
-- Page Builder
-- Dark mode
-- Parallax hero _(css powered, optional)_
-- Syntax highlighting
-- Blog
-  - Pagination
-  - Author(s)
-  - Draft mode
-  - Inline editing mode
-- Netlify deploy configuration
-- Styled Components
+    Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-<br />
+## 🧐 What's inside?
 
-## :memo: Getting Started
+A quick look at the top-level files and directories you'll see in a Gatsby project.
 
-```
-git clone https://github.com/tinacms/tina-starter-grande.git
+    .
+    ├── node_modules
+    ├── src
+    ├── .gitignore
+    ├── .prettierrc
+    ├── gatsby-browser.js
+    ├── gatsby-config.js
+    ├── gatsby-node.js
+    ├── gatsby-ssr.js
+    ├── LICENSE
+    ├── package-lock.json
+    ├── package.json
+    └── README.md
 
-cd tina-starter-grande
+1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-yarn install && gatsby develop
-```
+2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
 
-<br />
+3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
-## :octocat: Contributing
+4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-We encourage you to report bugs, request features or submit improvements! We made this for you and would :heart: any feedback or contributions to make **Tina Grande** better for everyone.
+5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
 
-<br />
+6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
 
-## :crystal_ball: Wishlist/Roadmap
+7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
 
-- Blog categories & tags
-- Additional blocks: map, image, hero, code
-- Theme setup wizard with presets that include images, content & theme settings
-- [Request something](https://github.com/tinacms/tina-starter-grande/issues/new)
+8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
 
-<br />
+9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
 
-## :clap: Thank You
+10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
-Thanks to everyone that creates amazing things. You're awesome!
+11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
-- [GatsbyJS](https://gatsbyjs.org)
-- [React](https://reactjs.org/)
-- [Styled Components](https://www.styled-components.com/)
-- [Netlify](https://www.netlify.com)
-- [Formspree](https://formspree.io/)
-- [PrismJS](https://prismjs.com/)
-- [Unsplash](https://unsplash.com)
-  - [Toa Heftiba](https://unsplash.com/@heftiba)
-  - [Nick Hillier](https://unsplash.com/@nhillier)
-  - [Milo Miloezger](https://unsplash.com/@miloezger)
-
-![Tina Grande](https://res.cloudinary.com/forestry-demo/image/upload/w_40/v1573151455/grande-cup.png)
+12. **`README.md`**: A text file containing useful reference information about your project.

@@ -1,0 +1,41 @@
+@import '../settings';
+
+.blog-list {
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: grid;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+
+    li {
+      &:hover {
+        opacity: 0.8;
+        transition: all ease-in-out 0.2s;
+      }
+      a {
+        display: block;
+        padding: 0.5rem;
+        background-color: var(--black);
+        border-radius: 5px;
+        text-decoration: none;
+
+        h2 {
+          margin: 0;
+        }
+        p {
+          margin: 0;
+        }
+        small {
+          color: var(--teal-normal);
+          font-style: italic;
+        }
+        p + p {
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+}

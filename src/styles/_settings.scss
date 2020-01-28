@@ -1,0 +1,95 @@
+// @font-face {
+//   font-family: 'Fira Code';
+//   src: url('FiraCode-Regular.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// ------ //
+// Colors //
+// ------ //
+
+body {
+  --black: #0f0f0f;
+  --white: #fefefe;
+  --grey-lighter: #d8dde3;
+  --grey-light: #c6ced6;
+  --grey-normal: #b8c2cc;
+  --grey-dark: #8a9299;
+  --grey-darker: #5c6166;
+  --dark-lighter: #717f8b;
+  --dark-light: #425464;
+  --dark-normal: #13293d;
+  --dark-dark: #0f2131;
+  --dark-darker: #0b1925;
+  --blue-lighter: #8eb3c8;
+  --blue-light: #689ab6;
+  --blue-normal: #4281a4;
+  --blue-dark: #356783;
+  --blue-darker: #284d62;
+  --teal-lighter: #70c4c8;
+  --teal-light: #41b1b6;
+  --teal-normal: #119da4;
+  --teal-dark: #0e7e83;
+  --teal-darker: #0a5e62;
+  --pink-lighter: #ea71a7;
+  --pink-light: #e34289;
+  --pink-normal: #dc136c;
+  --pink-dark: #b00f56;
+  --pink-darker: #840b41;
+  --yellow-lighter: #f2ea96;
+  --yellow-light: #ede373;
+  --yellow-normal: #e9dc50;
+  --yellow-dark: #bab040;
+  --yellow-darker: #8c8430;
+  --green-lighter: #76ffb3;
+  --green-light: #48ff99;
+  --green-normal: #1aff80;
+  --green-dark: #15cc66;
+  --green-darker: #10994d;
+}
+
+// ------------ //
+// Screen Sizes //
+// ------------ //
+body {
+  --screen-sm-min: 576px; // Small tablets and large smartphones
+  --screen-md-min: 768px; // Small tablets
+  --screen-lg-min: 992px; // Tablets and small desktops
+  --screen-xl-min: 1200px; // Large tablets and most desktops
+}
+
+// Small devices
+@mixin breakpoint-sm {
+  @media (min-width: #{var(--screen-sm-min)}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin breakpoint-md {
+  @media (min-width: #{var(--screen-md-min)}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin breakpoint-lg {
+  @media (min-width: #{var(--screen-lg-min)}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin breakpoint-xl {
+  @media (min-width: #{var(--screen-xl-min)}) {
+    @content;
+  }
+}
+
+// Custom sizes
+@mixin breakpoint-rwd($screen) {
+  @media (min-width: $screen+'px') {
+    @content;
+  }
+}

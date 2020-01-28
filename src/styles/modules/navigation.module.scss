@@ -1,0 +1,40 @@
+@import '../settings';
+
+.navigation {
+  padding: 1.5rem 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--white);
+    transition: all ease-in-out 0.35s;
+    border: 2px solid transparent;
+
+    &:hover {
+      color: var(--teal-normal);
+      border-bottom: 2px solid var(--teal-normal);
+    }
+  }
+
+  nav {
+    ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      justify-content: space-evenly;
+      align-items: center;
+      li {
+        margin: 0 0.6rem;
+
+        a {
+          &.active {
+            color: var(--teal-normal);
+          }
+        }
+      }
+    }
+  }
+}
