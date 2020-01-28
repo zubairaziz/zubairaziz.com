@@ -3,7 +3,7 @@
     "black": "#0F0F0F",
     "white": "#F0F0F0",
     "primary": "#6ABEDB",
-    "secondary": "#B8A45D"
+    "secondary": "#B29600"
   },
   "easing": "cubic-bezier(0.215, 0.610, 0.355, 1.000)",
   "breakpoints": {
@@ -13,7 +13,9 @@
     "huge": "2200px"
   },
   "radius": {
-    "small": "3px"
+    "small": "3px",
+    "medium": "5px",
+    "large": "10px"
   },
   "header": {
     "overline": true,
