@@ -1,99 +1,114 @@
+const theme = require('./content/settings/theme.json');
+const site = require('./content/settings/site.json');
+
 module.exports = {
-  siteMetadata: {
-    title: "Zubair Aziz",
-    author: "Zubair Aziz",
-    siteUrl: `https://www.zubairaziz.com`,
-    socialLinks: {
-      facebook: "https://www.facebook.com/zubair0496",
-      twitter: "https://twitter.com/zbr_aziz/",
-      instagram: "https://www.instagram.com/zbr.aziz/",
-      github: "https://github.com/zubairaziz",
-      stackoverflow: "https://stackoverflow.com/users/8369042/zubair?tab=profile",
-      linkedin: "https://www.linkedin.com/in/zubairabaziz/",
-      email: "admin@zubairaziz.com",
-    },
-  },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-postcss`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-tinacms-json`,
+    `gatsby-transformer-json`,
+    {
+      resolve: 'gatsby-plugin-tinacms',
+      options: {
+        sidebar: {
+          hidden: process.env.NODE_ENV === 'production',
+          position: 'displace',
+          theme: {
+            color: {
+              primary: {
+                light: theme.color.primary,
+                medium: theme.color.primary,
+                dark: theme.color.primary,
+              },
+            },
+          },
+        },
+        plugins: [ 'gatsby-tinacms-git', 'gatsby-tinacms-remark' ],
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/images`,
+        name: `uploads`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`,
-        path: `${__dirname}/src/`,
-        ignore: [`**/\.*`], // ignore files starting with a dot
+        name: `content`,
+        path: `${__dirname}/content`,
       },
     },
-    "gatsby-plugin-sharp",
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/siteLayout.js`),
+      },
+    },
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: site.title,
+        short_name: site.title,
+        start_url: `/`,
+        background_color: theme.color.primary,
+        theme_color: theme.color.primary,
+        display: `minimal-ui`,
+        icon: `content/images/icon.svg`,
+      },
+    },
+    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          "gatsby-remark-relative-images",
           {
-            resolve: "gatsby-remark-images",
+            resolve: 'gatsby-remark-relative-images',
             options: {
-              maxWidth: 1400,
-              linkImagesToOriginal: false,
+              name: 'uploads',
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 880,
+              withWebp: true,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'static',
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: true,
+              noInlineHighlight: false,
+              prompt: {
+                user: 'root',
+                host: 'localhost',
+                global: false,
+              },
             },
           },
         ],
       },
     },
     {
-      resolve: "gatsby-source-sanity",
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        projectId: "os3vs9ur",
-        dataset: "zubairaziz",
-        watchMode: true,
-        overlayDrafts: true,
-        token: process.env.SANITY_TOKEN,
-      },
-    },
-    "gatsby-source-sanity-transform-images",
-    {
-      resolve: `gatsby-transform-portable-text`,
-      options: {
-        extendTypes: [{ typeName: `SanityPost`, contentFieldName: "body" }],
-      },
-    },
-    {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: /assets/,
-        },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`Press Start 2P`, `Source Code Pro`],
-        display: "swap",
-      },
-    },
-    `gatsby-plugin-sitemap`,
-    {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: [
-          process.env.GOOGLE_ANALYTICS_TRACKING_ID, // Google Analytics / GA
-          // "AW-CONVERSION_ID", // Google Ads / Adwords / AW
-          // "DC-FLOODIGHT_ID", // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
-        ],
-        gtagConfig: {
-          optimize_id: process.env.GOOGLE_EXPERIMENT_ID,
-          anonymize_ip: true,
-          cookie_expires: 0,
-        },
-        pluginConfig: {
-          head: false,
-          respectDNT: true,
-          // exclude: ["/preview/**", "/do-not-track/me/too/"],
+        google: {
+          families: [ 'Lato:400,700' ],
         },
       },
     },
   ],
-}
+};
