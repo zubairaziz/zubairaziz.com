@@ -1,141 +1,106 @@
-import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
-import styled from "styled-components"
-import { colors, screens } from "../styles/styles"
+import React from 'react';
+import { Wrapper } from './style';
+import { CodeAlt } from 'styled-icons/boxicons-regular';
+import styled, { css } from 'styled-components';
+import { transparentize } from 'polished';
+import { Nav } from './nav';
+import { ThemeContext } from './theme';
+import { Link } from 'gatsby';
 
-const StyledHeader = styled.header`
-  border-top: 3px solid ${colors.teal.normal};
-  background-color: ${colors.dark.darker};
+export const Header = styled(({ siteTitle, ...styleProps }) => {
+  return (
+    <ThemeContext.Consumer>
+      {({ toggleDarkMode, isDarkMode, theme }) => (
+        <header {...styleProps}>
+          <HeaderWrapper>
+            <SiteTitle>
+              <SiteLink to='/'>
+                <CodeAlt />
+                {siteTitle}
+              </SiteLink>
+            </SiteTitle>
+            <Nav toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+          </HeaderWrapper>
+        </header>
+      )}
+    </ThemeContext.Consumer>
+  );
+})`
+  position: absolute;
+  z-index: 100;
   width: 100%;
-  position: fixed;
-  height: 55px;
+  height: ${props => props.theme.header.height};
+  top: 0;
+  background-color: ${props => props.theme.color.background};
+  color: ${props => props.theme.color.foreground};
 
-  @media only screen and (min-width: ${screens.sm}) {
-    height: 75px;
+  ${props => props.theme.header.overline && css`border-top: 6px solid ${props => props.theme.color.primary};`};
+
+  ${props =>
+    props.theme.header.underline &&
+    css`
+      box-shadow: inset 0 -1px 0 ${props => transparentize(0.9, props.theme.color.white)},
+        0 1px 0 ${props => transparentize(0.9, props.theme.color.black)};
+    `};
+
+  ${props =>
+    props.theme.header.transparent &&
+    css`
+      background-color: ${props => transparentize(0.9, props.theme.color.black)};
+      color: ${props => props.theme.color.white};
+    `};
+`;
+
+export const SiteLink = styled(Link)`
+  position: relative;
+  line-height: 3rem;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  color: inherit !important;
+  text-decoration: none;
+  margin: 0;
+  transition: all 150ms ${p => p.theme.easing};
+  z-index: 1;
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+    fill: currentColor;
   }
-
-  &::before {
+  &:after {
     content: "";
-    background-color: rgba(0, 0, 0, 0.25);
     position: absolute;
-    width: 100%;
+    display: block;
+    top: 0;
+    left: -1rem;
+    width: calc(100% + 2rem);
     height: 100%;
-    filter: blur(10px);
+    background-color: ${props => props.theme.color.primary};
+    opacity: 0;
+    transition: all 150ms ${p => p.theme.easing};
     z-index: -1;
   }
 
-  .container {
-    .nav-wrapper {
-      /* padding: 1.5rem 0.5rem 2rem; */
-      padding: 1rem;
-      display: block;
-      justify-content: space-between;
-      align-items: center;
-      @media only screen and (min-width: ${screens.md}) {
-        display: flex;
-      }
-
-      .site-title {
-        display: none;
-        visibility: hidden;
-        @media only screen and (min-width: ${screens.md}) {
-          display: block;
-        }
-      }
-
-      nav {
-        margin: 0;
-        padding: 0;
-        ul {
-          display: flex;
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-          justify-content: space-evenly;
-          align-items: center;
-          li {
-            margin: 0 0.6rem;
-
-            a {
-              text-decoration: none;
-              text-transform: uppercase;
-              color: ${colors.teal.normal};
-              transition: all ease-in-out 0.35s;
-              border: 2px solid transparent;
-              &.active {
-                color: ${colors.teal.normal};
-                position: relative;
-                &:before {
-                  content: "";
-                  display: block;
-                  height: 25px;
-                  width: 3px;
-                  background-color: ${colors.teal.normal};
-                  position: absolute;
-                  top: 0;
-                  bottom: 0;
-                  left: -10px;
-                }
-              }
-              &:hover {
-                color: ${colors.teal.lighter};
-                border-bottom: 2px solid ${colors.teal.lighter};
-              }
-            }
-          }
-        }
-      }
+  &:focus-visible {
+    &:after {
+      opacity: 0.5;
     }
   }
-`
+`;
 
-const Header = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-  return (
-    <StyledHeader>
-      <div className="container">
-        <div className="nav-wrapper">
-          <div>
-            <Link className="site-title" to="/">
-              {data.site.siteMetadata.title}
-            </Link>
-          </div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/" activeClassName="active">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" activeClassName="active">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" activeClassName="active">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" activeClassName="active">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </StyledHeader>
-  )
-}
+export const SiteTitle = styled.h1`
+  margin: 0;
+  flex: 0 0 auto;
+  font-size: 1rem;
+  align-self: stretch;
+  display: flex;
+`;
 
-export default Header
+export const HeaderWrapper = styled(Wrapper)`
+  display: flex;
+  align-self: stretch;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+`;
