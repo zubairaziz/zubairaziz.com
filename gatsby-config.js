@@ -1,114 +1,151 @@
-const theme = require('./content/settings/theme.json');
-const site = require('./content/settings/site.json');
-
 module.exports = {
-  plugins: [
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-tinacms-json`,
-    `gatsby-transformer-json`,
-    {
-      resolve: 'gatsby-plugin-tinacms',
-      options: {
-        sidebar: {
-          hidden: process.env.NODE_ENV === 'production',
-          position: 'displace',
-          theme: {
-            color: {
-              primary: {
-                light: theme.color.primary,
-                medium: theme.color.primary,
-                dark: theme.color.primary,
-              },
-            },
-          },
-        },
-        plugins: [ 'gatsby-tinacms-git', 'gatsby-tinacms-remark' ],
-      },
+  siteMetadata: {
+    title: `Zubair Aziz`,
+    author: `Zubair Aziz`,
+    description: `Zubair's personal website, with support for MDX`,
+    siteUrl: `https://gatsby-starter-blog-mdx-demo.netlify.com/`,
+    social: {
+      twitter: `zbr_aziz`,
+      instagram: `zbr.aziz`,
+      facebook: `zubair0496`,
+      linkedin: ``
     },
+  },
+  plugins: [
+    `gatsby-plugin-postcss`,
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/static/images`,
-        name: `uploads`,
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `content`,
-        path: `${__dirname}/content`,
+        path: `${__dirname}/content/assets`,
+        name: `assets`,
       },
     },
     {
-      resolve: `gatsby-plugin-layout`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        component: require.resolve(`./src/components/siteLayout.js`),
-      },
-    },
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: site.title,
-        short_name: site.title,
-        start_url: `/`,
-        background_color: theme.color.primary,
-        theme_color: theme.color.primary,
-        display: `minimal-ui`,
-        icon: `content/images/icon.svg`,
-      },
-    },
-    `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
+        extensions: ['.mdx', '.md'],
+        // a workaround to solve mdx-remark plugin compat issue
+        // https://github.com/gatsbyjs/gatsby/issues/15486
         plugins: [
-          {
-            resolve: 'gatsby-remark-relative-images',
-            options: {
-              name: 'uploads',
-            },
-          },
+          `gatsby-remark-images`,
+        ],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 880,
-              withWebp: true,
+              maxWidth: 590,
             },
           },
           {
-            resolve: 'gatsby-remark-copy-linked-files',
+            resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              destinationDir: 'static',
+              wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
           {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              classPrefix: 'language-',
-              inlineCodeMarker: null,
-              aliases: {},
-              showLineNumbers: true,
-              noInlineHighlight: false,
-              prompt: {
-                user: 'root',
-                host: 'localhost',
-                global: false,
-              },
+            resolve: `gatsby-remark-copy-linked-files`,
+          },
+          {
+            resolve: `gatsby-remark-smartypants`,
+          },
+        ],
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: 'gatsby-background-image',
+      options: {
+        // add your own characters to escape, replacing the default ':/'
+        specialChars: '/:',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        //trackingId: `ADD YOUR TRACKING ID HERE`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  data: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                })
+              })
             },
+
+            /* if you want to filter for only published posts, you can do
+             * something like this:
+             * filter: { frontmatter: { published: { ne: false } } }
+             * just make sure to add a published frontmatter field to all posts,
+             * otherwise gatsby will complain
+             **/
+            query: `
+            {
+              allMdx(
+                limit: 1000,
+                sort: { order: DESC, fields: [frontmatter___date] },
+              ) {
+                edges {
+                  node {
+                    fields { slug }
+                    frontmatter {
+                      title
+                      date
+                    }
+                    html
+                  }
+                }
+              }
+            }
+            `,
+            output: '/rss.xml',
+            title: 'Gatsby RSS feed',
           },
         ],
       },
     },
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        google: {
-          families: [ 'Lato:400,700' ],
-        },
+        name: `Gatsby Starter Blog`,
+        short_name: `GatsbyJS`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `content/assets/gatsby-icon.png`,
       },
     },
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
   ],
-};
+}

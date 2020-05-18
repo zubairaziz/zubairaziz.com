@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+#FFBA49 yellow
+#628395 slate-gray
+#2D3142 gun-metal
+#3D5A6C black-coral
+#706f6f dim-gray
+#dfeceb light-blue
+*/
+
+body {
+  background-color: #3d5a6c;
+  color: #cef3f2;
+}
+
+a {
+  transition: all 0.3s ease-in-out;
+}
+
+a:not(.text-gray-400) {
+  text-decoration: underline;
+  text-decoration-color: #ffba49;
+}
+
+a:hover {
+  color: #ffba49;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.top-content {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+}

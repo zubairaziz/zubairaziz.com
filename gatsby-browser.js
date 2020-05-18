@@ -1,8 +1,5 @@
-import { AuthorsField } from './src/fields/authors';
+import "./src/styles/site.css"
 
-export const onClientEntry = () => {
-  window.tinacms.fields.add({
-    name: 'authors',
-    Component: AuthorsField,
-  });
-};
+import { wrapRootElement as wrap } from './wrap-root-element'
+
+export const wrapRootElement = wrap
