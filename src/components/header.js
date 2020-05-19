@@ -21,12 +21,12 @@ const Header = () => {
       <div
         className={
           navbarOpen
-            ? `top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto`
-            : `hidden`
+            ? `top-navbar fixed inset-0 top-1/8 w-full lg:relative lg:inline-flex lg:flex-grow lg:w-auto z-50`
+            : `hidden lg:relative lg:inline-flex lg:flex-grow lg:w-auto `
         }
         id="navigation"
       >
-        <div className="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
+        <div className="bg-gray-800 lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
           <Link
             to="/about"
             className="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
