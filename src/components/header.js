@@ -21,8 +21,8 @@ const Header = () => {
       <div
         className={
           navbarOpen
-            ? `hidden`
-            : `top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto`
+            ? `top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto`
+            : `hidden`
         }
         id="navigation"
       >
