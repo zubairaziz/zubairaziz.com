@@ -17,7 +17,7 @@ class About extends React.Component {
           title="About"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-      <PageHeader pageTitle={`About Me`} imageData={imageData} />
+        <PageHeader pageTitle={`About Me`} imageData={imageData} />
       </Layout>
     )
   }

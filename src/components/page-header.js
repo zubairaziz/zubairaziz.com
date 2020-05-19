@@ -40,7 +40,7 @@ const StyledPageHeader = styled(PageHeader)`
   background-size: cover;
   min-height: 350px;
 
-  @media screen and(min-width: 768px){
+  @media screen and(min-width: 768px) {
     min-height: 500px;
   }
 `

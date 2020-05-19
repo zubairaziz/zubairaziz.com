@@ -20,7 +20,7 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
-a:not(.text-gray-400) {
+a:not(.text-gray-400):not(.text-yellow) {
   text-decoration: underline;
   text-decoration-color: #ffba49;
 }

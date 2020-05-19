@@ -23,13 +23,13 @@ const Footer = () => {
                     className="w-6 mx-1"
                   >
                     <svg
-                      class="fill-current cursor-pointer text-gray-500 hover:text-gray-400"
+                      className="fill-current cursor-pointer text-gray-500 hover:text-gray-400"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      stroke-linejoin="round"
-                      stroke-miterlimit="2"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      strokeLinejoin="round"
+                      strokeMiterlimit="2"
                     >
                       <path
                         id="Twitter"
@@ -44,13 +44,13 @@ const Footer = () => {
                     className="w-6 mx-1"
                   >
                     <svg
-                      class="fill-current cursor-pointer text-gray-500 hover:text-gray-400"
+                      className="fill-current cursor-pointer text-gray-500 hover:text-gray-400"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      stroke-linejoin="round"
-                      stroke-miterlimit="2"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      strokeLinejoin="round"
+                      strokeMiterlimit="2"
                     >
                       <path
                         id="Facebook"
