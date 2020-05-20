@@ -4,6 +4,8 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import PageHeader from '../components/page-header'
+import Container from '../components/container'
+import Grid from '../components/grid'
 
 class Portfolio extends React.Component {
   render() {
@@ -18,6 +20,9 @@ class Portfolio extends React.Component {
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         <PageHeader pageTitle={`Portfolio`} imageData={imageData} />
+        <Container>
+          <Grid></Grid>
+        </Container>
       </Layout>
     )
   }

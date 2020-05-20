@@ -5,7 +5,10 @@ const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
   return (
     <nav className="flex items-center bg-primary-800 p-3 flex-wrap">
-      <Link to="/" className="p-2 mr-4 text-yellow inline-flex items-center">
+      <Link
+        to="/"
+        className="nav-link p-2 mr-4 text-yellow inline-flex items-center"
+      >
         <span className="text-xl text-yellow font-bold uppercase tracking-wide">
           <span className="text-xl text-white">Zubair</span> Aziz
         </span>
@@ -30,7 +33,7 @@ const Header = () => {
           <Link
             data-sal="slide-up"
             data-sal-delay="100"
-            data-sal-easing="ease"
+            data-sal-easing="ease-in-out-sine"
             to="/about"
             className="nav-link lg:inline-flex lg:w-auto w-full px-3 py-2 rounded items-center justify-center hover:bg-primary-900 hover:text-white"
             activeClassName="text-yellow"
@@ -40,7 +43,7 @@ const Header = () => {
           <Link
             data-sal="slide-up"
             data-sal-delay="200"
-            data-sal-easing="ease"
+            data-sal-easing="ease-in-out-sine"
             to="/portfolio"
             className="nav-link lg:inline-flex lg:w-auto w-full px-3 py-2 rounded items-center justify-center hover:bg-primary-900 hover:text-white"
             activeClassName="text-yellow"
@@ -50,7 +53,7 @@ const Header = () => {
           <Link
             data-sal="slide-up"
             data-sal-delay="300"
-            data-sal-easing="ease"
+            data-sal-easing="ease-in-out-sine"
             to="/uses"
             className="nav-link lg:inline-flex lg:w-auto w-full px-3 py-2 rounded items-center justify-center hover:bg-primary-900 hover:text-white"
             activeClassName="text-yellow"
@@ -60,7 +63,7 @@ const Header = () => {
           <Link
             data-sal="slide-up"
             data-sal-delay="400"
-            data-sal-easing="ease"
+            data-sal-easing="ease-in-out-sine"
             to="/blog"
             className="nav-link lg:inline-flex lg:w-auto w-full px-3 py-2 rounded items-center justify-center hover:bg-primary-900 hover:text-white"
             activeClassName="text-yellow"

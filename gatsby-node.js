@@ -10,6 +10,7 @@ exports.createPages = ({ graphql, actions }) => {
       {
         allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
+          filter: { fileAbsolutePath: { regex: "/(blog)/" } }
           limit: 1000
         ) {
           edges {
@@ -55,12 +56,12 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `Mdx`) {
-    const value = createFilePath({ node, getNode })
+  if (node.internal.type === `Mdx` && node.fileAbsolutePath.includes(`blog`)) {
+    const value = createFilePath({ node, getNode, basePath: `blog` })
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: `/blog${value}`,
     })
   }
 }

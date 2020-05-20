@@ -13,12 +13,26 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-postcss`,
-    `gatsby-plugin-scroll-reveal`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-scroll-reveal`,
+      options: {
+          threshold: 0.25, // Percentage of an element's area that needs to be visible to launch animation
+          once: true, // Defines if animation needs to be launched once
+          disable: false, // Flag for disabling animations
+          // Advanced Options
+          selector: '[data-sal]', // Selector of the elements to be animated
+          animateClassName: 'sal-animate', // Class name which triggers animation
+          disabledClassName: 'sal-disabled', // Class name which defines the disabled state
+          rootMargin: '0% 50%', // Corresponds to root's bounding box margin
+          enterEventName: 'sal:in', // Enter event name
+          exitEventName: 'sal:out', // Exit event name
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -34,11 +48,16 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/portfolio`,
+        name: `portfolio`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: ['.mdx', '.md'],
-        // a workaround to solve mdx-remark plugin compat issue
-        // https://github.com/gatsbyjs/gatsby/issues/15486
         plugins: [
           `gatsby-remark-images`,
         ],
@@ -67,7 +86,6 @@ module.exports = {
     {
       resolve: 'gatsby-background-image',
       options: {
-        // add your own characters to escape, replacing the default ':/'
         specialChars: '/:',
       },
     },
@@ -104,13 +122,6 @@ module.exports = {
                 })
               })
             },
-
-            /* if you want to filter for only published posts, you can do
-             * something like this:
-             * filter: { frontmatter: { published: { ne: false } } }
-             * just make sure to add a published frontmatter field to all posts,
-             * otherwise gatsby will complain
-             **/
             query: `
             {
               allMdx(
@@ -139,12 +150,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Zubair Aziz`,
+        short_name: `Zubair`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
+        background_color: `#e7f1f6`,
+        theme_color: `#227C9D`,
+        display: `standalone`,
         icon: `content/assets/gatsby-icon.png`,
       },
     },

@@ -9,11 +9,7 @@ function Bio() {
       render={(data) => {
         const { author, social } = data.site.siteMetadata
         return (
-          <div
-            style={{
-              display: `flex`,
-            }}
-          >
+          <div className="flex p-6 items-center">
             <Image
               fixed={data.avatar.childImageSharp.fixed}
               alt={author}
@@ -22,7 +18,7 @@ function Bio() {
               }}
               className="mb-0 rounded-full"
             />
-            <p>
+            <p className="text-gray-800 pl-4">
               Written by <strong>{author}</strong> who lives and works in Utica,
               NY.
               {` `}

@@ -13,12 +13,12 @@ const PageHeader = ({ pageTitle, imageData }) => {
         // style={{ minHeight: `500px` }}
       >
         <div className="w-full h-full absolute opacity-75 bg-gun-metal z-0 inset-0"></div>
-        <div className="p-12 text-center max-w-2xl mx-auto z-50">
+        <div className="p-12 text-center max-w-4xl mx-auto z-50">
           <h1
             data-sal="fade"
             data-sal-delay="250"
-            data-sal-easing="ease"
-            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-yellow font-bold uppercase"
+            data-sal-easing="ease-in-out-sine"
+            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-yellow font-bold uppercase leading-none"
           >
             {pageTitle}
           </h1>

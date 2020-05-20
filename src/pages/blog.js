@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import PageHeader from '../components/page-header'
 import Container from '../components/container'
+import Grid from '../components/grid'
 
 class BlogIndex extends React.Component {
   render() {
@@ -21,9 +22,8 @@ class BlogIndex extends React.Component {
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         <PageHeader pageTitle={`Blog Posts`} imageData={imageData} />
-
         <Container>
-          <div className="grid sm:gap-2 md:gap-4 lg:gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-5 mb-10">
+          <Grid>
             {posts.map(({ node }, index) => {
               const title = node.frontmatter.title || node.fields.slug
               const featuredImgFluid =
@@ -35,7 +35,8 @@ class BlogIndex extends React.Component {
                   className="blog-list-item"
                   data-sal="slide-up"
                   data-sal-delay={`${index}00`}
-                  data-sal-easing="ease"
+                  data-sal-duration="500"
+                  data-sal-easing="ease-in-out-sine"
                 >
                   <div>
                     <div className="w-full image-cover rounded-t-md">
@@ -66,7 +67,7 @@ class BlogIndex extends React.Component {
                 </Link>
               )
             })}
-          </div>
+          </Grid>
         </Container>
       </Layout>
     )
@@ -82,7 +83,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { regex: "/(blog)/" } }
+    ) {
       edges {
         node {
           excerpt
