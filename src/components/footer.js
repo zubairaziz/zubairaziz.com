@@ -22,6 +22,7 @@ const Footer = () => {
                     rel="noreferrer noopener"
                     className="w-6 mx-1"
                   >
+                    <span className="sr-only">Twitter</span>
                     <svg
                       className="fill-current cursor-pointer text-primary-500 hover:text-primary-400"
                       viewBox="0 0 24 24"
@@ -43,6 +44,7 @@ const Footer = () => {
                     rel="noreferrer noopener"
                     className="w-6 mx-1"
                   >
+                    <span className="sr-only">Facebook</span>
                     <svg
                       className="fill-current cursor-pointer text-primary-500 hover:text-primary-400"
                       viewBox="0 0 24 24"
