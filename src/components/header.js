@@ -35,7 +35,7 @@ const Header = () => {
             className="nav-link lg:inline-flex lg:w-auto w-full px-3 py-2 rounded items-center justify-center hover:bg-primary-900 hover:text-white"
             activeClassName="text-yellow"
           >
-            <span>About {location.pathName}</span>
+            <span>About</span>
           </Link>
           <Link
             data-sal="slide-up"
