@@ -10,10 +10,6 @@ class Index extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
-    // return (
-    //   <StaticQuery
-    //     query={pageQuery}
-    //     render={(data) => {
     const imageData = data.backgroundImage.childImageSharp.fluid
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -26,9 +22,6 @@ class Index extends React.Component {
           <p>lorem ipsum.</p>
         </Container>
       </Layout>
-      //     )
-      //   }}
-      // />
     )
   }
 }

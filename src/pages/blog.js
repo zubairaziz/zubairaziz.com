@@ -23,55 +23,49 @@ class BlogIndex extends React.Component {
         <PageHeader pageTitle={`Blog Posts`} imageData={imageData} />
 
         <Container>
-          <div
-            style={{
-              display: `grid`,
-              gridTemplateColumns: `repeat(auto-fill, 300px)`,
-              gridGap: `10px`
-            }}
-          >
-          {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
-            const featuredImgFluid =
-              node.frontmatter.featuredImage.childImageSharp.fluid
-            return (
-              <Link key={node.fields.slug} to={node.fields.slug} className="py-4">
-                <div>
-                  <div className="w-full image-cover rounded-t-md">
-                    <Image fluid={featuredImgFluid} className="rounded-t-md" />
-                    <div className="p-2 m-4 w-16 h-16 text-center bg-gray-700 rounded-full text-white float-right fd-cl group-hover:opacity-25">
-                      <span className="text-base tracking-wide  font-bold border-b border-white font-sans">
-                        {' '}
-                        {node.frontmatter.day}
-                      </span>
-                      <span className="text-xs tracking-wide font-bold uppercase block font-sans">
-                        {node.frontmatter.month}
-                      </span>
+          <div className="grid sm:gap-2 md:gap-4 lg:gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-5 mb-10">
+            {posts.map(({ node }, index) => {
+              const title = node.frontmatter.title || node.fields.slug
+              const featuredImgFluid =
+                node.frontmatter.featuredImage.childImageSharp.fluid
+              return (
+                <Link
+                  key={node.fields.slug}
+                  to={node.fields.slug}
+                  className="blog-list-item"
+                  data-sal="slide-up"
+                  data-sal-delay={`${index}00`}
+                  data-sal-easing="ease"
+                >
+                  <div>
+                    <div className="w-full image-cover rounded-t-md">
+                      <Image
+                        fluid={featuredImgFluid}
+                        className="rounded-t-md opacity-90 hover:opacity-100"
+                      />
+                      <div className="p-2 m-4 w-16 h-16 text-center bg-primary-700 rounded-full text-yellow float-right fd-cl group-hover:opacity-25">
+                        <span className="text-base tracking-wide  font-bold border-b border-yellow font-sans">
+                          {' '}
+                          {node.frontmatter.day}
+                        </span>
+                        <span className="text-xs tracking-wide text-yellow font-bold uppercase block font-sans">
+                          {node.frontmatter.month}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="py-8 px-4 bg-white  rounded-b-md fd-cl group-hover:opacity-25">
+                      <h2 className=".no-underline block text-lg text-primary-800 font-bold tracking-wide">
+                        {title}
+                      </h2>
+                      <span
+                        className=".no-underline block text-primary-600 text-sm"
+                        dangerouslySetInnerHTML={{ __html: node.excerpt }}
+                      />
                     </div>
                   </div>
-                  <div className="py-8 px-4 bg-white  rounded-b-md fd-cl group-hover:opacity-25">
-                    <span className="block text-lg text-gray-800 font-bold tracking-wide">
-                      {title}
-                    </span>
-                    <span
-                      className="block text-gray-600 text-sm"
-                      dangerouslySetInnerHTML={{ __html: node.excerpt }}
-                    />
-                  </div>
-                </div>
-                <div className="absolute opacity-0 fd-sh group-hover:opacity-100">
-                  <span className="text-3xl font-bold text-white tracking-wider leading-relaxed font-sans">
-                    Paris city of light
-                </span>
-                  <div className="pt-8 text-center">
-                    <button className="text-center rounded-lg p-4 bg-white  text-gray-700 font-bold text-lg">
-                      Learn more
-                  </button>
-                  </div>
-                </div>
-              </Link>
-            )
-          })}
+                </Link>
+              )
+            })}
           </div>
         </Container>
       </Layout>

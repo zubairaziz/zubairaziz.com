@@ -4,11 +4,11 @@ import Header from './header'
 
 class Layout extends React.Component {
   render() {
-    const { children } = this.props
+    const { children, location } = this.props
     return (
       <div className="layout-wrapper">
         <div className="top-content">
-          <Header />
+          <Header location={location} />
           <main>{children}</main>
         </div>
         <Footer />

@@ -32,7 +32,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    backgroundImage: file(relativePath: { eq: "projects.jpg" }) {
+    backgroundImage: file(relativePath: { eq: "developer.jpg" }) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 1920) {
           ...GatsbyImageSharpFluid_withWebp

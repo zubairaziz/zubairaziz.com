@@ -8,7 +8,7 @@ const Footer = () => {
       render={(data) => {
         const { social } = data.site.siteMetadata
         return (
-          <footer className="bg-gray-800 pt-2 mt-8">
+          <footer className="bg-primary-800 pt-2 mt-8">
             <div className="container p-3 mx-auto">
               <div className="pb-5 pt-5 text-sm flex flex-col md:flex-row">
                 <span className="md:flex-auto">
@@ -23,7 +23,7 @@ const Footer = () => {
                     className="w-6 mx-1"
                   >
                     <svg
-                      className="fill-current cursor-pointer text-gray-500 hover:text-gray-400"
+                      className="fill-current cursor-pointer text-primary-500 hover:text-primary-400"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                       fillRule="evenodd"
@@ -44,7 +44,7 @@ const Footer = () => {
                     className="w-6 mx-1"
                   >
                     <svg
-                      className="fill-current cursor-pointer text-gray-500 hover:text-gray-400"
+                      className="fill-current cursor-pointer text-primary-500 hover:text-primary-400"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                       fillRule="evenodd"
