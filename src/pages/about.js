@@ -54,15 +54,51 @@ class About extends React.Component {
                   University of Rochester '19
                 </div>
               </div>
-              <div className="mt-10 py-10 border-t border-gray-300 text-center">
+              <div className="mt-10 py-10 border-t border-gray-300">
                 <div className="flex flex-wrap justify-center">
                   <div className="w-full lg:w-9/12 px-4">
                     <p className="mb-4 text-lg leading-relaxed text-gray-800">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Eveniet accusantium, consectetur corporis vel nulla vitae,
-                      mollitia odio minus voluptas id molestiae veritatis
-                      consequatur, placeat illum suscipit quibusdam nam
-                      necessitatibus nostrum.
+                      Hi, I'm Zubair and I currently live in Utica, NY. I
+                      graduated in the Spring of 2019 from the University of
+                      Rochester with a bachelor’s degree, majoring in Computer
+                      Science and Economics.
+                    </p>
+                    <p className="mb-4 text-lg leading-relaxed text-gray-800">
+                      I’m passionate about web and software development. I’ve
+                      been doing Web Development work for roughly 3 years now,
+                      and I love it because it gives me the chance to solve
+                      complicated problems and learn new things everyday. I have
+                      a lot of experience working with many different
+                      programming languages and frameworks, ranging from PHP, to
+                      Python, to JavaScript.
+                    </p>
+                    <p className="mb-4 text-lg leading-relaxed text-gray-800">
+                      As a Full-Stack Web developer for{' '}
+                      <a
+                        href="https://www.trainor.com"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        TRAINOR Associates
+                      </a>
+                      , I mostly build web applications and other custom
+                      software.
+                    </p>
+                    <p className="mb-4 text-lg leading-relaxed text-gray-800">
+                      Feel free to reach out via{' '}
+                      <a href="mailto:zubairabaziz@gmail.com" target="_blank">
+                        email
+                      </a>{' '}
+                      or{' '}
+                      <a
+                        href="https://www.twitter.com/zbr_aziz"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        twitter
+                      </a>{' '}
+                      for any inquiries. I look forward to working with you to
+                      help meet all your web development/programming needs.
                     </p>
                   </div>
                 </div>

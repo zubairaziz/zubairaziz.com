@@ -2,13 +2,13 @@ module.exports = {
   siteMetadata: {
     title: `Zubair Aziz`,
     author: `Zubair Aziz`,
-    description: `Zubair's personal website, with support for MDX`,
+    description: `Zubair is a Full-Stack Web Developer in Utica who builds secure, scalable applications. He works with various technologies such as JavaScript, PHP and Python.`,
     siteUrl: `https://gatsby-starter-blog-mdx-demo.netlify.com/`,
     social: {
       twitter: `zbr_aziz`,
       instagram: `zbr.aziz`,
       facebook: `zubair0496`,
-      linkedin: ``
+      linkedin: `zubairabaziz`
     },
   },
   plugins: [
