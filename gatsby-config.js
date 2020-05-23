@@ -19,6 +19,14 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Source Sans Pro']
+        }
+      }
+    },
+    {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
           threshold: 0.25, // Percentage of an element's area that needs to be visible to launch animation

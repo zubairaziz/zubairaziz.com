@@ -48,7 +48,7 @@ const Index = (props) => {
               className="relative w-full lg:w-2/3 p-4 lg:px-8"
             >
               <div className="relative flex p-4 md:px-8 flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg text-gray-800">
-                <h1 className="text-2xl md:text-4xl lg:text-6xl">
+                <h1 className="text-2xl md:text-4xl lg:text-6xl lg:tracking-wider">
                   <ReactRotatingText items={textArray} />
                 </h1>
               </div>

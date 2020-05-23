@@ -10,6 +10,7 @@ function SEO({ description, lang, meta, keywords, title }) {
       render={(data) => {
         const metaDescription =
           description || data.site.siteMetadata.description
+        const ogImage = data.socialImage.childImageSharp.original.src
         return (
           <Helmet
             htmlAttributes={{
@@ -35,12 +36,20 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: `website`,
               },
               {
+                property: `og:image`,
+                content: ogImage,
+              },
+              {
                 name: `twitter:card`,
-                content: `summary`,
+                content: `summary_large_image`,
+              },
+              {
+                property: `og:image`,
+                content: ogImage,
               },
               {
                 name: `twitter:creator`,
-                content: data.site.siteMetadata.author,
+                content: `@${data.site.siteMetadata.social.twitter}`,
               },
               {
                 name: `twitter:title`,
@@ -90,6 +99,19 @@ const detailsQuery = graphql`
         title
         description
         author
+        social {
+          twitter
+        }
+      }
+    }
+    socialImage: file(absolutePath: { regex: "/og-image.png/" }) {
+      childImageSharp {
+        original {
+          src
+        }
+        fixed(width: 1200, height: 630) {
+          ...GatsbyImageSharpFixed
+        }
       }
     }
   }
