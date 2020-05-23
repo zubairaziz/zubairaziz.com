@@ -6,7 +6,7 @@ import ReactRotatingText from 'react-rotating-text'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import PageHeader from '../components/page-header'
-import Container from '../components/container'
+import Card from '../components/card'
 
 const Index = (props) => {
   const textArray = [
@@ -41,17 +41,12 @@ const Index = (props) => {
                 className="mb-0 border-2 lg:border-4 rounded-full w-full h-full shadow-xl"
               />
             </div>
-            <div
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="relative w-full lg:w-2/3 p-4 lg:px-8"
-            >
-              <div className="relative flex p-4 md:px-8 flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg text-gray-800">
+            <div className="relative w-full lg:w-2/3 p-4 lg:px-8">
+              <Card>
                 <h1 className="text-2xl md:text-4xl lg:text-6xl lg:tracking-wider">
                   <ReactRotatingText items={textArray} />
                 </h1>
-              </div>
+              </Card>
             </div>
           </div>
         </div>

@@ -19,6 +19,14 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
+    resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /content\/assets/ // See below to configure properly
+        }
+      }
+    },
+    {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
@@ -29,7 +37,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
-          threshold: 0.25, // Percentage of an element's area that needs to be visible to launch animation
+          threshold: 0.1, // Percentage of an element's area that needs to be visible to launch animation
           once: true, // Defines if animation needs to be launched once
           disable: false, // Flag for disabling animations
           // Advanced Options

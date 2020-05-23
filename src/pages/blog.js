@@ -32,13 +32,14 @@ class BlogIndex extends React.Component {
                 <Link
                   key={node.fields.slug}
                   to={node.fields.slug}
-                  className="blog-list-item"
-                  data-sal="slide-up"
-                  data-sal-delay={`${index}00`}
-                  data-sal-duration="500"
-                  data-sal-easing="ease-in-out-sine"
+                  className="blog-list-item transition-shadow duration-300 ease-in-out hover:shadow-2xl"
                 >
-                  <div>
+                  <div
+                    data-sal="slide-up"
+                    data-sal-delay={`${index}00`}
+                    data-sal-duration="500"
+                    data-sal-easing="ease-in-out-sine"
+                  >
                     <div className="w-full image-cover rounded-t-md">
                       <Image
                         fluid={featuredImgFluid}

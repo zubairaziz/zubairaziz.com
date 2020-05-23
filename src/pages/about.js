@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import PageHeader from '../components/page-header'
 import Container from '../components/container'
+import Card from '../components/card'
 
 class About extends React.Component {
   render() {
@@ -21,11 +22,16 @@ class About extends React.Component {
         />
         <PageHeader pageTitle={`About Me`} imageData={imageData} />
         <Container>
-          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg">
+          <Card>
             <div className="px-6 py-4">
               <div className="flex flex-wrap justify-center">
                 <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
-                  <div className="relative">
+                  <div
+                    data-sal="slide-up"
+                    data-sal-delay="100"
+                    data-sal-easing="ease-in-out-sine"
+                    className="relative"
+                  >
                     <Image
                       fluid={data.avatar.childImageSharp.fluid}
                       alt="Zubair Aziz"
@@ -37,7 +43,12 @@ class About extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className="text-center mt-12">
+              <div
+                data-sal="slide-right"
+                data-sal-delay="150"
+                data-sal-easing="ease-in-out-sine"
+                className="text-center mt-12"
+              >
                 <h3 className="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2">
                   Zubair Aziz
                 </h3>
@@ -101,7 +112,7 @@ class About extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
+          </Card>
         </Container>
       </Layout>
     )

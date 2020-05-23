@@ -64,3 +64,8 @@ footer {
     opacity: 0;
   }
 }
+
+svg {
+  max-width: 100%;
+  height: auto;
+}

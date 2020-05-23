@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>figma</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="figma" fill-rule="nonzero">
+            <g fill="#F0F0F0" id="Oval">
+                <circle cx="100" cy="100" r="100"></circle>
+            </g>
+            <g id="figma-new" transform="translate(54.000000, 30.000000)">
+                <path d="M46,70.5 C46,57.5213084 56.5213084,47 69.5,47 C82.4786916,47 93,57.5213084 93,70.5 C93,83.4786916 82.4786916,94 69.5,94 C56.5213084,94 46,83.4786916 46,70.5 L46,70.5 Z" id="Path" fill="#1ABCFE"></path>
+                <path d="M0,116.5 C0,103.521308 10.5213084,93 23.5,93 L47,93 L47,116.5 C47,129.478692 36.4786916,140 23.5,140 C10.5213084,140 0,129.478692 0,116.5 Z" id="Path" fill="#0ACF83"></path>
+                <path d="M46,0 L46,47 L69.5,47 C82.4786916,47 93,36.4786916 93,23.5 C93,10.5213084 82.4786916,0 69.5,0 L46,0 Z" id="Path" fill="#FF7262"></path>
+                <path d="M0,23.5 C0,36.4786916 10.5213084,47 23.5,47 L47,47 L47,0 L23.5,0 C10.5213084,0 0,10.5213084 0,23.5 Z" id="Path" fill="#F24E1E"></path>
+                <path d="M0,70.5 C0,83.4786916 10.5213084,94 23.5,94 L47,94 L47,47 L23.5,47 C10.5213084,47 0,57.5213084 0,70.5 Z" id="Path" fill="#A259FF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
