@@ -42,9 +42,9 @@ class BlogIndex extends React.Component {
                     <div className="w-full image-cover rounded-t-md">
                       <Image
                         fluid={featuredImgFluid}
-                        className="rounded-t-md opacity-90 hover:opacity-100"
+                        className="rounded-t-md"
                       />
-                      <div className="p-2 m-4 w-16 h-16 text-center bg-primary-700 rounded-full text-yellow float-right fd-cl group-hover:opacity-25">
+                      <div className="p-2 m-4 w-16 h-16 text-center bg-primary-700 rounded-full text-yellow float-right fd-cl">
                         <span className="text-base tracking-wide  font-bold border-b border-yellow font-sans">
                           {' '}
                           {node.frontmatter.day}
@@ -54,7 +54,7 @@ class BlogIndex extends React.Component {
                         </span>
                       </div>
                     </div>
-                    <div className="py-8 px-4 bg-white  rounded-b-md fd-cl group-hover:opacity-25">
+                    <div className="py-8 px-4 bg-white  rounded-b-md fd-cl">
                       <h2 className=".no-underline block text-lg text-primary-800 font-bold tracking-wide">
                         {title}
                       </h2>

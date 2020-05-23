@@ -58,34 +58,31 @@ class About extends React.Component {
                 <div className="flex flex-wrap justify-center">
                   <div className="w-full lg:w-9/12 px-4">
                     <p className="mb-4 text-lg leading-relaxed text-gray-800">
-                      Hi, I'm Zubair and I currently live in Utica, NY. I
-                      graduated in the Spring of 2019 from the University of
-                      Rochester with a bachelor’s degree, majoring in Computer
-                      Science and Economics.
-                    </p>
-                    <p className="mb-4 text-lg leading-relaxed text-gray-800">
-                      I’m passionate about web and software development. I’ve
-                      been doing Web Development work for roughly 3 years now,
-                      and I love it because it gives me the chance to solve
-                      complicated problems and learn new things everyday. I have
-                      a lot of experience working with many different
-                      programming languages and frameworks, ranging from PHP, to
-                      Python, to JavaScript.
-                    </p>
-                    <p className="mb-4 text-lg leading-relaxed text-gray-800">
-                      As a Full-Stack Web developer for{' '}
+                      I graduated with a bachelor's degree in Computer Science
+                      and Economics from the University of Rochester. I
+                      currently reside in Utica, NY and am currently employed at{' '}
                       <a
                         href="https://www.trainor.com"
                         rel="noopener noreferrer"
                         target="_blank"
                       >
                         TRAINOR Associates
-                      </a>
-                      , I mostly build web applications and other custom
-                      software.
+                      </a>{' '}
+                      as a Full-Stack Web Developer building web applications
+                      and other custom software. I look forwards to helping you
+                      achieve your vision.
                     </p>
                     <p className="mb-4 text-lg leading-relaxed text-gray-800">
-                      Feel free to reach out via{' '}
+                      I’ve been doing Web Development for about three years now
+                      and continue to work towards mastering my craft. I have a
+                      multitude of experience in programming languages and
+                      frameworks, ranging from PHP, Python, and JavaScript. My
+                      passion for problem solving fuels the love I have for my
+                      work.
+                    </p>
+                    <p className="mb-4 text-lg leading-relaxed text-gray-800">
+                      Let me help you solve any Web or Software problems you may
+                      have. Feel free to reach me via{' '}
                       <a href="mailto:zubairabaziz@gmail.com" target="_blank">
                         email
                       </a>{' '}
@@ -97,8 +94,8 @@ class About extends React.Component {
                       >
                         twitter
                       </a>{' '}
-                      for any inquiries. I look forward to working with you to
-                      help meet all your web development/programming needs.
+                      for any inquiries. I look forward to helping you meet all
+                      your web development/programming needs.
                     </p>
                   </div>
                 </div>
@@ -127,7 +124,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+    avatar: file(absolutePath: { regex: "/about-headshot.jpg/" }) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 500) {
           ...GatsbyImageSharpFluid_withWebp
