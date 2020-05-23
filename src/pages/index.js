@@ -41,7 +41,12 @@ const Index = (props) => {
                 className="mb-0 border-2 lg:border-4 rounded-full w-full h-full shadow-xl"
               />
             </div>
-            <div className="relative w-full lg:w-2/3 p-4 lg:px-8">
+            <div
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="relative w-full lg:w-2/3 p-4 lg:px-8"
+            >
               <Card>
                 <h1 className="text-2xl md:text-4xl lg:text-6xl lg:tracking-wider">
                   <ReactRotatingText items={textArray} />

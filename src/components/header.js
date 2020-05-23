@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
 
+import Bars from '../../content/assets/icon-bars.svg'
+import Times from '../../content/assets/icon-times.svg'
+
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
   return (
@@ -19,7 +22,7 @@ const Header = () => {
         className="text-white inline-flex p-3 hover:bg-primary-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
         data-target="#navigation"
       >
-        <i>menu</i>
+        <i>{navbarOpen ? <Times /> : <Bars />}</i>
       </button>
       <div
         className={

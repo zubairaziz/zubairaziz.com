@@ -33,7 +33,6 @@ import NGINX from '../../content/assets/icon-nginx.svg'
 import Silverstripe from '../../content/assets/icon-silverstripe.svg'
 
 const Uses = (props) => {
-  // render() {
   const { data } = props
   const siteTitle = data.site.siteMetadata.title
   const imageData = data.backgroundImage.childImageSharp.fluid
@@ -45,7 +44,12 @@ const Uses = (props) => {
       <Container>
         <Card>
           <h2 className="text-xl md:text-2xl lg:text-4xl">Hardware</h2>
-          <ul className="list-disc p-4">
+          <ul
+            data-sal="slide-up"
+            data-sal-delay="150"
+            data-sal-easing="ease-in-out-sine"
+            className="list-disc p-4"
+          >
             <li>
               Daily Driver: MacBook Pro (13-inch, 2016), 3.3 GHz Dual-Core Intel
               Core i7, running MacOS Catalina.
@@ -66,27 +70,57 @@ const Uses = (props) => {
         <Card>
           <h2 className="text-xl md:text-2xl lg:text-4xl">Software</h2>
           <ul className="p-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <VSCode />
               <span className="pt-4 font-semibold">VS Code</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <Vim />
               <span className="pt-4 font-semibold">Vim</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <Sketch />
               <span className="pt-4 font-semibold">Sketch</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <Figma />
               <span className="pt-4 font-semibold">Figma</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <Photoshop />
               <span className="pt-4 font-semibold">Photoshop</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <Firefox />
               <span className="pt-4 font-semibold">Firefox</span>
             </li>
@@ -97,71 +131,156 @@ const Uses = (props) => {
             Programming Languages, Frameworks & Tools
           </h2>
           <ul className="p-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <HTML />
               <span className="pt-4 font-semibold">HTML</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <CSS />
               <span className="pt-4 font-semibold">CSS</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <JavaScript />
               <span className="pt-4 font-semibold">JavaScript</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <Java />
               <span className="pt-4 font-semibold">Java</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <PHP />
               <span className="pt-4 font-semibold">PHP</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <Python />
               <span className="pt-4 font-semibold">Python</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <SCSS />
               <span className="pt-4 font-semibold">SCSS</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <NPM />
               <span className="pt-4 font-semibold">NPM</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <WebPack />
               <span className="pt-4 font-semibold">WebPack</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <ReactLogo />
               <span className="pt-4 font-semibold">React</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <Gatsby />
               <span className="pt-4 font-semibold">Gatsby</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <Silverstripe />
               <span className="pt-4 font-semibold">Silverstripe</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <Apache />
               <span className="pt-4 font-semibold">Apache</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <NGINX />
               <span className="pt-4 font-semibold">NGINX</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <MySQL />
               <span className="pt-4 font-semibold">MySQL</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <MongoDB />
               <span className="pt-4 font-semibold">MongoDB</span>
             </li>
-            <li className="flex flex-col justify-end items-center p-4 lg:p-8">
+            <li
+              data-sal="slide-up"
+              data-sal-delay="150"
+              data-sal-easing="ease-in-out-sine"
+              className="flex flex-col justify-end items-center p-4 lg:p-8"
+            >
               <Git />
               <span className="pt-4 font-semibold">Git</span>
             </li>
@@ -169,7 +288,12 @@ const Uses = (props) => {
         </Card>
         <Card>
           <h2 className="text-xl md:text-2xl lg:text-4xl">Misc.</h2>
-          <ul className="p-4">
+          <ul
+            data-sal="slide-up"
+            data-sal-delay="150"
+            data-sal-easing="ease-in-out-sine"
+            className="p-4"
+          >
             <li>
               <h3 className="text-lg md:text-xl lg:text-2xl">Code Editor</h3>
               {` `}
@@ -193,7 +317,6 @@ const Uses = (props) => {
       </Container>
     </Layout>
   )
-  // }
 }
 
 export default Uses
