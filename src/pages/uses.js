@@ -61,8 +61,8 @@ const Uses = (props) => {
             <li>
               Monitors:{' '}
               <ol className="list-decimal px-4">
-                <li></li>
-                <li></li>
+                <li>ASUS VG245H - 24" FHD (1920x1080)</li>
+                <li>Dell UltraSharp - 27" 4K HDR Monitor: UP2718Q</li>
               </ol>
             </li>
           </ul>
@@ -298,18 +298,32 @@ const Uses = (props) => {
               <h3 className="text-lg md:text-xl lg:text-2xl">Code Editor</h3>
               {` `}
               <ul className="px-4 list-disc">
-                <li></li>
+                <li>Theme: Synth Wave '84</li>
+                <li>Font: Fira Code</li>
+                <li>Analytics: WakaTime</li>
               </ul>
             </li>
-          </ul>
-          <ul className="p-4">
             <li>
               <h3 className="text-lg md:text-xl lg:text-2xl">
                 Browser Extensions
               </h3>
               {` `}
               <ul className="px-4 list-disc">
-                <li></li>
+                <li>Wappalyzer</li>
+                <li>React Dev Tools</li>
+                <li>Vue Dev Tools</li>
+                <li>HTTPS Everywhere</li>
+                <li>Cors Everywhere</li>
+                <li>1Password</li>
+                <li>Grammarly</li>
+              </ul>
+            </li>
+            <li>
+              <h3 className="text-lg md:text-xl lg:text-2xl">Other Gear</h3>
+              {` `}
+              <ul className="px-4 list-disc">
+                <li>Camera: Canon EOS Rebel T4i</li>
+                <li>Record Player: AudioTechnica AT-LP60x</li>
               </ul>
             </li>
           </ul>
