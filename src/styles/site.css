@@ -25,7 +25,7 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
-a:not(.nav-link):not(.blog-list-item) {
+a:not(.nav-link):not(.blog-list-item):not(.no-underline) {
   text-decoration: underline;
   text-decoration-color: #f6d186;
 }
