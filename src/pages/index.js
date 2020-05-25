@@ -9,12 +9,7 @@ import PageHeader from '../components/page-header'
 import Card from '../components/card'
 
 const Index = (props) => {
-  const textArray = [
-    'Web Developer',
-    'Programmer',
-    'FOSS Advocate',
-    'Coffee Connoisseur',
-  ]
+  const textArray = ['Web Developer', 'Programmer', 'Engineer', 'FOSS Advocate']
   const { data } = props
   const siteTitle = data.site.siteMetadata.title
   const imageData = data.backgroundImage.childImageSharp.fluid

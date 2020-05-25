@@ -24,7 +24,7 @@ const Portfolio = (props) => {
       <PageHeader pageTitle={`Portfolio`} imageData={imageData} />
       <Container>
         <Card>
-          <h2>Websites</h2>
+          <h2 className="text-xl md:text-2xl lg:text-4xl">Websites</h2>
           <Grid>
             {sites.map(({ node }, index) => {
               console.log(node)
@@ -37,26 +37,30 @@ const Portfolio = (props) => {
                 <a
                   data-sal="slide-up"
                   data-sal-delay={`${index}00`}
-                  data-sal-duration="500"
+                  data-sal-duration="300"
                   data-sal-easing="ease-in-out-sine"
                   key={index}
                   href={node.frontmatter.url}
                   target="_blank"
-                  className="no-underline portfolio-list-item transition-shadow duration-300 ease-in-out shadow-lg hover:shadow-2xl"
+                  className="no-underline portfolio-list-item"
                 >
-                  <Image fluid={featuredImgFluid} className="rounded-t-md" />
-                  <div className="no-underline p-4 bg-gray-800 text-gray-100 rounded-b-md">
-                    <div className="no-underline font-semibold text-lg">
-                      {title}
+                  <div className="shadow-lg transition-shadow duration-300 ease-in-out hover:shadow-2xl">
+                    <Image fluid={featuredImgFluid} className="rounded-t-md" />
+                    <div className="no-underline p-4 bg-gray-800 text-gray-200 rounded-b-md">
+                      <div className="no-underline font-semibold text-xl text-yellow">
+                        {title}
+                      </div>
+                      <div className="no-underline leading-none py-1">
+                        {summary}
+                      </div>
+                      <ul className="no-underline pt-1 leading-none text-sm list-disc px-4">
+                        {technologies.map((technology, index) => (
+                          <li className="no-underline" key={index}>
+                            {technology}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <div className="no-underline">{summary}</div>
-                    <ul className="no-underline">
-                      {technologies.map((technology, index) => (
-                        <li className="no-underline" key={index}>
-                          {technology}
-                        </li>
-                      ))}
-                    </ul>
                   </div>
                 </a>
               )
