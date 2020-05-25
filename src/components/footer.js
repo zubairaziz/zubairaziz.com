@@ -66,6 +66,7 @@ const Footer = () => {
                     rel="noreferrer noopener"
                     className="w-6 mx-1"
                   >
+                    <span className="sr-only">Instagram</span>
                     <svg
                       className="fill-current cursor-pointer text-primary-500 hover:text-primary-400"
                       width="24"
