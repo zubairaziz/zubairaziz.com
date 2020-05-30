@@ -4,6 +4,8 @@ module.exports = {
     extend: {},
     colors: {
       'yellow': '#F6D186',
+      'yellow-darker': '#ffed4a',
+      'yellow-lighter': '#fff9c2',
       'slate-gray': '#628395',
       'dim-gray': `#706f6f`,
       'gun-metal': '#2D3142',
@@ -69,6 +71,7 @@ module.exports = {
       '100': '1',
     }
   },
-  variants: {},
+  variants: {
+  },
   plugins: [],
 }

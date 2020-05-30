@@ -8,57 +8,90 @@ import SEO from '../components/seo'
 import PageHeader from '../components/page-header'
 import Container from '../components/container'
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const post = this.props.data.mdx
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
-    console.log(this.props.pageContext)
+const BlogPostTemplate = (props) => {
+  const post = props.data.mdx
+  const siteTitle = props.data.site.siteMetadata.title
+  const { previous, next } = props.pageContext
+  // console.log(props.pageContext)
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <PageHeader
-          pageTitle={post.frontmatter.title}
-          imageData={post.frontmatter.featuredImage.childImageSharp.fluid}
-        />
-        <Container>
-          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg">
-            <div className="p-6 text-gray-800 relative flex flex-col">
-              <p className="self-end">{post.frontmatter.date}</p>
-              <MDXRenderer>{post.body}</MDXRenderer>
-            </div>
-            <hr />
-            <Bio />
-            <ul
-              style={{
-                display: `flex`,
-                flexWrap: `wrap`,
-                justifyContent: `space-between`,
-                listStyle: `none`,
-                padding: 0,
-              }}
-            >
-              <li>
-                {previous && (
-                  <Link to={previous.fields.slug} rel="prev">
-                    ← {previous.frontmatter.title}
-                  </Link>
-                )}
-              </li>
-              <li>
-                {next && (
-                  <Link to={next.fields.slug} rel="next">
-                    {next.frontmatter.title} →
-                  </Link>
-                )}
-              </li>
-            </ul>
+  return (
+    <Layout location={props.location} title={siteTitle}>
+      <SEO title={post.frontmatter.title} description={post.excerpt} />
+      <PageHeader
+        pageTitle={post.frontmatter.title}
+        imageData={post.frontmatter.featuredImage.childImageSharp.fluid}
+      />
+      <Container>
+        <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg">
+          <div className="p-6 text-gray-800 relative flex flex-col">
+            <p className="self-end">{post.frontmatter.date}</p>
+            {post.frontmatter.crossPostURL ? (
+              <>
+                <div className="flex bg-yellow-lighter max-w-md mb-4">
+                  <div className="w-16 bg-yellow-darker">
+                    <div className="p-4">
+                      <svg
+                        className="h-8 w-8 text-gray-800 fill-current"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                      >
+                        <path d="M503.191 381.957c-.055-.096-.111-.19-.168-.286L312.267 63.218l-.059-.098c-9.104-15.01-23.51-25.577-40.561-29.752-17.053-4.178-34.709-1.461-49.72 7.644a66 66 0 0 0-22.108 22.109l-.058.097L9.004 381.669c-.057.096-.113.191-.168.287-8.779 15.203-11.112 32.915-6.569 49.872 4.543 16.958 15.416 31.131 30.62 39.91a65.88 65.88 0 0 0 32.143 8.804l.228.001h381.513l.227.001c36.237-.399 65.395-30.205 64.997-66.444a65.86 65.86 0 0 0-8.804-32.143zm-56.552 57.224H65.389a24.397 24.397 0 0 1-11.82-3.263c-5.635-3.253-9.665-8.507-11.349-14.792a24.196 24.196 0 0 1 2.365-18.364L235.211 84.53a24.453 24.453 0 0 1 8.169-8.154c5.564-3.374 12.11-4.381 18.429-2.833 6.305 1.544 11.633 5.444 15.009 10.986L467.44 402.76a24.402 24.402 0 0 1 3.194 11.793c.149 13.401-10.608 24.428-23.995 24.628z" />
+                        <path d="M256.013 168.924c-11.422 0-20.681 9.26-20.681 20.681v90.085c0 11.423 9.26 20.681 20.681 20.681 11.423 0 20.681-9.259 20.681-20.681v-90.085c.001-11.421-9.258-20.681-20.681-20.681zM270.635 355.151c-3.843-3.851-9.173-6.057-14.624-6.057a20.831 20.831 0 0 0-14.624 6.057c-3.842 3.851-6.057 9.182-6.057 14.624 0 5.452 2.215 10.774 6.057 14.624a20.822 20.822 0 0 0 14.624 6.057c5.45 0 10.772-2.206 14.624-6.057a20.806 20.806 0 0 0 6.057-14.624 20.83 20.83 0 0 0-6.057-14.624z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="w-auto text-grey-darker items-center p-4">
+                    <span className="text-lg font-bold pb-4">Notice!</span>
+                    <p className="leading-tight">
+                      This post was cross-posted from{' '}
+                      <a
+                        href={post.frontmatter.crossPostURL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {post.frontmatter.crossPostText}
+                      </a>
+                    </p>
+                  </div>
+                </div>
+                <hr className="py-4" />
+              </>
+            ) : (
+              ``
+            )}
+            <MDXRenderer>{post.body}</MDXRenderer>
           </div>
-        </Container>
-      </Layout>
-    )
-  }
+          <hr />
+          <Bio />
+          <ul
+            style={{
+              display: `flex`,
+              flexWrap: `wrap`,
+              justifyContent: `space-between`,
+              listStyle: `none`,
+              padding: 0,
+            }}
+          >
+            <li className="text-gray-800 p-4 group">
+              {previous && (
+                <Link to={previous.fields.slug} rel="prev">
+                  <span className="transition-all ease-in-out duration-300 group-hover:-translate-x-2 hover:-translate-x-2">←</span> Previous
+                  Post
+                </Link>
+              )}
+            </li>
+            <li className="text-gray-800 p-4 group">
+              {next && (
+                <Link to={next.fields.slug} rel="next">
+                  Next Post <span className="transition-all ease-in-out duration-300 group-hover:translate-x-2 hover:translate-x-2">→</span>
+                </Link>
+              )}
+            </li>
+          </ul>
+        </div>
+      </Container>
+    </Layout>
+  )
 }
 
 export default BlogPostTemplate
@@ -77,6 +110,8 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        crossPostURL
+        crossPostText
         featuredImage {
           childImageSharp {
             fluid(maxWidth: 1920) {

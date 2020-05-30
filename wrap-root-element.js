@@ -13,6 +13,8 @@ const components = {
   h5: ({children}) => (<h5 className="font-semibold mb-4 text-lg md:text-xl lg:text-2xl">{children}</h5>),
   h6: ({children}) => (<h6 className="font-semibold mb-4 text-base md:text-lg lg:text-xl">{children}</h6>),
   p: ({children}) => (<p className="text-base lg:text-lg mb-1">{children}</p>),
+  ul: ({children}) => (<ul className="text-base lg:text-lg p-4 list-disc">{children}</ul>),
+  ol: ({children}) => (<ol className="text-base lg:text-lg p-4 list-roman">{children}</ol>),
 
   pre: preProps => {
     const props = preToCodeBlock(preProps)

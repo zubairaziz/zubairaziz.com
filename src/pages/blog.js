@@ -27,7 +27,7 @@ class BlogIndex extends React.Component {
             {posts.map(({ node }, index) => {
               const title = node.frontmatter.title || node.fields.slug
               const featuredImgFluid =
-                node.frontmatter.featuredImage.childImageSharp.fluid
+                node.frontmatter.featuredImage.childImageSharp.fixed
               return (
                 <Link
                   key={node.fields.slug}
@@ -43,7 +43,8 @@ class BlogIndex extends React.Component {
                     <div className="w-full image-cover rounded-t-md">
                       <Image
                         fluid={featuredImgFluid}
-                        className="rounded-t-md"
+                        className="rounded-t-md w-full"
+                        style={{ height: `210px` }}
                       />
                       <div className="p-2 m-4 w-16 h-16 text-center bg-primary-700 rounded-full text-yellow float-right fd-cl">
                         <span className="text-base tracking-wide  font-bold border-b border-yellow font-sans">
@@ -101,8 +102,8 @@ export const pageQuery = graphql`
             title
             featuredImage {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 390, height: 210) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
