@@ -8,72 +8,70 @@ import PageHeader from '../components/page-header'
 import Container from '../components/container'
 import Grid from '../components/grid'
 
-class BlogIndex extends React.Component {
-  render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMdx.edges
-    const imageData = data.backgroundImage.childImageSharp.fluid
+const BlogIndex = (props) => {
+  const { data } = props
+  const siteTitle = data.site.siteMetadata.title
+  const posts = data.allMdx.edges
+  const imageData = data.backgroundImage.childImageSharp.fluid
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title="All posts"
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
-        />
-        <PageHeader pageTitle={`Blog Posts`} imageData={imageData} />
-        <Container>
-          <Grid>
-            {posts.map(({ node }, index) => {
-              const title = node.frontmatter.title || node.fields.slug
-              const featuredImgFluid =
-                node.frontmatter.featuredImage.childImageSharp.fixed
-              return (
-                <Link
-                  key={node.fields.slug}
-                  to={node.fields.slug}
-                  className="blog-list-item transition-shadow duration-300 ease-in-out hover:shadow-2xl"
+  return (
+    <Layout location={props.location} title={siteTitle}>
+      <SEO
+        title="All posts"
+        keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+      />
+      <PageHeader pageTitle={`Blog Posts`} imageData={imageData} />
+      <Container>
+        <Grid>
+          {posts.map(({ node }, index) => {
+            const title = node.frontmatter.title || node.fields.slug
+            const featuredImgFluid =
+              node.frontmatter.featuredImage.childImageSharp.fixed
+            return (
+              <Link
+                key={node.fields.slug}
+                to={node.fields.slug}
+                className="blog-list-item transition-shadow duration-300 ease-in-out hover:shadow-2xl"
+              >
+                <div
+                  data-sal="slide-up"
+                  data-sal-delay={`${index}00`}
+                  data-sal-duration="500"
+                  data-sal-easing="ease-in-out-sine"
                 >
-                  <div
-                    data-sal="slide-up"
-                    data-sal-delay={`${index}00`}
-                    data-sal-duration="500"
-                    data-sal-easing="ease-in-out-sine"
-                  >
-                    <div className="w-full image-cover rounded-t-md">
-                      <Image
-                        fluid={featuredImgFluid}
-                        className="rounded-t-md w-full"
-                        style={{ height: `210px` }}
-                      />
-                      <div className="p-2 m-4 w-16 h-16 text-center bg-primary-700 rounded-full text-yellow float-right fd-cl">
-                        <span className="text-base tracking-wide  font-bold border-b border-yellow font-sans">
-                          {' '}
-                          {node.frontmatter.day}
-                        </span>
-                        <span className="text-xs tracking-wide text-yellow font-bold uppercase block font-sans">
-                          {node.frontmatter.month}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="py-8 px-4 bg-white  rounded-b-md fd-cl">
-                      <h2 className=".no-underline block text-lg text-primary-800 font-bold tracking-wide">
-                        {title}
-                      </h2>
-                      <span
-                        className=".no-underline block text-primary-600 text-sm"
-                        dangerouslySetInnerHTML={{ __html: node.excerpt }}
-                      />
+                  <div className="w-full image-cover rounded-t-md">
+                    <Image
+                      fluid={featuredImgFluid}
+                      className="rounded-t-md w-full"
+                      style={{ height: `210px` }}
+                    />
+                    <div className="p-2 m-4 w-16 h-16 text-center bg-primary-700 rounded-full text-yellow float-right fd-cl">
+                      <span className="text-base tracking-wide  font-bold border-b border-yellow font-sans">
+                        {' '}
+                        {node.frontmatter.day}
+                      </span>
+                      <span className="text-xs tracking-wide text-yellow font-bold uppercase block font-sans">
+                        {node.frontmatter.month}
+                      </span>
                     </div>
                   </div>
-                </Link>
-              )
-            })}
-          </Grid>
-        </Container>
-      </Layout>
-    )
-  }
+                  <div className="py-8 px-4 bg-white  rounded-b-md fd-cl">
+                    <h2 className=".no-underline block text-lg text-primary-800 font-bold tracking-wide">
+                      {title}
+                    </h2>
+                    <span
+                      className=".no-underline block text-primary-600 text-sm"
+                      dangerouslySetInnerHTML={{ __html: node.excerpt }}
+                    />
+                  </div>
+                </div>
+              </Link>
+            )
+          })}
+        </Grid>
+      </Container>
+    </Layout>
+  )
 }
 
 export default BlogIndex

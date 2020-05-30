@@ -75,15 +75,20 @@ const BlogPostTemplate = (props) => {
             <li className="text-gray-800 p-4 group">
               {previous && (
                 <Link to={previous.fields.slug} rel="prev">
-                  <span className="transition-all ease-in-out duration-300 group-hover:-translate-x-2 hover:-translate-x-2">←</span> Previous
-                  Post
+                  <span className="transition-all ease-in-out duration-300 group-hover:-translate-x-2 hover:-translate-x-2">
+                    ←
+                  </span>{' '}
+                  Previous Post
                 </Link>
               )}
             </li>
             <li className="text-gray-800 p-4 group">
               {next && (
                 <Link to={next.fields.slug} rel="next">
-                  Next Post <span className="transition-all ease-in-out duration-300 group-hover:translate-x-2 hover:translate-x-2">→</span>
+                  Next Post{' '}
+                  <span className="transition-all ease-in-out duration-300 group-hover:translate-x-2 hover:translate-x-2">
+                    →
+                  </span>
                 </Link>
               )}
             </li>
