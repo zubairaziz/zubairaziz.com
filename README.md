@@ -2,6 +2,8 @@
 
 # Zubair's personal website/portfolio
 
+:globe_with_meridians: [zubairaziz.com](https://zubairaziz.com)
+
 ## 🚀 Quick start
 
 1.  **Start developing.**
@@ -9,8 +11,9 @@
     Navigate into your new site’s directory and start it up.
 
     ```sh
-    cd my-blog-starter/
-    gatsby develop
+    nvm use
+    yarn install
+    yarn dev
     ```
 
 2.  **Open the source code and start editing!**

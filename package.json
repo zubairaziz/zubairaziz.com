@@ -3,7 +3,7 @@
   "private": true,
   "description": "Zubair's personal website",
   "version": "1.0.0",
-  "author": "Zubair Aziz <zubairabaziz@@gmail.com>",
+  "author": "Zubair Aziz <zubairaziz.dev@@gmail.com>",
   "bugs": {
     "url": "https://github.com/zubairaziz/zubairaziz.com/issues"
   },
@@ -51,7 +51,7 @@
     "prettier": "^2.0.5",
     "tailwindcss": "^1.4.6"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://zubairaziz.com",
   "keywords": [
     "gatsby"
   ],
@@ -59,11 +59,12 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/zubairaziz/zubairaziz.com.git"
   },
   "scripts": {
     "dev": "gatsby develop",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
+    "lint:fix": "eslint --ext .js,.jsx --ignore-pattern public . --fix",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",

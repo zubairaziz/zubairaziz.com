@@ -90,7 +90,7 @@ const About = (props) => {
                   <p className="mb-4 text-lg leading-relaxed text-gray-800">
                     Let me help you solve any Web or Software problems you may
                     have. Feel free to reach me via{' '}
-                    <a href="mailto:zubairabaziz@gmail.com" target="_blank">
+                    <a href="mailto:zubairaziz.dev@gmail.com" target="_blank">
                       email
                     </a>{' '}
                     or{' '}
