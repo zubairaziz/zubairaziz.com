@@ -48,7 +48,7 @@
   "devDependencies": {
     "eslint": "^7.7.0",
     "eslint-plugin-react": "^7.20.0",
-    "prettier": "^2.0.5",
+    "prettier": "^2.1.2",
     "tailwindcss": "^1.7.6"
   },
   "homepage": "https://zubairaziz.com",
