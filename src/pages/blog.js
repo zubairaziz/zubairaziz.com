@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Image from 'gatsby-image'
+import Img from 'gatsby-image'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
@@ -40,7 +40,7 @@ const BlogIndex = (props) => {
                   data-sal-easing="ease-in-out-sine"
                 >
                   <div className="w-full image-cover rounded-t-md">
-                    <Image
+                    <Img
                       fluid={featuredImgFluid}
                       className="w-full rounded-t-md"
                       style={{ height: `210px` }}

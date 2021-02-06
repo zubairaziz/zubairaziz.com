@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Image from 'gatsby-image'
+import Img from 'gatsby-image'
 import ReactRotatingText from 'react-rotating-text'
 
 import Layout from '../components/Layout'
@@ -27,7 +27,7 @@ const Index = (props) => {
               data-sal-easing="ease-in-out-sine"
               className="relative lg:w-1/3"
             >
-              <Image
+              <Img
                 fluid={data.avatar.childImageSharp.fluid}
                 alt="Zubair Aziz"
                 style={{

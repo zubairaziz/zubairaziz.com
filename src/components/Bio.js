@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Image from 'gatsby-image'
+import Img from 'gatsby-image'
 
 const Bio = () => {
   return (
@@ -10,7 +10,7 @@ const Bio = () => {
         const { author, social } = data.site.siteMetadata
         return (
           <div className="flex items-center p-6">
-            <Image
+            <Img
               fixed={data.avatar.childImageSharp.fixed}
               alt={author}
               style={{

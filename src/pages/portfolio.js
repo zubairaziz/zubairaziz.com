@@ -1,6 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Image from 'gatsby-image'
+import Img from 'gatsby-image'
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
@@ -9,11 +11,50 @@ import Container from '../components/container'
 import Grid from '../components/grid'
 import Card from '../components/card'
 
+const listVariant = {
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.01,
+    },
+  },
+  hide: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.01,
+    },
+  },
+}
+
+const listItemVariant = {
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      ease: 'linear',
+    },
+  },
+  hide: {
+    opacity: 0,
+    scale: 0.25,
+    transition: {
+      ease: 'linear',
+    },
+  },
+}
+
 const Portfolio = (props) => {
   const { data, location } = props
   const siteTitle = data.site.siteMetadata.title
   const imageData = data.backgroundImage.childImageSharp.fluid
   const sites = data.allMdx.edges
+
+  const [ref, inView, entry] = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+  })
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -25,7 +66,13 @@ const Portfolio = (props) => {
       <Container>
         <Card>
           <h2 className="text-xl md:text-2xl lg:text-4xl">Websites</h2>
-          <Grid>
+          <motion.ol
+            className="grid grid-cols-1 gap-2 m-5 mb-10 md:gap-4 lg:gap-6 md:grid-cols-2 lg:grid-cols-3"
+            ref={ref}
+            animate={inView ? 'show' : 'hide'}
+            variants={listVariant}
+            initial={false}
+          >
             {sites.map(({ node }, index) => {
               const title = node.frontmatter.title
               const summary = node.frontmatter.summary
@@ -33,38 +80,50 @@ const Portfolio = (props) => {
               const featuredImgFluid =
                 node.frontmatter.featuredImage.childImageSharp.fluid
               return (
-                <a
-                  data-sal="slide-up"
-                  data-sal-delay={`${index}00`}
-                  data-sal-duration="300"
-                  data-sal-easing="ease-in-out-sine"
-                  key={index}
-                  href={node.frontmatter.url}
-                  target="_blank"
-                  className="no-underline portfolio-list-item"
+                <motion.li
+                  key={`${index}-${title}`}
+                  className="block"
+                  variants={listItemVariant}
+                  initial={false}
                 >
-                  <div className="transition-shadow duration-300 ease-in-out shadow-lg hover:shadow-2xl">
-                    <Image fluid={featuredImgFluid} className="rounded-t-md" />
-                    <div className="p-4 text-gray-200 no-underline bg-gray-800 rounded-b-md">
-                      <div className="text-xl font-semibold no-underline text-yellow">
-                        {title}
+                  <a
+                    href={node.frontmatter.url}
+                    target="_blank"
+                    rel="noopener"
+                    className="no-underline portfolio-list-item"
+                  >
+                    <div className="transition-shadow duration-300 ease-in-out shadow-md hover:shadow-2xl">
+                      <Img
+                        fluid={featuredImgFluid}
+                        className="rounded-t-md"
+                        style={{ height: '260px', backgroundColor: 'white' }}
+                        imgStyle={{
+                          width: '100%',
+                          height: 'auto',
+                          objectFit: 'cover',
+                        }}
+                      />
+                      <div className="p-4 text-gray-200 no-underline bg-primary-800 rounded-b-md">
+                        <div className="text-xl font-semibold no-underline text-yellow">
+                          {title}
+                        </div>
+                        <div className="py-1 leading-none no-underline">
+                          {summary}
+                        </div>
+                        <ul className="px-4 pt-1 text-sm leading-none no-underline list-disc">
+                          {technologies.map((technology, index) => (
+                            <li className="no-underline" key={index}>
+                              {technology}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <div className="py-1 leading-none no-underline">
-                        {summary}
-                      </div>
-                      <ul className="px-4 pt-1 text-sm leading-none no-underline list-disc">
-                        {technologies.map((technology, index) => (
-                          <li className="no-underline" key={index}>
-                            {technology}
-                          </li>
-                        ))}
-                      </ul>
                     </div>
-                  </div>
-                </a>
+                  </a>
+                </motion.li>
               )
             })}
-          </Grid>
+          </motion.ol>
         </Card>
       </Container>
     </Layout>
