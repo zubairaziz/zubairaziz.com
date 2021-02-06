@@ -5,7 +5,7 @@ import Header from './header'
 const Layout = (props) => {
   const { children, location } = props
   return (
-    <div className="layout-wrapper">
+    <div className="flex flex-col min-h-screen">
       <div className="top-content">
         <Header location={location} />
         <main>{children}</main>

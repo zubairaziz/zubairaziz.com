@@ -1,5 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
@@ -18,10 +20,12 @@ import HTML from '../../content/assets/icon-html-5.svg'
 import CSS from '../../content/assets/icon-css3.svg'
 import Java from '../../content/assets/icon-java.svg'
 import JavaScript from '../../content/assets/icon-javascript.svg'
+import TypeScript from '../../content/assets/icon-typescript.svg'
 import PHP from '../../content/assets/icon-php.svg'
 import Python from '../../content/assets/icon-python.svg'
 import SCSS from '../../content/assets/icon-sass.svg'
 import NPM from '../../content/assets/icon-npm.svg'
+import Yarn from '../../content/assets/icon-yarn.svg'
 import WebPack from '../../content/assets/icon-webpack.svg'
 import ReactLogo from '../../content/assets/icon-react.svg'
 import MongoDB from '../../content/assets/icon-mongodb.svg'
@@ -31,11 +35,96 @@ import Apache from '../../content/assets/icon-apache.svg'
 import Git from '../../content/assets/icon-git.svg'
 import NGINX from '../../content/assets/icon-nginx.svg'
 import Silverstripe from '../../content/assets/icon-silverstripe.svg'
+import PostgreSQL from '../../content/assets/icon-postgres.svg'
+import PostCSS from '../../content/assets/icon-postcss.svg'
+import TailwindCSS from '../../content/assets/icon-tailwind.svg'
+import NextJS from '../../content/assets/icon-nextjs.svg'
+import Svelte from '../../content/assets/icon-svelte.svg'
+
+const listVariant = {
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.01,
+    },
+  },
+  hide: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.01,
+    },
+  },
+}
+
+const listItemVariant = {
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      ease: 'linear',
+    },
+  },
+  hide: {
+    opacity: 0,
+    scale: 0.25,
+    transition: {
+      ease: 'linear',
+    },
+  },
+}
 
 const Uses = (props) => {
   const { data } = props
   const siteTitle = data.site.siteMetadata.title
   const imageData = data.backgroundImage.childImageSharp.fluid
+
+  const [ref1, inView1, entry1] = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+  })
+
+  const [ref2, inView2, entry2] = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+  })
+
+  const softwareArray = [
+    { component: <VSCode />, title: 'VS Code' },
+    { component: <Vim />, title: 'Vim' },
+    { component: <Sketch />, title: 'Sketch' },
+    { component: <Figma />, title: 'Figma' },
+    { component: <Photoshop />, title: 'Photoshop' },
+    { component: <Firefox />, title: 'Firefox' },
+  ]
+
+  const programArray = [
+    { component: <HTML />, title: 'HTML' },
+    { component: <CSS />, title: 'CSS' },
+    { component: <JavaScript />, title: 'JavaScript' },
+    { component: <TypeScript />, title: 'TypeScript' },
+    { component: <Java />, title: 'Java' },
+    { component: <PHP />, title: 'PHP' },
+    { component: <Python />, title: 'Python' },
+    { component: <ReactLogo />, title: 'React/React Native' },
+    { component: <Gatsby />, title: 'Gatsby' },
+    { component: <NextJS />, title: 'Next.js' },
+    { component: <Svelte />, title: 'Svelte' },
+    { component: <SCSS />, title: 'SCSS' },
+    { component: <PostCSS />, title: 'PostCSS' },
+    { component: <TailwindCSS />, title: 'TailwindCSS' },
+    { component: <NPM />, title: 'npm' },
+    { component: <Yarn />, title: 'Yarn' },
+    { component: <WebPack />, title: 'WebPack' },
+    { component: <Silverstripe />, title: 'Silverstripe' },
+    { component: <Apache />, title: 'Apache' },
+    { component: <NGINX />, title: 'Nginx' },
+    { component: <MySQL />, title: 'MySQL' },
+    { component: <PostgreSQL />, title: 'PostgreSQL' },
+    { component: <MongoDB />, title: 'MongoDB' },
+    { component: <Git />, title: 'git' },
+  ]
 
   return (
     <Layout location={props.location} title={siteTitle}>
@@ -48,11 +137,11 @@ const Uses = (props) => {
             data-sal="slide-up"
             data-sal-delay="150"
             data-sal-easing="ease-in-out-sine"
-            className="list-disc p-4"
+            className="p-4 list-disc"
           >
             <li>
               Daily Driver: MacBook Pro (13-inch, 2016), 3.3 GHz Dual-Core Intel
-              Core i7, running MacOS Catalina.
+              Core i7, running MacOS Big Sur.
             </li>
             <li>
               Secondary: Asus Vivobook (14-inch ), AMD A9 Processor, running
@@ -60,7 +149,7 @@ const Uses = (props) => {
             </li>
             <li>
               Monitors:{' '}
-              <ol className="list-decimal px-4">
+              <ol className="px-4 list-decimal">
                 <li>ASUS VG245H - 24" FHD (1920x1080)</li>
                 <li>Dell UltraSharp - 27" 4K HDR Monitor: UP2718Q</li>
               </ol>
@@ -69,222 +158,49 @@ const Uses = (props) => {
         </Card>
         <Card>
           <h2 className="text-xl md:text-2xl lg:text-4xl">Software</h2>
-          <ul className="p-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <VSCode />
-              <span className="pt-4 font-semibold">VS Code</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <Vim />
-              <span className="pt-4 font-semibold">Vim</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <Sketch />
-              <span className="pt-4 font-semibold">Sketch</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <Figma />
-              <span className="pt-4 font-semibold">Figma</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <Photoshop />
-              <span className="pt-4 font-semibold">Photoshop</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <Firefox />
-              <span className="pt-4 font-semibold">Firefox</span>
-            </li>
-          </ul>
+          <motion.ul
+            className="grid grid-cols-2 p-4 md:grid-cols-4 lg:grid-cols-6"
+            ref={ref1}
+            animate={inView1 ? 'show' : 'hide'}
+            variants={listVariant}
+            initial={false}
+          >
+            {softwareArray.map((software, index) => (
+              <motion.li
+                className="flex flex-col items-center justify-end p-4 lg:p-8"
+                key={`${index}-${software.title}`}
+                variants={listItemVariant}
+                initial={false}
+              >
+                {software.component}
+                <span className="pt-4 font-semibold">{software.title}</span>
+              </motion.li>
+            ))}
+          </motion.ul>
         </Card>
         <Card>
           <h2 className="text-xl md:text-2xl lg:text-4xl">
             Programming Languages, Frameworks & Tools
           </h2>
-          <ul className="p-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <HTML />
-              <span className="pt-4 font-semibold">HTML</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <CSS />
-              <span className="pt-4 font-semibold">CSS</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <JavaScript />
-              <span className="pt-4 font-semibold">JavaScript</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <Java />
-              <span className="pt-4 font-semibold">Java</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <PHP />
-              <span className="pt-4 font-semibold">PHP</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <Python />
-              <span className="pt-4 font-semibold">Python</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <SCSS />
-              <span className="pt-4 font-semibold">SCSS</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <NPM />
-              <span className="pt-4 font-semibold">NPM</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <WebPack />
-              <span className="pt-4 font-semibold">WebPack</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <ReactLogo />
-              <span className="pt-4 font-semibold">React</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <Gatsby />
-              <span className="pt-4 font-semibold">Gatsby</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <Silverstripe />
-              <span className="pt-4 font-semibold">Silverstripe</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <Apache />
-              <span className="pt-4 font-semibold">Apache</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <NGINX />
-              <span className="pt-4 font-semibold">NGINX</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <MySQL />
-              <span className="pt-4 font-semibold">MySQL</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <MongoDB />
-              <span className="pt-4 font-semibold">MongoDB</span>
-            </li>
-            <li
-              data-sal="slide-up"
-              data-sal-delay="150"
-              data-sal-easing="ease-in-out-sine"
-              className="flex flex-col justify-end items-center p-4 lg:p-8"
-            >
-              <Git />
-              <span className="pt-4 font-semibold">Git</span>
-            </li>
-          </ul>
+          <motion.ul
+            className="grid grid-cols-2 p-4 md:grid-cols-4 lg:grid-cols-6"
+            ref={ref2}
+            animate={inView2 ? 'show' : 'hide'}
+            variants={listVariant}
+            initial={false}
+          >
+            {programArray.map((program, index) => (
+              <motion.li
+                className="flex flex-col items-center justify-end p-4 lg:p-8"
+                key={`${index}-${program.title}`}
+                variants={listItemVariant}
+                initial={false}
+              >
+                {program.component}
+                <span className="pt-4 font-semibold">{program.title}</span>
+              </motion.li>
+            ))}
+          </motion.ul>
         </Card>
         <Card>
           <h2 className="text-xl md:text-2xl lg:text-4xl">Misc.</h2>

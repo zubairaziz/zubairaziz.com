@@ -12,7 +12,6 @@ const BlogPostTemplate = (props) => {
   const post = props.data.mdx
   const siteTitle = props.data.site.siteMetadata.title
   const { previous, next } = props.pageContext
-  // console.log(props.pageContext)
 
   return (
     <Layout location={props.location} title={siteTitle}>
@@ -22,16 +21,16 @@ const BlogPostTemplate = (props) => {
         imageData={post.frontmatter.featuredImage.childImageSharp.fluid}
       />
       <Container>
-        <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg">
-          <div className="p-6 text-gray-800 relative flex flex-col">
+        <div className="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl">
+          <div className="relative flex flex-col p-6 text-gray-800">
             <p className="self-end">{post.frontmatter.date}</p>
             {post.frontmatter.crossPostURL ? (
               <>
-                <div className="flex bg-yellow-lighter max-w-md mb-4">
-                  <div className="w-16 bg-yellow-darker">
+                <div className="flex max-w-md mb-4 bg-yellow-400">
+                  <div className="w-16 bg-yellow-600">
                     <div className="p-4">
                       <svg
-                        className="h-8 w-8 text-gray-800 fill-current"
+                        className="w-8 h-8 text-gray-800 fill-current"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 512 512"
                       >
@@ -40,8 +39,8 @@ const BlogPostTemplate = (props) => {
                       </svg>
                     </div>
                   </div>
-                  <div className="w-auto text-grey-darker items-center p-4">
-                    <span className="text-lg font-bold pb-4">Notice!</span>
+                  <div className="items-center w-auto p-4 text-grey-darker">
+                    <span className="pb-4 text-lg font-bold">Notice!</span>
                     <p className="leading-tight">
                       This post was cross-posted from{' '}
                       <a
@@ -72,21 +71,21 @@ const BlogPostTemplate = (props) => {
               padding: 0,
             }}
           >
-            <li className="text-gray-800 p-4 group">
+            <li className="p-4 text-gray-800 group">
               {previous && (
                 <Link to={previous.fields.slug} rel="prev">
-                  <span className="transition-all ease-in-out duration-300 group-hover:-translate-x-2 hover:-translate-x-2">
+                  <span className="transition-all duration-300 ease-in-out group-hover:-translate-x-2 hover:-translate-x-2">
                     ←
                   </span>{' '}
                   Previous Post
                 </Link>
               )}
             </li>
-            <li className="text-gray-800 p-4 group">
+            <li className="p-4 text-gray-800 group">
               {next && (
                 <Link to={next.fields.slug} rel="next">
                   Next Post{' '}
-                  <span className="transition-all ease-in-out duration-300 group-hover:translate-x-2 hover:translate-x-2">
+                  <span className="transition-all duration-300 ease-in-out group-hover:translate-x-2 hover:translate-x-2">
                     →
                   </span>
                 </Link>

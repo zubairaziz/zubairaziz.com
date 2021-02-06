@@ -18,9 +18,9 @@ const Index = (props) => {
     <Layout location={props.location} title={siteTitle}>
       <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
       <PageHeader pageTitle={``} imageData={imageData} />
-      <div className="relative -mt-64 -mt-500px">
+      <div className="relative -mt-64 lg:-mt-80">
         <div className="container mx-auto">
-          <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center">
+          <div className="flex flex-col items-center justify-center md:flex-row md:justify-between">
             <div
               data-sal="slide-right"
               data-sal-delay="0"
@@ -33,17 +33,17 @@ const Index = (props) => {
                 style={{
                   minWidth: 300,
                 }}
-                className="mb-0 border-2 lg:border-4 rounded-full w-full h-full shadow-xl"
+                className="w-full h-full mb-0 border-2 rounded-full shadow-xl lg:border-4"
               />
             </div>
             <div
               data-sal="slide-up"
               data-sal-delay="150"
               data-sal-easing="ease-in-out-sine"
-              className="relative w-full lg:w-2/3 p-4 lg:px-8"
+              className="relative w-full p-4 lg:w-2/3 lg:px-8"
             >
               <Card>
-                <h1 className="text-2xl md:text-4xl lg:text-6xl lg:tracking-wider">
+                <h1 className="text-2xl text-gray-600 md:text-4xl lg:text-6xl lg:tracking-wider">
                   <ReactRotatingText items={textArray} />
                 </h1>
               </Card>

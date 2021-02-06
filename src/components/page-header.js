@@ -7,25 +7,24 @@ const PageHeader = ({ pageTitle, imageData }) => {
     <section className="relative block">
       <BackgroundImage
         tag="section"
-        className="page-header flex justify-center items-center min-h-sm md:min-h-md lg:min-h-lg xl:min-h-xl"
+        className="flex items-center justify-center page-header min-h-sm md:min-h-md lg:min-h-lg xl:min-h-xl"
         fluid={imageData}
         backgroundColor={`#1f1f1f`}
-        // style={{ minHeight: `500px` }}
       >
-        <div className="w-full h-full absolute opacity-75 bg-gun-metal z-0 inset-0"></div>
-        <div className="p-12 text-center max-w-4xl mx-auto z-50">
+        <div className="absolute inset-0 z-0 w-full h-full opacity-75 bg-gun-metal"></div>
+        <div className="z-50 max-w-4xl p-12 mx-auto text-center">
           <h1
             data-sal="fade"
             data-sal-delay="250"
             data-sal-easing="ease-in-out-sine"
-            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-yellow font-bold uppercase leading-none"
+            className="text-3xl font-bold leading-none uppercase md:text-4xl lg:text-5xl xl:text-6xl text-yellow"
           >
             {pageTitle}
           </h1>
         </div>
       </BackgroundImage>
       <div
-        className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
+        className="absolute bottom-0 left-0 right-0 top-auto w-full overflow-hidden pointer-events-none"
         style={{ height: '70px', transform: 'translateZ(0)' }}
       >
         <svg

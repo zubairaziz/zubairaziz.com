@@ -8,14 +8,15 @@ const Footer = () => {
       render={(data) => {
         const { social } = data.site.siteMetadata
         return (
-          <footer className="bg-primary-800 pt-2 mt-8">
+          <footer className="pt-2 mt-8 bg-primary-800">
             <div className="container p-3 mx-auto">
-              <div className="pb-5 pt-5 text-sm flex flex-col md:flex-row">
+              <div className="flex flex-col pt-5 pb-5 text-sm md:flex-row">
                 <span className="md:flex-auto">
                   © {new Date().getFullYear()}, Zubair Aziz. Built with{' '}
-                  <a href="https://www.gatsbyjs.org">Gatsby</a>
+                  <a href="https://www.gatsbyjs.org">Gatsby</a> and{' '}
+                  <a href="https://tailwindcss.com/">TailwindCSS</a>
                 </span>
-                <div className="md:flex-auto md:flex-row-reverse mt-2 flex-row flex">
+                <div className="flex flex-row mt-2 md:flex-auto md:flex-row-reverse">
                   <a
                     href={`https://www.twitter.com/${social.twitter}`}
                     target="_blank"
@@ -24,7 +25,7 @@ const Footer = () => {
                   >
                     <span className="sr-only">Twitter</span>
                     <svg
-                      className="fill-current cursor-pointer text-primary-500 hover:text-primary-400"
+                      className="cursor-pointer fill-current text-primary-500 hover:text-primary-400"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                       fillRule="evenodd"
@@ -46,7 +47,7 @@ const Footer = () => {
                   >
                     <span className="sr-only">Facebook</span>
                     <svg
-                      className="fill-current cursor-pointer text-primary-500 hover:text-primary-400"
+                      className="cursor-pointer fill-current text-primary-500 hover:text-primary-400"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                       fillRule="evenodd"
@@ -68,7 +69,7 @@ const Footer = () => {
                   >
                     <span className="sr-only">Instagram</span>
                     <svg
-                      className="fill-current cursor-pointer text-primary-500 hover:text-primary-400"
+                      className="cursor-pointer fill-current text-primary-500 hover:text-primary-400"
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"

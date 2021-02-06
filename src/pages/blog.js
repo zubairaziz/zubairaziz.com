@@ -31,7 +31,7 @@ const BlogIndex = (props) => {
               <Link
                 key={node.fields.slug}
                 to={node.fields.slug}
-                className="blog-list-item transition-shadow duration-300 ease-in-out hover:shadow-2xl"
+                className="transition-shadow duration-300 ease-in-out blog-list-item hover:shadow-2xl"
               >
                 <div
                   data-sal="slide-up"
@@ -42,20 +42,20 @@ const BlogIndex = (props) => {
                   <div className="w-full image-cover rounded-t-md">
                     <Image
                       fluid={featuredImgFluid}
-                      className="rounded-t-md w-full"
+                      className="w-full rounded-t-md"
                       style={{ height: `210px` }}
                     />
-                    <div className="p-2 m-4 w-16 h-16 text-center bg-primary-700 rounded-full text-yellow float-right fd-cl">
-                      <span className="text-base tracking-wide  font-bold border-b border-yellow font-sans">
+                    <div className="float-right w-16 h-16 p-2 m-4 text-center rounded-full bg-primary-700 text-yellow fd-cl">
+                      <span className="font-sans text-base font-bold tracking-wide border-b border-yellow">
                         {' '}
                         {node.frontmatter.day}
                       </span>
-                      <span className="text-xs tracking-wide text-yellow font-bold uppercase block font-sans">
+                      <span className="block font-sans text-xs font-bold tracking-wide uppercase text-yellow">
                         {node.frontmatter.month}
                       </span>
                     </div>
                   </div>
-                  <div className="py-8 px-4 bg-white  rounded-b-md fd-cl">
+                  <div className="px-4 py-8 bg-white rounded-b-md fd-cl">
                     <h2 className=".no-underline block text-lg text-primary-800 font-bold tracking-wide">
                       {title}
                     </h2>

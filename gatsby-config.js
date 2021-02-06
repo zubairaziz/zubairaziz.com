@@ -3,12 +3,12 @@ module.exports = {
     title: `Zubair Aziz`,
     author: `Zubair Aziz`,
     description: `Zubair is a Full-Stack Web Developer in Utica who builds secure, scalable applications. He works with various technologies such as JavaScript, PHP and Python.`,
-    siteUrl: `https://gatsby-starter-blog-mdx-demo.netlify.com/`,
+    siteUrl: `https://www.zubairaziz.com/`,
     social: {
       twitter: `zbr_aziz`,
       instagram: `zbr.aziz`,
       facebook: `zubair0496`,
-      linkedin: `zubairabaziz`
+      linkedin: `zubairabaziz`,
     },
   },
   plugins: [
@@ -16,38 +16,37 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
-    resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /content\/assets/ // See below to configure properly
-        }
-      }
+          include: /content\/assets/, // See below to configure properly
+        },
+      },
     },
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Source Sans Pro']
-        }
-      }
+          families: ['Source Sans Pro'],
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
-          threshold: 0.05, // Percentage of an element's area that needs to be visible to launch animation
-          once: true, // Defines if animation needs to be launched once
-          disable: false, // Flag for disabling animations
-          // Advanced Options
-          selector: '[data-sal]', // Selector of the elements to be animated
-          animateClassName: 'sal-animate', // Class name which triggers animation
-          disabledClassName: 'sal-disabled', // Class name which defines the disabled state
-          rootMargin: '0% 50%', // Corresponds to root's bounding box margin
-          enterEventName: 'sal:in', // Enter event name
-          exitEventName: 'sal:out', // Exit event name
-      }
+        threshold: 0.05, // Percentage of an element's area that needs to be visible to launch animation
+        once: true, // Defines if animation needs to be launched once
+        disable: false, // Flag for disabling animations
+        // Advanced Options
+        selector: '[data-sal]', // Selector of the elements to be animated
+        animateClassName: 'sal-animate', // Class name which triggers animation
+        disabledClassName: 'sal-disabled', // Class name which defines the disabled state
+        rootMargin: '0% 50%', // Corresponds to root's bounding box margin
+        enterEventName: 'sal:in', // Enter event name
+        exitEventName: 'sal:out', // Exit event name
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -74,9 +73,7 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: ['.mdx', '.md'],
-        plugins: [
-          `gatsby-remark-images`,
-        ],
+        plugins: [`gatsby-remark-images`],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -128,7 +125,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(edge => {
+              return allMdx.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   data: edge.node.frontmatter.date,
@@ -173,8 +170,10 @@ module.exports = {
         background_color: `#e7f1f6`,
         theme_color: `#227C9D`,
         display: `standalone`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/icon.png`,
       },
     },
+    `gatsby-plugin-advanced-sitemap`,
+    `gatsby-plugin-offline`,
   ],
 }

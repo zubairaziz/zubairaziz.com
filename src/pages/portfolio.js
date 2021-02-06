@@ -10,13 +10,13 @@ import Grid from '../components/grid'
 import Card from '../components/card'
 
 const Portfolio = (props) => {
-  const { data } = props
+  const { data, location } = props
   const siteTitle = data.site.siteMetadata.title
   const imageData = data.backgroundImage.childImageSharp.fluid
   const sites = data.allMdx.edges
 
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <Layout location={location} title={siteTitle}>
       <SEO
         title="Portfolio"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
@@ -27,7 +27,6 @@ const Portfolio = (props) => {
           <h2 className="text-xl md:text-2xl lg:text-4xl">Websites</h2>
           <Grid>
             {sites.map(({ node }, index) => {
-              console.log(node)
               const title = node.frontmatter.title
               const summary = node.frontmatter.summary
               const technologies = node.frontmatter.technologies
@@ -44,16 +43,16 @@ const Portfolio = (props) => {
                   target="_blank"
                   className="no-underline portfolio-list-item"
                 >
-                  <div className="shadow-lg transition-shadow duration-300 ease-in-out hover:shadow-2xl">
+                  <div className="transition-shadow duration-300 ease-in-out shadow-lg hover:shadow-2xl">
                     <Image fluid={featuredImgFluid} className="rounded-t-md" />
-                    <div className="no-underline p-4 bg-gray-800 text-gray-200 rounded-b-md">
-                      <div className="no-underline font-semibold text-xl text-yellow">
+                    <div className="p-4 text-gray-200 no-underline bg-gray-800 rounded-b-md">
+                      <div className="text-xl font-semibold no-underline text-yellow">
                         {title}
                       </div>
-                      <div className="no-underline leading-none py-1">
+                      <div className="py-1 leading-none no-underline">
                         {summary}
                       </div>
-                      <ul className="no-underline pt-1 leading-none text-sm list-disc px-4">
+                      <ul className="px-4 pt-1 text-sm leading-none no-underline list-disc">
                         {technologies.map((technology, index) => (
                           <li className="no-underline" key={index}>
                             {technology}
