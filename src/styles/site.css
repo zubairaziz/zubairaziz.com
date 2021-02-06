@@ -25,6 +25,19 @@ a:not([class]) {
   }
 }
 
+.portfolio-image {
+  background-color: white;
+  @apply h-auto;
+
+  @screen md {
+    height: 150px;
+  }
+
+  @screen lg {
+    height: 250px;
+  }
+}
+
 html,
 body {
   @apply min-h-screen;

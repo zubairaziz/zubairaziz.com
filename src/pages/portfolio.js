@@ -95,8 +95,7 @@ const Portfolio = (props) => {
                     <div className="transition-shadow duration-300 ease-in-out shadow-md hover:shadow-2xl">
                       <Img
                         fluid={featuredImgFluid}
-                        className="rounded-t-md"
-                        style={{ height: '260px', backgroundColor: 'white' }}
+                        className="rounded-t-md portfolio-image"
                         imgStyle={{
                           width: '100%',
                           height: 'auto',
