@@ -261,7 +261,7 @@ export const pageQuery = graphql`
     backgroundImage: file(relativePath: { eq: "tools.jpg" }) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }

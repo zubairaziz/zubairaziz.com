@@ -55,9 +55,7 @@ const BlogPostTemplate = (props) => {
                 </div>
                 <hr className="py-4" />
               </>
-            ) : (
-              ``
-            )}
+            ) : null}
             <MDXRenderer>{post.body}</MDXRenderer>
           </div>
           <hr />
@@ -119,7 +117,7 @@ export const pageQuery = graphql`
         featuredImage {
           childImageSharp {
             fluid(maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
         }

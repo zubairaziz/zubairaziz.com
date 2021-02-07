@@ -341,14 +341,14 @@ export const pageQuery = graphql`
     backgroundImage: file(relativePath: { eq: "about.jpg" }) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
     avatar: file(absolutePath: { regex: "/about-headshot.jpg/" }) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 500) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
