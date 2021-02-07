@@ -30,13 +30,15 @@ const SEO = ({ description, title, location }) => {
         },
         email: 'zubairaziz.dev@gmail.com',
         birthDate: '1996-04-28',
-        alumniOf: 'University of Rochesteer',
+        alumniOf: 'University of Rochester',
         birthPlace: 'Malaysia',
-        nationality: 'Malaysian',
+        nationality: 'Malaysia',
         telephone: '5852841150',
       },
     },
   ]
+
+  console.log(JSON.stringify(schemaOrgJSONLD))
 
   return (
     <Helmet

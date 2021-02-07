@@ -21,7 +21,6 @@ const Header = () => {
           </span>
         </Link>
         <button
-          navbarOpen={navbarOpen}
           onClick={() => setNavbarOpen(!navbarOpen)}
           className="inline-flex p-3 ml-auto text-white rounded outline-none hover:bg-primary-900 lg:hidden hover:text-white nav-toggler"
           data-target="#navigation"
