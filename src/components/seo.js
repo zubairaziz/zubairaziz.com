@@ -66,7 +66,7 @@ const SEO = ({ description, title, location }) => {
         },
         {
           property: `og:image`,
-          content: ogImage,
+          content: `${siteMetadata.siteUrl}${ogImage}`,
         },
         {
           name: `twitter:card`,
@@ -74,7 +74,7 @@ const SEO = ({ description, title, location }) => {
         },
         {
           property: `twitter:image`,
-          content: ogImage,
+          content: `${siteMetadata.siteUrl}${ogImage}`,
         },
         {
           name: `twitter:creator`,

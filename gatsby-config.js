@@ -3,7 +3,7 @@ module.exports = {
     title: `Zubair Aziz`,
     author: `Zubair Aziz`,
     description: `Zubair is a Full-Stack Web Developer in Utica who builds secure, scalable applications. He works with various technologies such as JavaScript, PHP and Python.`,
-    siteUrl: `https://www.zubairaziz.com/`,
+    siteUrl: `https://www.zubairaziz.com`,
     social: {
       twitter: `zbr_aziz`,
       instagram: `zbr.aziz`,
