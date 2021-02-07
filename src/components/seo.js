@@ -94,6 +94,7 @@ const SEO = ({ description, title, location }) => {
         },
       ]}
     >
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
       <script type="application/ld+json">
         {JSON.stringify(schemaOrgJSONLD)}
       </script>
