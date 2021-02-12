@@ -110,9 +110,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+        id: `GTM-TSWCBSC`,
+        defaultDataLayer: { platform: 'gatsby' },
       },
     },
     {
