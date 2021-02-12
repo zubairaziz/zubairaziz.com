@@ -12,6 +12,10 @@ body {
   @apply bg-black-coral text-foam;
 }
 
+.container {
+  max-width: 1280px !important;
+}
+
 a {
   @apply transition-all duration-300 ease-in-out;
 }

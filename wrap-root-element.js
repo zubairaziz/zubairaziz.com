@@ -7,32 +7,32 @@ import { preToCodeBlock } from 'mdx-utils'
 // components are stable
 const components = {
   h2: ({ children }) => (
-    <h2 className="mb-4 text-3xl font-semibold md:text-4xl lg:text-5xl">
+    <h2 className="mt-3 mb-4 text-3xl font-semibold md:text-4xl lg:text-5xl">
       {children}
     </h2>
   ),
   h3: ({ children }) => (
-    <h3 className="mb-4 text-2xl font-semibold md:text-3xl lg:text-4xl">
+    <h3 className="mt-3 mb-4 text-2xl font-semibold md:text-3xl lg:text-4xl">
       {children}
     </h3>
   ),
   h1: ({ children }) => (
-    <h1 className="mb-4 text-4xl font-semibold md:text-5xl lg:text-6xl">
+    <h1 className="mt-3 mb-4 text-4xl font-semibold md:text-5xl lg:text-6xl">
       {children}
     </h1>
   ),
   h4: ({ children }) => (
-    <h4 className="mb-4 text-xl font-semibold md:text-2xl lg:text-3xl">
+    <h4 className="mt-3 mb-4 text-xl font-semibold md:text-2xl lg:text-3xl">
       {children}
     </h4>
   ),
   h5: ({ children }) => (
-    <h5 className="mb-4 text-lg font-semibold md:text-xl lg:text-2xl">
+    <h5 className="mt-3 mb-4 text-lg font-semibold md:text-xl lg:text-2xl">
       {children}
     </h5>
   ),
   h6: ({ children }) => (
-    <h6 className="mb-4 text-base font-semibold md:text-lg lg:text-xl">
+    <h6 className="mt-3 mb-4 text-base font-semibold md:text-lg lg:text-xl">
       {children}
     </h6>
   ),
