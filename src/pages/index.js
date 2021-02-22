@@ -67,14 +67,14 @@ export const pageQuery = graphql`
     backgroundImage: file(relativePath: { eq: "code.jpg" }) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
         fluid(quality: 90, maxWidth: 700) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
