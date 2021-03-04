@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
@@ -48,7 +48,7 @@ const listItemVariant = {
 const Portfolio = (props) => {
   const { data, location } = props
   const siteTitle = data.site.siteMetadata.title
-  const imageData = data.backgroundImage.childImageSharp.fluid
+  const imageData = data.backgroundImage.childImageSharp.gatsbyImageData
   const sites = data.allMdx.edges
 
   const [ref, inView, entry] = useInView({
@@ -78,7 +78,7 @@ const Portfolio = (props) => {
               const summary = node.frontmatter.summary
               const technologies = node.frontmatter.technologies
               const featuredImgFluid =
-                node.frontmatter.featuredImage.childImageSharp.fluid
+                node.frontmatter.featuredImage.childImageSharp.gatsbyImageData
               return (
                 <motion.li
                   key={`${index}-${title}`}
@@ -93,8 +93,8 @@ const Portfolio = (props) => {
                     className="no-underline portfolio-list-item"
                   >
                     <div className="transition-shadow duration-300 ease-in-out shadow-md hover:shadow-2xl">
-                      <Img
-                        fluid={featuredImgFluid}
+                      <GatsbyImage
+                        image={featuredImgFluid}
                         className="rounded-t-md portfolio-image"
                         imgStyle={{
                           width: '100%',
@@ -132,17 +132,15 @@ const Portfolio = (props) => {
 export default Portfolio
 
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
       }
     }
-    backgroundImage: file(relativePath: { eq: "developer.jpg" }) {
+    backgroundImage: file(name: { eq: "developer" }) {
       childImageSharp {
-        fluid(quality: 90, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
       }
     }
     allMdx(
@@ -159,9 +157,11 @@ export const pageQuery = graphql`
             technologies
             featuredImage {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                  formats: [AUTO, WEBP, AVIF]
+                  width: 800
+                  layout: CONSTRAINED
+                )
               }
             }
           }

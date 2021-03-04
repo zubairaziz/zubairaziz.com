@@ -1,16 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-import BackgroundImage from 'gatsby-background-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const PageHeader = ({ pageTitle, imageData }) => {
   return (
     <section className="relative block">
-      <BackgroundImage
-        tag="section"
+      <header
         className="flex items-center justify-center page-header min-h-sm md:min-h-md lg:min-h-lg xl:min-h-xl"
-        fluid={imageData}
         backgroundColor={`#1f1f1f`}
       >
+        <GatsbyImage
+          image={imageData}
+          alt=""
+          className="absolute inset-0 z-0 object-cover w-screen h-auto"
+          style={{ position: 'absolute' }}
+        />
         <div className="absolute inset-0 z-0 w-full h-full opacity-75 bg-gun-metal"></div>
         <div className="z-50 max-w-4xl p-12 mx-auto text-center">
           <h1
@@ -22,7 +26,7 @@ const PageHeader = ({ pageTitle, imageData }) => {
             {pageTitle}
           </h1>
         </div>
-      </BackgroundImage>
+      </header>
       <div
         className="absolute bottom-0 left-0 right-0 top-auto w-full overflow-hidden pointer-events-none"
         style={{ height: '70px', transform: 'translateZ(0)' }}

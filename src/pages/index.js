@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import ReactRotatingText from 'react-rotating-text'
 
 import Layout from '../components/Layout'
@@ -12,7 +12,9 @@ const Index = (props) => {
   const textArray = ['Web Developer', 'Programmer', 'Engineer', 'FOSS Advocate']
   const { data } = props
   const siteTitle = data.site.siteMetadata.title
-  const imageData = data.backgroundImage.childImageSharp.fluid
+  const imageData = data.backgroundImage.childImageSharp.gatsbyImageData
+
+  console.log(imageData)
 
   return (
     <Layout location={props.location} title={siteTitle}>
@@ -27,8 +29,8 @@ const Index = (props) => {
               data-sal-easing="ease-in-out-sine"
               className="relative lg:w-1/3"
             >
-              <Img
-                fluid={data.avatar.childImageSharp.fluid}
+              <GatsbyImage
+                image={data.avatar.childImageSharp.gatsbyImageData}
                 alt="Zubair Aziz"
                 style={{
                   minWidth: 300,
@@ -58,24 +60,24 @@ const Index = (props) => {
 export default Index
 
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
       }
     }
-    backgroundImage: file(relativePath: { eq: "code.jpg" }) {
+    backgroundImage: file(name: { eq: "code" }) {
       childImageSharp {
-        fluid(quality: 90, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
       }
     }
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
-        fluid(quality: 90, maxWidth: 700) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(
+          formats: [AUTO, WEBP, AVIF]
+          width: 700
+          layout: CONSTRAINED
+        )
       }
     }
   }

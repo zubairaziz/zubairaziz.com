@@ -122,9 +122,12 @@ const detailsQuery = graphql`
         original {
           src
         }
-        fixed(width: 1200, height: 630) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(
+          formats: [AUTO, WEBP, AVIF]
+          width: 1200
+          height: 630
+          layout: FIXED
+        )
       }
     }
   }

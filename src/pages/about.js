@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
@@ -11,7 +11,7 @@ import Card from '../components/card'
 const About = (props) => {
   const { data } = props
   const siteTitle = data.site.siteMetadata.title
-  const imageData = data.backgroundImage.childImageSharp.fluid
+  const imageData = data.backgroundImage.childImageSharp.gatsbyImageData
 
   return (
     <Layout location={props.location} title={siteTitle}>
@@ -28,8 +28,8 @@ const About = (props) => {
                   data-sal-easing="ease-in-out-sine"
                   className="relative"
                 >
-                  <Img
-                    fluid={data.avatar.childImageSharp.fluid}
+                  <GatsbyImage
+                    image={data.avatar.childImageSharp.gatsbyImageData}
                     alt="Zubair Aziz"
                     style={{
                       minWidth: 200,
@@ -62,7 +62,7 @@ const About = (props) => {
               </div>
               <div className="grid mt-4 place-content-center">
                 <a
-                  href="../../content/assets/Zubair_Aziz_Resume.pdf"
+                  href="../../content/assets/documents/Zubair_Aziz_Resume.pdf"
                   download
                   className="flex px-4 py-3 text-white bg-red-600 rounded-md hover:bg-red-800"
                 >
@@ -332,24 +332,24 @@ const About = (props) => {
 export default About
 
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
       }
     }
-    backgroundImage: file(relativePath: { eq: "about.jpg" }) {
+    backgroundImage: file(name: { eq: "about" }) {
       childImageSharp {
-        fluid(quality: 90, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
       }
     }
     avatar: file(absolutePath: { regex: "/about-headshot.jpg/" }) {
       childImageSharp {
-        fluid(quality: 90, maxWidth: 500) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(
+          formats: [AUTO, WEBP, AVIF]
+          width: 500
+          layout: CONSTRAINED
+        )
       }
     }
   }

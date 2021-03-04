@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
@@ -12,7 +12,7 @@ const BlogIndex = (props) => {
   const { data } = props
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMdx.edges
-  const imageData = data.backgroundImage.childImageSharp.fluid
+  const imageData = data.backgroundImage.childImageSharp.gatsbyImageData
 
   return (
     <Layout location={props.location} title={siteTitle}>
@@ -26,7 +26,7 @@ const BlogIndex = (props) => {
           {posts.map(({ node }, index) => {
             const title = node.frontmatter.title || node.fields.slug
             const featuredImgFluid =
-              node.frontmatter.featuredImage.childImageSharp.fixed
+              node.frontmatter.featuredImage.childImageSharp.gatsbyImageData
             return (
               <Link
                 key={node.fields.slug}
@@ -40,8 +40,8 @@ const BlogIndex = (props) => {
                   data-sal-easing="ease-in-out-sine"
                 >
                   <div className="w-full image-cover rounded-t-md">
-                    <Img
-                      fluid={featuredImgFluid}
+                    <GatsbyImage
+                      image={featuredImgFluid}
                       className="w-full rounded-t-md"
                       style={{ height: `210px` }}
                     />
@@ -77,7 +77,7 @@ const BlogIndex = (props) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
@@ -89,6 +89,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          body
           excerpt
           fields {
             slug
@@ -100,20 +101,21 @@ export const pageQuery = graphql`
             title
             featuredImage {
               childImageSharp {
-                fixed(width: 390, height: 210) {
-                  ...GatsbyImageSharpFixed
-                }
+                gatsbyImageData(
+                  formats: [AUTO, WEBP, AVIF]
+                  width: 390
+                  height: 210
+                  layout: FIXED
+                )
               }
             }
           }
         }
       }
     }
-    backgroundImage: file(relativePath: { eq: "blog.jpg" }) {
+    backgroundImage: file(name: { eq: "blog" }) {
       childImageSharp {
-        fluid(quality: 90, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
       }
     }
   }

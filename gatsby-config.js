@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Zubair Aziz`,
-    author: `Zubair Aziz`,
+    author: `Zubair Aziz<zubairaziz.dev@gmail.com>`,
     description: `Zubair is a Full-Stack Web Developer in Utica who builds secure, scalable applications. He works with various technologies such as JavaScript, PHP and Python.`,
     siteUrl: `https://www.zubairaziz.com`,
     social: {
@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-image`,
     `gatsby-plugin-postcss`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -65,8 +66,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`,
+        path: `${__dirname}/content/assets/images`,
+        name: `images`,
       },
     },
     {
@@ -104,12 +105,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-background-image',
-      options: {
-        specialChars: '/:',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: `GTM-TSWCBSC`,
@@ -139,7 +134,7 @@ module.exports = {
                   data: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                  custom_elements: [{ 'content:encoded': edge.node.body }],
                 })
               })
             },
@@ -157,7 +152,7 @@ module.exports = {
                       title
                       date
                     }
-                    html
+                    body
                   }
                 }
               }
@@ -178,7 +173,7 @@ module.exports = {
         background_color: `#e7f1f6`,
         theme_color: `#227C9D`,
         display: `standalone`,
-        icon: `content/assets/icon.png`,
+        icon: `content/assets/images/icon.png`,
       },
     },
     `gatsby-plugin-advanced-sitemap`,

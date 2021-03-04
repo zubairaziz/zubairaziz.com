@@ -9,37 +9,37 @@ import PageHeader from '../components/page-header'
 import Container from '../components/container'
 import Card from '../components/card'
 
-import VSCode from '../../content/assets/icon-vscode.svg'
-import Vim from '../../content/assets/icon-vim.svg'
-import Figma from '../../content/assets/icon-figma.svg'
-import Sketch from '../../content/assets/icon-sketch.svg'
-import Firefox from '../../content/assets/icon-firefox.svg'
-import Photoshop from '../../content/assets/icon-photoshop.svg'
+import VSCode from '../../content/assets/icons/icon-vscode.svg'
+import Vim from '../../content/assets/icons/icon-vim.svg'
+import Figma from '../../content/assets/icons/icon-figma.svg'
+import Sketch from '../../content/assets/icons/icon-sketch.svg'
+import Firefox from '../../content/assets/icons/icon-firefox.svg'
+import Photoshop from '../../content/assets/icons/icon-photoshop.svg'
 
-import HTML from '../../content/assets/icon-html-5.svg'
-import CSS from '../../content/assets/icon-css3.svg'
-import Java from '../../content/assets/icon-java.svg'
-import JavaScript from '../../content/assets/icon-javascript.svg'
-import TypeScript from '../../content/assets/icon-typescript.svg'
-import PHP from '../../content/assets/icon-php.svg'
-import Python from '../../content/assets/icon-python.svg'
-import SCSS from '../../content/assets/icon-sass.svg'
-import NPM from '../../content/assets/icon-npm.svg'
-import Yarn from '../../content/assets/icon-yarn.svg'
-import WebPack from '../../content/assets/icon-webpack.svg'
-import ReactLogo from '../../content/assets/icon-react.svg'
-import MongoDB from '../../content/assets/icon-mongodb.svg'
-import MySQL from '../../content/assets/icon-mysql.svg'
-import Gatsby from '../../content/assets/icon-gatsby.svg'
-import Apache from '../../content/assets/icon-apache.svg'
-import Git from '../../content/assets/icon-git.svg'
-import NGINX from '../../content/assets/icon-nginx.svg'
-import Silverstripe from '../../content/assets/icon-silverstripe.svg'
-import PostgreSQL from '../../content/assets/icon-postgres.svg'
-import PostCSS from '../../content/assets/icon-postcss.svg'
-import TailwindCSS from '../../content/assets/icon-tailwind.svg'
-import NextJS from '../../content/assets/icon-nextjs.svg'
-import Svelte from '../../content/assets/icon-svelte.svg'
+import HTML from '../../content/assets/icons/icon-html-5.svg'
+import CSS from '../../content/assets/icons/icon-css3.svg'
+import Java from '../../content/assets/icons/icon-java.svg'
+import JavaScript from '../../content/assets/icons/icon-javascript.svg'
+import TypeScript from '../../content/assets/icons/icon-typescript.svg'
+import PHP from '../../content/assets/icons/icon-php.svg'
+import Python from '../../content/assets/icons/icon-python.svg'
+import SCSS from '../../content/assets/icons/icon-sass.svg'
+import NPM from '../../content/assets/icons/icon-npm.svg'
+import Yarn from '../../content/assets/icons/icon-yarn.svg'
+import WebPack from '../../content/assets/icons/icon-webpack.svg'
+import ReactLogo from '../../content/assets/icons/icon-react.svg'
+import MongoDB from '../../content/assets/icons/icon-mongodb.svg'
+import MySQL from '../../content/assets/icons/icon-mysql.svg'
+import Gatsby from '../../content/assets/icons/icon-gatsby.svg'
+import Apache from '../../content/assets/icons/icon-apache.svg'
+import Git from '../../content/assets/icons/icon-git.svg'
+import NGINX from '../../content/assets/icons/icon-nginx.svg'
+import Silverstripe from '../../content/assets/icons/icon-silverstripe.svg'
+import PostgreSQL from '../../content/assets/icons/icon-postgres.svg'
+import PostCSS from '../../content/assets/icons/icon-postcss.svg'
+import TailwindCSS from '../../content/assets/icons/icon-tailwind.svg'
+import NextJS from '../../content/assets/icons/icon-nextjs.svg'
+import Svelte from '../../content/assets/icons/icon-svelte.svg'
 
 const listVariant = {
   show: {
@@ -78,7 +78,7 @@ const listItemVariant = {
 const Uses = (props) => {
   const { data } = props
   const siteTitle = data.site.siteMetadata.title
-  const imageData = data.backgroundImage.childImageSharp.fluid
+  const imageData = data.backgroundImage.childImageSharp.gatsbyImageData
 
   const [ref1, inView1, entry1] = useInView({
     threshold: 0.1,
@@ -223,20 +223,18 @@ const Uses = (props) => {
               <h3 className="text-lg md:text-xl lg:text-2xl">
                 Browser Extensions
               </h3>
-              {` `}
               <ul className="px-4 list-disc">
                 <li>Wappalyzer</li>
                 <li>React Dev Tools</li>
                 <li>Vue Dev Tools</li>
                 <li>HTTPS Everywhere</li>
                 <li>Cors Everywhere</li>
-                <li>1Password</li>
+                <li>bitwarden</li>
                 <li>Grammarly</li>
               </ul>
             </li>
             <li>
               <h3 className="text-lg md:text-xl lg:text-2xl">Other Gear</h3>
-              {` `}
               <ul className="px-4 list-disc">
                 <li>Camera: Canon EOS Rebel T4i</li>
                 <li>Record Player: AudioTechnica AT-LP60x</li>
@@ -252,17 +250,15 @@ const Uses = (props) => {
 export default Uses
 
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
       }
     }
-    backgroundImage: file(relativePath: { eq: "tools.jpg" }) {
+    backgroundImage: file(name: { eq: "tools" }) {
       childImageSharp {
-        fluid(quality: 90, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
       }
     }
   }

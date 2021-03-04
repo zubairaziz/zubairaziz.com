@@ -18,7 +18,9 @@ const BlogPostTemplate = (props) => {
       <SEO title={post.frontmatter.title} description={post.excerpt} />
       <PageHeader
         pageTitle={post.frontmatter.title}
-        imageData={post.frontmatter.featuredImage.childImageSharp.fluid}
+        imageData={
+          post.frontmatter.featuredImage.childImageSharp.gatsbyImageData
+        }
       />
       <Container>
         <div className="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl">
@@ -116,9 +118,7 @@ export const pageQuery = graphql`
         crossPostText
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
           }
         }
       }
