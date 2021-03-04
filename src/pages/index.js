@@ -35,6 +35,8 @@ const Index = (props) => {
                 style={{
                   minWidth: 300,
                 }}
+                width={840}
+                height={840}
                 className="w-full h-full mb-0 border-2 rounded-full shadow-xl lg:border-4"
               />
             </div>
@@ -75,7 +77,8 @@ export const pageQuery = graphql`
       childImageSharp {
         gatsbyImageData(
           formats: [AUTO, WEBP, AVIF]
-          width: 700
+          width: 840
+          height: 840
           layout: CONSTRAINED
         )
       }

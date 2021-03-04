@@ -24,8 +24,21 @@ const Header = () => {
           onClick={() => setNavbarOpen(!navbarOpen)}
           className="inline-flex p-3 ml-auto text-white rounded outline-none hover:bg-primary-900 lg:hidden hover:text-white nav-toggler"
           data-target="#navigation"
+          title="Menu"
         >
-          <i>{navbarOpen ? <Times /> : <Bars />}</i>
+          <i>
+            {navbarOpen ? (
+              <>
+                <span className="sr-only">Close</span>
+                <Times />
+              </>
+            ) : (
+              <>
+                <span className="sr-only">Open</span>
+                <Bars />
+              </>
+            )}
+          </i>
         </button>
         <div
           className={
