@@ -24,7 +24,7 @@ const BlogPostTemplate = (props) => {
       />
       <Container>
         <div className="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl">
-          <div className="relative flex flex-col p-6 text-gray-800">
+          <article className="relative flex flex-col p-6 text-gray-800">
             <p className="self-end">{post.frontmatter.date}</p>
             {post.frontmatter.crossPostURL ? (
               <>
@@ -59,7 +59,7 @@ const BlogPostTemplate = (props) => {
               </>
             ) : null}
             <MDXRenderer>{post.body}</MDXRenderer>
-          </div>
+          </article>
           <hr />
           <Bio />
           <ul
