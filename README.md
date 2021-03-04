@@ -2,7 +2,7 @@
 
 # Zubair's personal website/portfolio
 
-:globe_with_meridians: [zubairaziz.com](https://zubairaziz.com)
+:globe_with_meridians: [zubairaziz.com](https://www.zubairaziz.com)
 
 ## 🚀 Quick start
 
