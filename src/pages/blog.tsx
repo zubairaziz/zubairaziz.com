@@ -3,10 +3,10 @@ import { Link, graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
-import PageHeader from '../components/page-header'
-import Container from '../components/container'
-import Grid from '../components/grid'
+import SEO from '../components/SEO'
+import PageHeader from '../components/PageHeader'
+import Container from '../components/Container'
+import Grid from '../components/Grid'
 
 const BlogIndex = (props) => {
   const { data } = props

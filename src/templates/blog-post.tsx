@@ -4,9 +4,9 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
-import PageHeader from '../components/page-header'
-import Container from '../components/container'
+import SEO from '../components/SEO'
+import PageHeader from '../components/PageHeader'
+import Container from '../components/Container'
 
 const BlogPostTemplate = (props) => {
   const post = props.data.mdx

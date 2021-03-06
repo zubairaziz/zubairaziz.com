@@ -3,10 +3,10 @@ import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
-import PageHeader from '../components/page-header'
-import Container from '../components/container'
-import Card from '../components/card'
+import SEO from '../components/SEO'
+import PageHeader from '../components/PageHeader'
+import Container from '../components/Container'
+import Card from '../components/Card'
 
 const About = (props) => {
   const { data } = props

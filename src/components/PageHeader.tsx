@@ -1,14 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const PageHeader = ({ pageTitle, imageData }) => {
   return (
     <section className="relative block">
-      <header
-        className="flex items-center justify-center page-header min-h-sm md:min-h-md lg:min-h-lg xl:min-h-xl"
-        backgroundColor={`#1f1f1f`}
-      >
+      <header className="flex items-center justify-center page-header min-h-sm md:min-h-md lg:min-h-lg xl:min-h-xl">
         <GatsbyImage
           image={imageData}
           alt=""
@@ -51,16 +47,4 @@ const PageHeader = ({ pageTitle, imageData }) => {
   )
 }
 
-const StyledPageHeader = styled(PageHeader)`
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 350px;
-
-  @media screen and(min-width: 768px) {
-    min-height: 500px;
-  }
-`
-
-export default StyledPageHeader
+export default PageHeader

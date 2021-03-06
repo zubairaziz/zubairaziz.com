@@ -1,4 +1,5 @@
 module.exports = {
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   siteMetadata: {
     title: `Zubair Aziz`,
     author: `Zubair Aziz<zubairaziz.dev@gmail.com>`,
@@ -12,11 +13,11 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-typescript`,
     `gatsby-plugin-image`,
     `gatsby-plugin-postcss`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-canonical-urls`,

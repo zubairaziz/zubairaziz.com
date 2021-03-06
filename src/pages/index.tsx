@@ -4,9 +4,9 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import ReactRotatingText from 'react-rotating-text'
 
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
-import PageHeader from '../components/page-header'
-import Card from '../components/card'
+import SEO from '../components/SEO'
+import PageHeader from '../components/PageHeader'
+import Card from '../components/Card'
 
 const Index = (props) => {
   const textArray = ['Web Developer', 'Programmer', 'Engineer', 'FOSS Advocate']

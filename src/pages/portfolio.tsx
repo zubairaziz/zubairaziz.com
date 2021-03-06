@@ -5,11 +5,11 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
 import Layout from '../components/Layout'
-import SEO from '../components/seo'
-import PageHeader from '../components/page-header'
-import Container from '../components/container'
-import Grid from '../components/grid'
-import Card from '../components/card'
+import SEO from '../components/SEO'
+import PageHeader from '../components/PageHeader'
+import Container from '../components/Container'
+import Grid from '../components/Grid'
+import Card from '../components/Card'
 
 const listVariant = {
   show: {
