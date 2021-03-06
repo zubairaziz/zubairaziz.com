@@ -1,11 +1,21 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
+import { tw } from 'twind'
+import { useWindowSize } from '../hooks/useWindowSize'
 
 import Bars from '../../content/assets/icons/icon-bars.svg'
 import Times from '../../content/assets/icons/icon-times.svg'
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
+  const { width, height } = useWindowSize()
+
+  React.useEffect(() => {
+    if (width >= 1024) {
+      setNavbarOpen(true)
+    }
+  }, [width, height])
+
   return (
     <nav className="p-3 bg-primary-800">
       <div className="container flex flex-wrap items-center mx-auto">
@@ -22,7 +32,7 @@ const Header = () => {
         </Link>
         <button
           onClick={() => setNavbarOpen(!navbarOpen)}
-          className="inline-flex p-3 ml-auto text-white rounded outline-none hover:bg-primary-900 lg:hidden hover:text-white nav-toggler"
+          className="inline-flex p-3 ml-auto text-white rounded outline-none hover:bg-primary-900 lg:hidden hover:text-white"
           data-target="#navigation"
           title="Menu"
         >
@@ -43,8 +53,8 @@ const Header = () => {
         <div
           className={
             navbarOpen
-              ? `w-screen h-auto transition-opacity duration-300 opacity-100 top-navbar transform-gpu translate-y-16 fixed inset-0 top-0 w-full lg:relative lg:inline-flex lg:flex-grow lg:w-auto z-50`
-              : `w-0 h-0 opacity-0 lg:relative lg:inline-flex lg:flex-grow lg:w-auto transform-gpu translate-y-16`
+              ? tw`fixed inset-0 top-0 z-50 w-full h-auto transition-opacity duration-300 translate-y-16 opacity-100 lg:translate-y-0 top-navbar transform-gpu lg:relative lg:inline-flex lg:flex-grow lg:w-auto`
+              : tw`w-0 h-0 translate-y-16 opacity-0 lg:relative lg:inline-flex lg:flex-grow lg:w-auto transform-gpu`
           }
           id="navigation"
         >

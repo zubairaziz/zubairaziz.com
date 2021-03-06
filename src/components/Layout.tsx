@@ -2,13 +2,12 @@ import React from 'react'
 import Footer from './footer'
 import Header from './Header'
 
-const Layout = (props) => {
-  const { children, location } = props
+const Layout = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen max-w-screen">
       <div className="top-content">
-        <Header location={location} />
-        <main>{children}</main>
+        <Header />
+        <main className="max-w-screen">{children}</main>
       </div>
       <Footer />
     </div>

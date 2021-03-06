@@ -14,8 +14,8 @@ const About = (props) => {
   const imageData = data.backgroundImage.childImageSharp.gatsbyImageData
 
   return (
-    <Layout location={props.location} title={siteTitle}>
-      <SEO title="About" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
+    <Layout title={siteTitle}>
+      <SEO title="About" />
       <PageHeader pageTitle={`About Me`} imageData={imageData} />
       <Container>
         <Card>
@@ -34,7 +34,7 @@ const About = (props) => {
                     style={{
                       minWidth: 200,
                     }}
-                    className="mb-0 rounded-full"
+                    className="max-w-xs mb-0 rounded-full"
                   />
                 </div>
               </div>
