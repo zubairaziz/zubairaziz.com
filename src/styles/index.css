@@ -1,5 +1,11 @@
 @tailwind base;
 
+html,
+body {
+  font-family: 'Open Sans', 'Roboto', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
 a:not([class]) {
   @apply text-yellow-600;
 
