@@ -16,6 +16,8 @@ const Bio = () => {
           minWidth: 50,
         }}
         className="w-20 mb-0 rounded-full md:w-24"
+        imgClassName="rounded-full"
+        imgStyle={{ borderRadius: '50%' }}
       />
       <p className="pl-4 text-gray-800">
         Written by{' '}

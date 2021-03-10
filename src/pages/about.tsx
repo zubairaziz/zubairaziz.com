@@ -29,6 +29,8 @@ const AboutPage = (props) => {
                       minWidth: 200,
                     }}
                     className="max-w-xs mb-0 rounded-full"
+                    imgClassName="rounded-full"
+                    imgStyle={{ borderRadius: '50%' }}
                   />
                 </div>
               </div>

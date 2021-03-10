@@ -36,6 +36,8 @@ const HomePage: React.FC<PageProps> = () => {
               width={500}
               height={500}
               className="border-4 border-white rounded-full"
+              imgClassName="rounded-full"
+              imgStyle={{ borderRadius: '50%' }}
             />
           </div>
           <div className="relative w-full p-4 md:w-2/3 lg:w-3/4 lg:px-8">
