@@ -6,29 +6,33 @@ import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import PageHeader from '../components/PageHeader'
-import Container from '../components/Container'
+import Card from '../components/Card'
 
 const BlogPostTemplate = (props) => {
   const post = props.data.mdx
-  const siteTitle = props.data.site.siteMetadata.title
   const { previous, next } = props.pageContext
 
   return (
-    <Layout location={props.location} title={siteTitle}>
-      <SEO title={post.frontmatter.title} description={post.excerpt} />
+    <Layout>
+      <SEO title={post?.frontmatter?.title} description={post?.excerpt} />
       <PageHeader
-        pageTitle={post.frontmatter.title}
+        pageTitle={post?.frontmatter?.title}
         imageData={
-          post.frontmatter.featuredImage.childImageSharp.gatsbyImageData
+          post?.frontmatter?.featuredImage?.childImageSharp?.gatsbyImageData
         }
       />
-      <Container>
-        <div className="relative flex flex-col w-full min-w-0 mb-6 break-words bg-white rounded-lg shadow-xl">
-          <article className="relative flex flex-col p-6 text-gray-800">
-            <p className="self-end">{post.frontmatter.date}</p>
-            {post.frontmatter.crossPostURL ? (
+      <div className="relative -mt-12 md:-mt-16 lg:-mt-18 xl:-mt-24">
+        <div className="container">
+          <Card>
+            <article className="relative flex flex-col p-6 text-gray-800">
+              <p className="self-end float-right">{post?.frontmatter?.date}</p>
+              <div className="richtext">
+                <MDXRenderer>{post?.body}</MDXRenderer>
+              </div>
+            </article>
+            {post?.frontmatter?.crossPostURL ? (
               <>
-                <div className="flex max-w-md mb-4 bg-yellow-400">
+                <div className="flex mb-4 bg-yellow-400">
                   <div className="w-16 bg-yellow-600">
                     <div className="p-4">
                       <svg
@@ -46,11 +50,12 @@ const BlogPostTemplate = (props) => {
                     <p className="leading-tight">
                       This post was cross-posted from{' '}
                       <a
-                        href={post.frontmatter.crossPostURL}
+                        href={post?.frontmatter?.crossPostURL}
                         target="_blank"
                         rel="noopener noreferrer"
+                        className="text-primary-500 hover:text-primary-600 group"
                       >
-                        {post.frontmatter.crossPostText}
+                        {post?.frontmatter?.crossPostText}
                       </a>
                     </p>
                   </div>
@@ -58,42 +63,41 @@ const BlogPostTemplate = (props) => {
                 <hr className="py-4" />
               </>
             ) : null}
-            <MDXRenderer>{post.body}</MDXRenderer>
-          </article>
-          <hr />
-          <Bio />
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li className="p-4 text-gray-800 group">
-              {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  <span className="transition-all duration-300 ease-in-out group-hover:-translate-x-2 hover:-translate-x-2">
-                    ←
-                  </span>{' '}
-                  Previous Post
-                </Link>
-              )}
-            </li>
-            <li className="p-4 text-gray-800 group">
-              {next && (
-                <Link to={next.fields.slug} rel="next">
-                  Next Post{' '}
-                  <span className="transition-all duration-300 ease-in-out group-hover:translate-x-2 hover:translate-x-2">
-                    →
-                  </span>
-                </Link>
-              )}
-            </li>
-          </ul>
+            <hr />
+            <Bio />
+            <div className="flex flex-wrap justify-between p-0 list-none">
+              <div className="p-4 text-gray-800 group">
+                {previous ? (
+                  <Link
+                    to={previous.fields.slug}
+                    rel="prev"
+                    className="text-primary-500 hover:text-primary-600 group"
+                  >
+                    <span className="inline-block transition-all duration-300 ease-in-out transform-gpu group-hover:-translate-x-2 hover:-translate-x-2">
+                      ←
+                    </span>{' '}
+                    Previous Post
+                  </Link>
+                ) : null}
+              </div>
+              <div className="p-4 text-gray-800 group">
+                {next ? (
+                  <Link
+                    to={next.fields.slug}
+                    rel="next"
+                    className="text-primary-500 hover:text-primary-600 group"
+                  >
+                    Next Post{' '}
+                    <span className="inline-block transition-all duration-300 ease-in-out transform-gpu group-hover:translate-x-2 hover:translate-x-2">
+                      →
+                    </span>
+                  </Link>
+                ) : null}
+              </div>
+            </div>
+          </Card>
         </div>
-      </Container>
+      </div>
     </Layout>
   )
 }
@@ -110,19 +114,22 @@ export const pageQuery = graphql`
     }
     mdx(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(pruneLength: 160)
+      body
+      excerpt(pruneLength: 150)
+      fields {
+        slug
+      }
       frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        crossPostURL
         crossPostText
+        crossPostURL
+        date(formatString: "MMM DD, YYYY")
+        title
         featuredImage {
           childImageSharp {
             gatsbyImageData(formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)
           }
         }
       }
-      body
     }
   }
 `

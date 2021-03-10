@@ -6,40 +6,43 @@ import { useInView } from 'react-intersection-observer'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import PageHeader from '../components/PageHeader'
-import Container from '../components/Container'
 import Card from '../components/Card'
 
-import VSCode from '../../content/assets/icons/icon-vscode.svg'
-import Vim from '../../content/assets/icons/icon-vim.svg'
-import Figma from '../../content/assets/icons/icon-figma.svg'
-import Sketch from '../../content/assets/icons/icon-sketch.svg'
-import Firefox from '../../content/assets/icons/icon-firefox.svg'
-import Photoshop from '../../content/assets/icons/icon-photoshop.svg'
-
-import HTML from '../../content/assets/icons/icon-html-5.svg'
-import CSS from '../../content/assets/icons/icon-css3.svg'
-import Java from '../../content/assets/icons/icon-java.svg'
-import JavaScript from '../../content/assets/icons/icon-javascript.svg'
-import TypeScript from '../../content/assets/icons/icon-typescript.svg'
-import PHP from '../../content/assets/icons/icon-php.svg'
-import Python from '../../content/assets/icons/icon-python.svg'
-import SCSS from '../../content/assets/icons/icon-sass.svg'
-import NPM from '../../content/assets/icons/icon-npm.svg'
-import Yarn from '../../content/assets/icons/icon-yarn.svg'
-import WebPack from '../../content/assets/icons/icon-webpack.svg'
-import ReactLogo from '../../content/assets/icons/icon-react.svg'
-import MongoDB from '../../content/assets/icons/icon-mongodb.svg'
-import MySQL from '../../content/assets/icons/icon-mysql.svg'
-import Gatsby from '../../content/assets/icons/icon-gatsby.svg'
-import Apache from '../../content/assets/icons/icon-apache.svg'
-import Git from '../../content/assets/icons/icon-git.svg'
-import NGINX from '../../content/assets/icons/icon-nginx.svg'
-import Silverstripe from '../../content/assets/icons/icon-silverstripe.svg'
-import PostgreSQL from '../../content/assets/icons/icon-postgres.svg'
-import PostCSS from '../../content/assets/icons/icon-postcss.svg'
-import TailwindCSS from '../../content/assets/icons/icon-tailwind.svg'
-import NextJS from '../../content/assets/icons/icon-nextjs.svg'
-import Svelte from '../../content/assets/icons/icon-svelte.svg'
+import VSCode from '../icons/icon-vscode.svg'
+import Vim from '../icons/icon-vim.svg'
+import Figma from '../icons/icon-figma.svg'
+import Sketch from '../icons/icon-sketch.svg'
+import Firefox from '../icons/icon-firefox.svg'
+import Chrome from '../icons/icon-chrome.svg'
+import Safari from '../icons/icon-safari.svg'
+import Photoshop from '../icons/icon-photoshop.svg'
+import HTML from '../icons/icon-html-5.svg'
+import CSS from '../icons/icon-css3.svg'
+import Java from '../icons/icon-java.svg'
+import JavaScript from '../icons/icon-javascript.svg'
+import TypeScript from '../icons/icon-typescript.svg'
+import PHP from '../icons/icon-php.svg'
+import Python from '../icons/icon-python.svg'
+import SCSS from '../icons/icon-sass.svg'
+import NPM from '../icons/icon-npm.svg'
+import Yarn from '../icons/icon-yarn.svg'
+import WebPack from '../icons/icon-webpack.svg'
+import ReactLogo from '../icons/icon-react.svg'
+import MongoDB from '../icons/icon-mongodb.svg'
+import MySQL from '../icons/icon-mysql.svg'
+import Gatsby from '../icons/icon-gatsby.svg'
+import Apache from '../icons/icon-apache.svg'
+import Git from '../icons/icon-git.svg'
+import NGINX from '../icons/icon-nginx.svg'
+import Silverstripe from '../icons/icon-silverstripe.svg'
+import PostgreSQL from '../icons/icon-postgres.svg'
+import PostCSS from '../icons/icon-postcss.svg'
+import TailwindCSS from '../icons/icon-tailwind.svg'
+import NextJS from '../icons/icon-nextjs.svg'
+import Svelte from '../icons/icon-svelte.svg'
+import Wordpress from '../icons/icon-wordpress.svg'
+import Shopify from '../icons/icon-shopify.svg'
+import PageContent from '../components/PageContent'
 
 const listVariant = {
   show: {
@@ -77,7 +80,6 @@ const listItemVariant = {
 
 const Uses = (props) => {
   const { data } = props
-  const siteTitle = data.site.siteMetadata.title
   const imageData = data.backgroundImage.childImageSharp.gatsbyImageData
 
   const [ref1, inView1, entry1] = useInView({
@@ -97,6 +99,8 @@ const Uses = (props) => {
     { component: <Figma />, title: 'Figma' },
     { component: <Photoshop />, title: 'Photoshop' },
     { component: <Firefox />, title: 'Firefox' },
+    { component: <Chrome />, title: 'Chrome' },
+    { component: <Safari />, title: 'Safari' },
   ]
 
   const programArray = [
@@ -124,21 +128,18 @@ const Uses = (props) => {
     { component: <PostgreSQL />, title: 'PostgreSQL' },
     { component: <MongoDB />, title: 'MongoDB' },
     { component: <Git />, title: 'git' },
+    { component: <Wordpress />, title: 'Wordpress' },
+    { component: <Shopify />, title: 'Shopify' },
   ]
 
   return (
-    <Layout location={props.location} title={siteTitle}>
-      <SEO title="Uses" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
+    <Layout>
+      <SEO title="Uses" />
       <PageHeader pageTitle={`Uses`} imageData={imageData} />
-      <Container>
+      <PageContent>
         <Card>
-          <h2 className="text-xl md:text-2xl lg:text-4xl">Hardware</h2>
-          <ul
-            data-sal="slide-up"
-            data-sal-delay="150"
-            data-sal-easing="ease-in-out-sine"
-            className="p-4 list-disc"
-          >
+          <h2>Hardware</h2>
+          <ul>
             <li>
               Daily Driver: MacBook Pro (13-inch, 2016), 3.3 GHz Dual-Core Intel
               Core i7, running MacOS Big Sur.
@@ -149,7 +150,7 @@ const Uses = (props) => {
             </li>
             <li>
               Monitors:{' '}
-              <ol className="px-4 list-decimal">
+              <ol>
                 <li>ASUS VG245H - 24" FHD (1920x1080)</li>
                 <li>Dell UltraSharp - 27" 4K HDR Monitor: UP2718Q</li>
               </ol>
@@ -157,9 +158,9 @@ const Uses = (props) => {
           </ul>
         </Card>
         <Card>
-          <h2 className="text-xl md:text-2xl lg:text-4xl">Software</h2>
+          <h2>Software</h2>
           <motion.ul
-            className="grid grid-cols-2 p-4 md:grid-cols-4 lg:grid-cols-6"
+            className="grid grid-cols-2 p-4 md:grid-cols-4 lg:grid-cols-5"
             ref={ref1}
             animate={inView1 ? 'show' : 'hide'}
             variants={listVariant}
@@ -179,11 +180,9 @@ const Uses = (props) => {
           </motion.ul>
         </Card>
         <Card>
-          <h2 className="text-xl md:text-2xl lg:text-4xl">
-            Programming Languages, Frameworks & Tools
-          </h2>
+          <h2>Programming Languages, Frameworks & Tools</h2>
           <motion.ul
-            className="grid grid-cols-2 p-4 md:grid-cols-4 lg:grid-cols-6"
+            className="grid grid-cols-2 p-4 md:grid-cols-4 lg:grid-cols-5"
             ref={ref2}
             animate={inView2 ? 'show' : 'hide'}
             variants={listVariant}
@@ -203,27 +202,19 @@ const Uses = (props) => {
           </motion.ul>
         </Card>
         <Card>
-          <h2 className="text-xl md:text-2xl lg:text-4xl">Misc.</h2>
-          <ul
-            data-sal="slide-up"
-            data-sal-delay="150"
-            data-sal-easing="ease-in-out-sine"
-            className="p-4"
-          >
+          <h2>Misc.</h2>
+          <ul>
             <li>
-              <h3 className="text-lg md:text-xl lg:text-2xl">Code Editor</h3>
-              {` `}
-              <ul className="px-4 list-disc">
+              <h3>Code Editor</h3>
+              <ul>
                 <li>Theme: Synth Wave '84</li>
                 <li>Font: Fira Code</li>
                 <li>Analytics: WakaTime</li>
               </ul>
             </li>
             <li>
-              <h3 className="text-lg md:text-xl lg:text-2xl">
-                Browser Extensions
-              </h3>
-              <ul className="px-4 list-disc">
+              <h3>Browser Extensions</h3>
+              <ul>
                 <li>Wappalyzer</li>
                 <li>React Dev Tools</li>
                 <li>Vue Dev Tools</li>
@@ -234,15 +225,15 @@ const Uses = (props) => {
               </ul>
             </li>
             <li>
-              <h3 className="text-lg md:text-xl lg:text-2xl">Other Gear</h3>
-              <ul className="px-4 list-disc">
+              <h3>Other Gear</h3>
+              <ul>
                 <li>Camera: Canon EOS Rebel T4i</li>
                 <li>Record Player: AudioTechnica AT-LP60x</li>
               </ul>
             </li>
           </ul>
         </Card>
-      </Container>
+      </PageContent>
     </Layout>
   )
 }
@@ -251,11 +242,6 @@ export default Uses
 
 export const pageQuery = graphql`
   {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     backgroundImage: file(name: { eq: "tools" }) {
       childImageSharp {
         gatsbyImageData(formats: [AUTO, WEBP, AVIF], layout: FULL_WIDTH)

@@ -1,108 +1,98 @@
-import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import { tw } from 'twind'
+import * as React from 'react'
+import { motion } from 'framer-motion'
 import { useWindowSize } from '../hooks/useWindowSize'
 
-import Bars from '../../content/assets/icons/icon-bars.svg'
-import Times from '../../content/assets/icons/icon-times.svg'
-
-const Header = () => {
-  const [navbarOpen, setNavbarOpen] = useState(false)
+function Header() {
+  const [menuIsOpen, setMenuIsOpen] = React.useState(false)
   const { width, height } = useWindowSize()
 
   React.useEffect(() => {
-    if (width >= 1024) {
-      setNavbarOpen(true)
+    if (width > 1024) {
+      setMenuIsOpen(true)
     }
   }, [width, height])
 
   return (
-    <nav className="p-3 bg-primary-800">
-      <div className="container flex flex-wrap items-center mx-auto">
-        <Link
-          to="/"
-          className="inline-flex items-center p-2 mr-4 nav-link text-yellow"
-        >
-          <span className="text-xl font-bold tracking-wide uppercase text-yellow hover:text-white group">
-            <span className="text-xl text-white group-hover:text-yellow">
+    <header className="z-50 w-screen absolute inset-x-0 top-0 bg-primary-800">
+      <nav className="flex flex-wrap items-center justify-between py-6 container">
+        <div className="flex items-center flex-shrink-0 mr-6 text-white group">
+          <Link to="/" className="text-xl font-semibold tracking-tight">
+            <span className="text-white group-hover:text-yellow transition-colors ease-in-out duration-300">
               Zubair
-            </span>{' '}
-            Aziz
-          </span>
-        </Link>
-        <button
-          onClick={() => setNavbarOpen(!navbarOpen)}
-          className="inline-flex p-3 ml-auto text-white rounded outline-none hover:bg-primary-900 lg:hidden hover:text-white"
-          data-target="#navigation"
-          title="Menu"
-        >
-          <i>
-            {navbarOpen ? (
-              <>
-                <span className="sr-only">Close</span>
-                <Times />
-              </>
-            ) : (
-              <>
-                <span className="sr-only">Open</span>
-                <Bars />
-              </>
-            )}
-          </i>
-        </button>
-        <div
-          className={
-            navbarOpen
-              ? tw`fixed inset-0 top-0 z-50 w-full h-auto transition-opacity duration-300 translate-y-16 opacity-100 lg:translate-y-0 top-navbar transform-gpu lg:relative lg:inline-flex lg:flex-grow lg:w-auto`
-              : tw`w-0 h-0 translate-y-16 opacity-0 lg:relative lg:inline-flex lg:flex-grow lg:w-auto transform-gpu`
-          }
-          id="navigation"
-        >
-          <nav className="flex flex-col items-start w-full bg-primary-800 lg:inline-flex lg:flex-row text-primary-100 lg:ml-auto lg:w-auto lg:items-center lg:h-auto">
-            <Link
-              data-sal="slide-up"
-              data-sal-delay="100"
-              data-sal-easing="ease-in-out-sine"
-              to="/about"
-              className="items-center justify-center w-full px-4 py-3 rounded nav-link lg:inline-flex lg:w-auto hover:underline hover:text-white"
-              activeClassName="text-yellow"
-            >
-              <span>About</span>
-            </Link>
-            <Link
-              data-sal="slide-up"
-              data-sal-delay="200"
-              data-sal-easing="ease-in-out-sine"
-              to="/portfolio"
-              className="items-center justify-center w-full px-4 py-3 rounded nav-link lg:inline-flex lg:w-auto hover:underline hover:text-white"
-              activeClassName="text-yellow"
-            >
-              <span>Portfolio</span>
-            </Link>
-            <Link
-              data-sal="slide-up"
-              data-sal-delay="300"
-              data-sal-easing="ease-in-out-sine"
-              to="/uses"
-              className="items-center justify-center w-full px-4 py-3 rounded nav-link lg:inline-flex lg:w-auto hover:underline hover:text-white"
-              activeClassName="text-yellow"
-            >
-              <span>Uses</span>
-            </Link>
-            <Link
-              data-sal="slide-up"
-              data-sal-delay="400"
-              data-sal-easing="ease-in-out-sine"
-              to="/blog"
-              className="items-center justify-center w-full px-4 py-3 rounded nav-link lg:inline-flex lg:w-auto hover:underline hover:text-white"
-              activeClassName="text-yellow"
-            >
-              <span>Blog</span>
-            </Link>
-          </nav>
+            </span>
+            <span className="text-yellow group-hover:text-yellow transition-colors ease-in-out duration-300">
+              {' '}
+              Aziz
+            </span>
+          </Link>
         </div>
-      </div>
-    </nav>
+        <div className="block lg:hidden">
+          <button
+            onClick={() => setMenuIsOpen(!menuIsOpen)}
+            className="flex items-center px-3 py-2 text-white rounded hover:text-yellow border-0"
+          >
+            {menuIsOpen ? (
+              <svg
+                className="w-3 h-3 fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 352 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                />
+              </svg>
+            ) : (
+              <svg
+                className="w-3 h-3 fill-current"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+              </svg>
+            )}
+          </button>
+        </div>
+        <motion.div
+          className="relative z-50 w-full block flex-grow lg:flex lg:items-end lg:w-auto lg:flex-col"
+          initial={{ height: 0, opacity: 0 }}
+          animate={
+            menuIsOpen
+              ? { height: 'auto', opacity: 1 }
+              : { height: 0, opacity: 0 }
+          }
+        >
+          <div className="text-sm lg:flex-grow lg:justify-end">
+            <Link
+              to={`/about`}
+              className="block mt-4 mr-4 text-white lg:inline-block lg:mt-0 hover:text-yellow"
+            >
+              About
+            </Link>
+            <Link
+              to={`/portfolio`}
+              className="block mt-4 mr-4 text-white lg:inline-block lg:mt-0 hover:text-yellow"
+            >
+              Portfolio
+            </Link>
+            <Link
+              to={`/uses`}
+              className="block mt-4 mr-4 text-white lg:inline-block lg:mt-0 hover:text-yellow"
+            >
+              Uses
+            </Link>
+            <Link
+              to={`/blog`}
+              className="block mt-4 mr-4 text-white lg:inline-block lg:mt-0 hover:text-yellow"
+            >
+              Blog
+            </Link>
+          </div>
+        </motion.div>
+      </nav>
+    </header>
   )
 }
 

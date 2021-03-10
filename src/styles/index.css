@@ -1,0 +1,118 @@
+@tailwind base;
+
+a:not([class]) {
+  @apply text-yellow-600;
+
+  &:hover {
+    @apply text-yellow-500;
+  }
+}
+
+.richtext {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold tracking-wide;
+  }
+
+  h1:not([class]) {
+    @apply text-2xl mb-3;
+
+    @screen md {
+      @apply text-3xl;
+    }
+  }
+
+  h2:not([class]) {
+    @apply text-xl mb-2;
+
+    @screen md {
+      @apply text-2xl;
+    }
+  }
+
+  h3:not([class]) {
+    @apply text-lg mb-1;
+
+    @screen md {
+      @apply text-xl;
+    }
+  }
+
+  h4:not([class]),
+  h5:not([class]),
+  h6:not([class]) {
+    @apply mb-1;
+
+    @screen md {
+      @apply text-lg;
+    }
+  }
+
+  ul,
+  ol {
+    &:not([class]) {
+      @apply p-4;
+    }
+
+    @screen md {
+      @apply text-lg;
+    }
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  p {
+    @apply mb-4 leading-relaxed text-gray-800;
+
+    @screen md {
+      @apply text-lg;
+    }
+  }
+
+  a:not([class]) {
+    @apply text-primary-500 underline;
+
+    &:hover {
+      @apply text-primary-600;
+    }
+  }
+}
+
+.container {
+  @apply mx-auto px-4;
+
+  @screen md {
+    @apply px-8;
+  }
+  max-width: 1472px;
+}
+
+.react-rotating-text-cursor {
+  animation: blinking-cursor 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s
+    infinite;
+}
+
+@keyframes blinking-cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;

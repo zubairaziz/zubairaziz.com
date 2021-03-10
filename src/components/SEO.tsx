@@ -1,52 +1,40 @@
+/**
+ * SEO component that queries for data with
+ *  Gatsby's useStaticQuery React hook
+ *
+ * See: https://www.gatsbyjs.com/docs/use-static-query/
+ */
+
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const SEO = ({ description, title, location }) => {
-  const lang = 'en-US'
-  const data = useStaticQuery(detailsQuery)
-  const { siteMetadata } = data.site
-  const metaDescription = description || siteMetadata.description
-  const ogImage = data.socialImage.childImageSharp.original.src
+function SEO({ description, lang, meta, title }) {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            author
+          }
+        }
+      }
+    `
+  )
 
-  const schemaOrgJSONLD = [
-    {
-      '@context': 'http://schema.org',
-      '@type': 'WebPage',
-      url: siteMetadata.siteUrl,
-      name: title,
-      author: {
-        '@context': 'http://www.schema.org',
-        '@type': 'person',
-        name: 'Zubair Aziz',
-        gender: 'male',
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: '1505 Elm St',
-          addressLocality: 'Utica',
-          addressRegion: 'NY',
-          postalCode: '13501',
-          addressCountry: 'United States',
-        },
-        email: 'zubairaziz.dev@gmail.com',
-        birthDate: '1996-04-28',
-        alumniOf: 'University of Rochester',
-        birthPlace: 'Malaysia',
-        nationality: 'Malaysia',
-        telephone: '5852841150',
-      },
-    },
-  ]
-
-  console.log(JSON.stringify(schemaOrgJSONLD))
+  const metaDescription = description || site.siteMetadata.description
+  const defaultTitle = site.siteMetadata?.title
 
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: lang ? lang : 'en-US',
       }}
       title={title}
-      titleTemplate={`%s | ${siteMetadata.title}`}
+      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
       meta={[
         {
           name: `description`,
@@ -65,20 +53,12 @@ const SEO = ({ description, title, location }) => {
           content: `website`,
         },
         {
-          property: `og:image`,
-          content: `${siteMetadata.siteUrl}${ogImage}`,
-        },
-        {
           name: `twitter:card`,
-          content: `summary_large_image`,
-        },
-        {
-          property: `twitter:image`,
-          content: `${siteMetadata.siteUrl}${ogImage}`,
+          content: `summary`,
         },
         {
           name: `twitter:creator`,
-          content: `@${siteMetadata.social.twitter}`,
+          content: site.siteMetadata?.author || ``,
         },
         {
           name: `twitter:title`,
@@ -88,47 +68,22 @@ const SEO = ({ description, title, location }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
-        {
-          name: 'google-site-verification',
-          content: 'BuOnyXcqLptPeRIzYxp4oKCBBKeVDXqVqMWqmOrCAMc',
-        },
-      ]}
-    >
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <script type="application/ld+json">
-        {JSON.stringify(schemaOrgJSONLD)}
-      </script>
-    </Helmet>
+      ].concat(meta)}
+    />
   )
 }
 
-export default SEO
+SEO.defaultProps = {
+  lang: `en`,
+  meta: [],
+  description: ``,
+}
 
-const detailsQuery = graphql`
-  query DefaultSEOQuery {
-    site {
-      siteMetadata {
-        siteUrl
-        title
-        description
-        author
-        social {
-          twitter
-        }
-      }
-    }
-    socialImage: file(absolutePath: { regex: "/og-image.png/" }) {
-      childImageSharp {
-        original {
-          src
-        }
-        gatsbyImageData(
-          formats: [AUTO, WEBP, AVIF]
-          width: 1200
-          height: 630
-          layout: FIXED
-        )
-      }
-    }
-  }
-`
+SEO.propTypes = {
+  description: PropTypes.string,
+  lang: PropTypes.string,
+  meta: PropTypes.arrayOf(PropTypes.object),
+  title: PropTypes.string.isRequired,
+}
+
+export default SEO

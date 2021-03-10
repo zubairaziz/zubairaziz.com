@@ -1,5 +1,4 @@
 module.exports = {
-  flags: { PRESERVE_WEBPACK_CACHE: true },
   siteMetadata: {
     title: `Zubair Aziz`,
     author: `Zubair Aziz<zubairaziz.dev@gmail.com>`,
@@ -10,72 +9,49 @@ module.exports = {
       instagram: `zbr.aziz`,
       facebook: `zubair0496`,
       linkedin: `zubairabaziz`,
+      stackoverflow: `/users/8369042/zubair`,
+      github: `zubairaziz`,
     },
   },
   plugins: [
-    `gatsby-plugin-typescript`,
-    `gatsby-plugin-image`,
-    `gatsby-plugin-postcss`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-canonical-urls`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        siteUrl: `https://www.zubairaziz.com/`,
-        stripQueryString: true,
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `icons`,
+        path: `${__dirname}/src/icons`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/content/posts`,
+        name: `posts`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/content/projects`,
+        name: `projects`,
+      },
+    },
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /content\/assets/, // See below to configure properly
+          include: /icons/,
         },
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-web-font-loader',
-      options: {
-        google: {
-          families: ['Source Sans Pro'],
-        },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-scroll-reveal`,
-      options: {
-        threshold: 0.05, // Percentage of an element's area that needs to be visible to launch animation
-        once: true, // Defines if animation needs to be launched once
-        disable: false, // Flag for disabling animations
-        // Advanced Options
-        selector: '[data-sal]', // Selector of the elements to be animated
-        animateClassName: 'sal-animate', // Class name which triggers animation
-        disabledClassName: 'sal-disabled', // Class name which defines the disabled state
-        rootMargin: '0% 50%', // Corresponds to root's bounding box margin
-        enterEventName: 'sal:in', // Enter event name
-        exitEventName: 'sal:out', // Exit event name
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/assets/images`,
-        name: `images`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/portfolio`,
-        name: `portfolio`,
       },
     },
     {
@@ -106,78 +82,37 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-google-tagmanager',
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        id: `GTM-TSWCBSC`,
-        defaultDataLayer: { platform: 'gatsby' },
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `#e7f1f6`,
+        theme_color: `#227C9D`,
+        display: `minimal-ui`,
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-offline`,
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: `gatsby-plugin-postcss`,
       options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map((edge) => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  data: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.body }],
-                })
-              })
-            },
-            query: `
-            {
-              allMdx(
-                limit: 1000,
-                sort: { order: DESC, fields: [frontmatter___date] },
-                filter: { fileAbsolutePath: { regex: "/(blog)/" } }
-              ) {
-                edges {
-                  node {
-                    fields { slug }
-                    frontmatter {
-                      title
-                      date
-                    }
-                    body
-                  }
-                }
-              }
-            }
-            `,
-            output: '/rss.xml',
-            title: 'Gatsby RSS feed',
-          },
+        postCssPlugins: [
+          require('postcss-nested'),
+          require('tailwindcss'),
+          require('postcss-pxtorem'),
+          require('autoprefixer'),
         ],
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-plugin-purgecss`,
       options: {
-        name: `Zubair Aziz`,
-        short_name: `Zubair`,
-        start_url: `/`,
-        background_color: `#e7f1f6`,
-        theme_color: `#227C9D`,
-        display: `standalone`,
-        icon: `content/assets/images/icon.png`,
+        printRejected: false,
+        develop: false,
+        tailwind: true,
       },
     },
-    `gatsby-plugin-advanced-sitemap`,
-    `gatsby-plugin-offline`,
   ],
 }

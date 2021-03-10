@@ -9,20 +9,20 @@ exports.createPages = ({ graphql, actions }) => {
     `
       {
         allMdx(
-          sort: { fields: [frontmatter___date], order: DESC }
-          filter: { fileAbsolutePath: { regex: "/(blog)/" } }
+          sort: { fields: frontmatter___date }
+          filter: { fileAbsolutePath: { regex: "/(posts)/" } }
           limit: 1000
         ) {
           edges {
             node {
               id
-              fields {
-                slug
-              }
+              body
               frontmatter {
                 title
               }
-              body
+              fields {
+                slug
+              }
             }
           }
         }
@@ -36,9 +36,10 @@ exports.createPages = ({ graphql, actions }) => {
     // Create blog posts pages.
     const posts = result.data.allMdx.edges
 
-    posts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node
-      const next = index === 0 ? null : posts[index - 1].node
+    posts.forEach((post, index, allPosts) => {
+      const previous =
+        index === posts.length - 1 ? null : allPosts[index + 1].node
+      const next = index === 0 ? null : allPosts[index - 1].node
 
       createPage({
         path: post.node.fields.slug,
@@ -56,8 +57,13 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `Mdx` && node.fileAbsolutePath.includes(`blog`)) {
-    const value = createFilePath({ node, getNode, basePath: `blog` })
+  if (node.internal.type === `Mdx` && node.fileAbsolutePath.includes(`posts`)) {
+    const value = createFilePath({
+      node,
+      getNode,
+      basePath: `posts`,
+      trailingSlash: true,
+    })
     createNodeField({
       name: `slug`,
       node,
