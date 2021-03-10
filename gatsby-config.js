@@ -114,5 +114,13 @@ module.exports = {
         tailwind: true,
       },
     },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-TSWCBSC',
+        includeInDevelopment: false,
+        defaultDataLayer: { platform: 'gatsby' },
+      },
+    },
   ],
 }
