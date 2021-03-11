@@ -108,6 +108,13 @@ a:not([class]) {
     infinite;
 }
 
+.svg-holder {
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
 @keyframes blinking-cursor {
   0% {
     opacity: 0;

@@ -38,12 +38,14 @@
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^8.31.0",
     "react-live": "^2.2.3",
-    "react-rotating-text": "^1.4.1"
+    "react-rotating-text": "^1.4.1",
+    "react-tooltip": "^4.2.15"
   },
   "devDependencies": {
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.2",
     "@types/react-helmet": "^6.1.0",
+    "@types/react-tooltip": "^4.2.4",
     "postcss-nested": "^5.0.5",
     "postcss-pxtorem": "^6.0.0",
     "prettier": "^2.2.1",

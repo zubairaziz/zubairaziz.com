@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import ReactTooltip from 'react-tooltip'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
@@ -114,6 +115,7 @@ const Portfolio = (props) => {
 
   return (
     <Layout>
+      <ReactTooltip />
       <SEO title="Portfolio" />
       <PageHeader pageTitle={`Portfolio`} imageData={imageData} />
       <PageContent>
@@ -168,8 +170,9 @@ const Portfolio = (props) => {
                             <li
                               className="grid w-10 h-10 mr-3 bg-white rounded-full place-content-center"
                               key={index}
+                              data-tip={technology}
                             >
-                              <div className="flex w-5 h-5 place-content-center">
+                              <div className="flex w-5 h-5 place-content-center svg-holder">
                                 {techIcons[technology]}
                               </div>
                             </li>

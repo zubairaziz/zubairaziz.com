@@ -24,7 +24,7 @@ function Footer() {
 
   return (
     <footer className="pt-12 pb-10 mt-20 bg-primary-800">
-      <div className="container flex justify-between">
+      <div className="container flex flex-col justify-between md:flex-row">
         <div>
           <p className="text-white">
             © Zubair Aziz {new Date().getFullYear()}, Built with
@@ -90,7 +90,7 @@ function Footer() {
           </p>
         </div>
         <div>
-          <div className="flex">
+          <div className="flex items-center justify-center mt-5 sm:mt-0">
             <a
               href={`https://github.com/${social.github}`}
               target="_blank"
