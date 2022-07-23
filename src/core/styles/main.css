@@ -1,0 +1,51 @@
+@import './theme.css';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  * {
+    &::selection {
+      opacity: 0.9;
+      background: theme('colors.primary.6');
+      color: theme('colors.white');
+    }
+  }
+
+  body,
+  #__next {
+    @apply h-full min-h-screen w-screen;
+  }
+
+  body {
+    @apply flex flex-col;
+  }
+
+  #__next {
+    @apply contents;
+  }
+
+  img {
+    @apply max-w-full;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  header,
+  section,
+  div,
+  span,
+  dt {
+    &[id] {
+      @apply scroll-mt-16;
+    }
+  }
+}
+
+.prose :where(pre):not(:where([class~='not-prose'] *)) {
+  @apply my-3;
+}

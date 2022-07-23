@@ -1,0 +1,101 @@
+/** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
+module.exports = {
+  darkMode: 'class',
+  content: ['./public/**/*.{html,js,svg}', './src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    fontFamily: {
+      serif: ['Georgia', ...defaultTheme.fontFamily.serif],
+      sans: ['Source Sans Pro', ...defaultTheme.fontFamily.sans],
+      mono: ['Consolas', 'Monaco', 'Fira Code', 'Menlo', ...defaultTheme.fontFamily.mono],
+    },
+    borderColor: ({ theme }) => ({
+      ...theme('colors'),
+      DEFAULT: theme('colors.primary.3', 'currentColor'),
+    }),
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: '#33658a',
+          1: 'var(--primary-1)',
+          2: 'var(--primary-2)',
+          3: 'var(--primary-3)',
+          4: 'var(--primary-4)',
+          5: 'var(--primary-5)',
+          6: 'var(--primary-6)',
+          7: 'var(--primary-7)',
+          8: 'var(--primary-8)',
+          9: 'var(--primary-9)',
+          10: 'var(--primary-10)',
+        },
+        secondary: {
+          DEFAULT: '#f6ae2d',
+          1: 'var(--secondary-1)',
+          2: 'var(--secondary-2)',
+          3: 'var(--secondary-3)',
+          4: 'var(--secondary-4)',
+          5: 'var(--secondary-5)',
+          6: 'var(--secondary-6)',
+          7: 'var(--secondary-7)',
+          8: 'var(--secondary-8)',
+          9: 'var(--secondary-9)',
+          10: 'var(--secondary-10)',
+        },
+        danger: {
+          DEFAULT: 'var(--danger-6)',
+          1: 'var(--danger-1)',
+          2: 'var(--danger-2)',
+          3: 'var(--danger-3)',
+          4: 'var(--danger-4)',
+          5: 'var(--danger-5)',
+          6: 'var(--danger-6)',
+          7: 'var(--danger-7)',
+          8: 'var(--danger-8)',
+          9: 'var(--danger-9)',
+          10: 'var(--danger-10)',
+        },
+        success: {
+          DEFAULT: 'var(--success-6)',
+          1: 'var(--success-1)',
+          2: 'var(--success-2)',
+          3: 'var(--success-3)',
+          4: 'var(--success-4)',
+          5: 'var(--success-5)',
+          6: 'var(--success-6)',
+          7: 'var(--success-7)',
+          8: 'var(--success-8)',
+          9: 'var(--success-9)',
+          10: 'var(--success-10)',
+        },
+        warning: {
+          DEFAULT: 'var(--warning-6)',
+          1: 'var(--warning-1)',
+          2: 'var(--warning-2)',
+          3: 'var(--warning-3)',
+          4: 'var(--warning-4)',
+          5: 'var(--warning-5)',
+          6: 'var(--warning-6)',
+          7: 'var(--warning-7)',
+          8: 'var(--warning-8)',
+          9: 'var(--warning-9)',
+          10: 'var(--warning-10)',
+        },
+      },
+      ringColor: ({ theme }) => ({
+        DEFAULT: theme('colors.primary', '#295270'),
+      }),
+      screens: {
+        'sm-down': { max: '639px' },
+        'md-down': { max: '767px' },
+      },
+      maxWidth: {
+        xxs: '16rem',
+      },
+      maxWidth: {
+        '8xl': '90rem',
+      },
+    },
+  },
+  plugins: [require('@tailwindcss/typography')],
+}

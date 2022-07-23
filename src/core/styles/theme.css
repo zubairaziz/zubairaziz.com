@@ -1,0 +1,114 @@
+:root,
+.light {
+  --primary-1: #eef4f9;
+  --primary-2: #d6e5f0;
+  --primary-3: #a6c6de;
+  --primary-4: #75a7cc;
+  --primary-5: #4588ba;
+  --primary-6: #33658a;
+  --primary-7: #295270;
+  --primary-8: #203f56;
+  --primary-9: #162c3c;
+  --primary-10: #0c1922;
+
+  --secondary-1: #fefaf3;
+  --secondary-2: #fef2dd;
+  --secondary-3: #fce1b1;
+  --secondary-4: #fad085;
+  --secondary-5: #f8bf59;
+  --secondary-6: #f6ae2d;
+  --secondary-7: #dc9109;
+  --secondary-8: #a26a07;
+  --secondary-9: #674404;
+  --secondary-10: #2c1d02;
+
+  --danger-1: theme('colors.red.50');
+  --danger-2: theme('colors.red.100');
+  --danger-3: theme('colors.red.200');
+  --danger-4: theme('colors.red.300');
+  --danger-5: theme('colors.red.400');
+  --danger-6: theme('colors.red.500');
+  --danger-7: theme('colors.red.600');
+  --danger-8: theme('colors.red.700');
+  --danger-9: theme('colors.red.800');
+  --danger-10: theme('colors.red.900');
+
+  --success-1: theme('colors.green.50');
+  --success-2: theme('colors.green.100');
+  --success-3: theme('colors.green.200');
+  --success-4: theme('colors.green.300');
+  --success-5: theme('colors.green.400');
+  --success-6: theme('colors.green.500');
+  --success-7: theme('colors.green.600');
+  --success-8: theme('colors.green.700');
+  --success-9: theme('colors.green.800');
+  --success-10: theme('colors.green.900');
+
+  --warning-1: theme('colors.yellow.50');
+  --warning-2: theme('colors.yellow.100');
+  --warning-3: theme('colors.yellow.200');
+  --warning-4: theme('colors.yellow.300');
+  --warning-5: theme('colors.yellow.400');
+  --warning-6: theme('colors.yellow.500');
+  --warning-7: theme('colors.yellow.600');
+  --warning-8: theme('colors.yellow.700');
+  --warning-9: theme('colors.yellow.800');
+  --warning-10: theme('colors.yellow.900');
+}
+
+.dark {
+  --primary-10: #eef4f9;
+  --primary-9: #d6e5f0;
+  --primary-8: #a6c6de;
+  --primary-7: #75a7cc;
+  --primary-6: #4588ba;
+  --primary-5: #33658a;
+  --primary-4: #295270;
+  --primary-3: #203f56;
+  --primary-2: #162c3c;
+  --primary-1: #0c1922;
+
+  --secondary-10: #fefaf3;
+  --secondary-9: #fef2dd;
+  --secondary-8: #fce1b1;
+  --secondary-7: #fad085;
+  --secondary-6: #f8bf59;
+  --secondary-5: #f6ae2d;
+  --secondary-4: #dc9109;
+  --secondary-3: #a26a07;
+  --secondary-2: #674404;
+  --secondary-1: #2c1d02;
+
+  --danger-10: theme('colors.red.50');
+  --danger-9: theme('colors.red.100');
+  --danger-8: theme('colors.red.200');
+  --danger-7: theme('colors.red.300');
+  --danger-6: theme('colors.red.400');
+  --danger-5: theme('colors.red.500');
+  --danger-4: theme('colors.red.600');
+  --danger-3: theme('colors.red.700');
+  --danger-2: theme('colors.red.800');
+  --danger-1: theme('colors.red.900');
+
+  --success-10: theme('colors.green.50');
+  --success-9: theme('colors.green.100');
+  --success-8: theme('colors.green.200');
+  --success-7: theme('colors.green.300');
+  --success-6: theme('colors.green.400');
+  --success-5: theme('colors.green.500');
+  --success-4: theme('colors.green.600');
+  --success-3: theme('colors.green.700');
+  --success-2: theme('colors.green.800');
+  --success-1: theme('colors.green.900');
+
+  --warning-10: theme('colors.yellow.50');
+  --warning-9: theme('colors.yellow.100');
+  --warning-8: theme('colors.yellow.200');
+  --warning-7: theme('colors.yellow.300');
+  --warning-6: theme('colors.yellow.400');
+  --warning-5: theme('colors.yellow.500');
+  --warning-4: theme('colors.yellow.600');
+  --warning-3: theme('colors.yellow.700');
+  --warning-2: theme('colors.yellow.800');
+  --warning-1: theme('colors.yellow.900');
+}

@@ -1,0 +1,18 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "arrowParens": "always",
+  "printWidth": 100,
+  "importOrder": [
+    "^(react|react-dom)$",
+    "^(react-(?!(dom))|next).*",
+    "^@(.*)$",
+    "^(?!(react|core.*|pages.*|./.*|../.*)$).*$",
+    "^(core.*|pages.*).*",
+    "[.]",
+    ".*\\.css$"
+  ],
+  "importOrderSeparation": true
+}
