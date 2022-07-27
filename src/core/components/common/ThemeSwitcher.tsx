@@ -18,7 +18,7 @@ const ThemeSwitcher: React.FC = () => {
         checked={enabled}
         onChange={handleClick}
         className={`${enabled ? 'bg-secondary-2' : 'bg-secondary-7'}
-        relative inline-flex h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+        hidden relative md:inline-flex h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
       >
         <span className="sr-only">Change theme</span>
         <span
@@ -31,6 +31,18 @@ const ThemeSwitcher: React.FC = () => {
             className="block w-full h-full p-1 text-secondary-6 dark:text-secondary-4"
           />
         </span>
+      </Switch>
+      <Switch
+        checked={enabled}
+        onChange={handleClick}
+        className={`${enabled ? 'bg-secondary-2' : 'bg-secondary-7'}
+        inline-block w-8 h-8 relative md:hidden cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+      >
+        <span className="sr-only">Change theme</span>
+        <DynamicIcon
+          icon={enabled ? 'MoonIcon' : 'SunIcon'}
+          className="block w-full h-full p-1 text-secondary-6 dark:text-secondary-4"
+        />
       </Switch>
     </div>
   )

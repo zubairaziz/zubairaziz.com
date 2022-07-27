@@ -6,9 +6,15 @@ import { navigation } from 'core/navigation'
 const Navbar = () => {
   return (
     <header className="w-full p-4 bg-primary-10 dark:bg-primary-2 text-secondary-6 dark:text-secondary-4">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between w-full mx-auto max-w-7xl">
         <div>
-          <AppLink href="/">Home</AppLink>
+          <AppLink href="/">
+            <span className="sr-only">Home</span>
+            <span aria-hidden className="text-2xl font-bold leading-none">
+              <span className="text-primary">Z</span>
+              <span className="text-secondary">A</span>
+            </span>
+          </AppLink>
         </div>
 
         <div className="flex items-center space-x-6">
