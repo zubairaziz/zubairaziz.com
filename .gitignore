@@ -17,6 +17,7 @@
 
 # misc
 .DS_Store
+*/.DS_Store
 *.pem
 
 # debug
@@ -33,3 +34,8 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# sitemap
+public/sitemap.xml
+public/robots.txt
+public/sitemap-*.xml

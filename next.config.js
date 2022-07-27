@@ -9,6 +9,9 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   productionBrowserSourceMaps: true,
+  pageExtensions: ['tsx', 'md'],
 }
 
-module.exports = withBundleAnalyzer(withMarkdoc(nextConfig))
+module.exports = withBundleAnalyzer(
+  withMarkdoc({ mode: 'static', schemaPath: './src/markdoc' })(nextConfig)
+)

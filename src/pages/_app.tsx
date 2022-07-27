@@ -6,7 +6,7 @@ import type { AppProps } from 'next/app'
 import { RenderableTreeNode } from '@markdoc/markdoc'
 import { MarkdocNextJsPageProps } from '@markdoc/next.js'
 
-import type { GetBlogLayout, Page } from 'types'
+import type { FrontMatter, GetBlogLayout, Page } from 'types'
 
 import { BlogLayout } from 'core/layouts'
 import 'core/styles/main.css'
@@ -34,13 +34,12 @@ type CustomAppProps<P = Record<string, unknown>> = AppProps<P> & {
 
 const CustomApp: React.FC<CustomAppProps> = ({ Component, pageProps }) => {
   const { markdoc }: MarkdocNextJsPageProps = pageProps || {}
-  const title = markdoc?.frontmatter.title
-  const pageTitle = markdoc?.frontmatter.pageTitle || title
-  const description = markdoc?.frontmatter.description
+  const { frontmatter, content } = markdoc || {}
+  const title = frontmatter?.title
+  const pageTitle = frontmatter?.pageTitle || title
+  const description = frontmatter?.description
   const tableOfContents =
-    markdoc?.content && !!((markdoc?.content as RenderableTreeNode[])?.length > 0)
-      ? collectHeadings(markdoc?.content)
-      : []
+    content && !!((content as RenderableTreeNode[])?.length > 0) ? collectHeadings(content) : []
 
   return (
     <ThemeProvider themes={['light', 'dark']} attribute="class" defaultTheme="dark">

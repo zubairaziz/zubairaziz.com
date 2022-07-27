@@ -4,12 +4,12 @@ import type { NavigationItem } from 'types'
 
 import { AppLink } from 'core/components'
 
-type DocsLayoutPaginationProps = {
+type BlogLayoutPaginationProps = {
   previousPage?: NavigationItem
   nextPage?: NavigationItem
 }
 
-const DocsLayoutPagination: React.FC<DocsLayoutPaginationProps> = ({ previousPage, nextPage }) => {
+const BlogLayoutPagination: React.FC<BlogLayoutPaginationProps> = ({ previousPage, nextPage }) => {
   return (
     <dl className="flex w-full px-6 pt-6 mt-12 border-t lg:px-8">
       {previousPage && (
@@ -42,4 +42,4 @@ const DocsLayoutPagination: React.FC<DocsLayoutPaginationProps> = ({ previousPag
   )
 }
 
-export default DocsLayoutPagination
+export default BlogLayoutPagination

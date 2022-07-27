@@ -3,7 +3,7 @@ import * as React from 'react'
 import Image from 'next/image'
 import type { ImageProps } from 'next/image'
 
-// import { ButtonGroup, Callout, LinkGrid, ApiEndpoint } from '@quiltt/components'
+// import { ButtonGroup, Callout, LinkGrid, ApiEndpoint } from 'core/components'
 
 type FigureProps = ImageProps & {
   caption?: string

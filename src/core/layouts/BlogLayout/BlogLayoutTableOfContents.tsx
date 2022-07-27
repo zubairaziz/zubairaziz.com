@@ -6,11 +6,11 @@ import type { ContentNode, TableOfContents } from 'types'
 import { AppLink } from 'core/components'
 import { useTableOfContents } from 'core/hooks'
 
-type DocsLayoutTableOfContentsProps = {
+type BlogLayoutTableOfContentsProps = {
   tableOfContents: TableOfContents
 }
 
-const DocsLayoutTableOfContents: React.FC<DocsLayoutTableOfContentsProps> = ({
+const BlogLayoutTableOfContents: React.FC<BlogLayoutTableOfContentsProps> = ({
   tableOfContents,
 }) => {
   const currentSection = useTableOfContents(tableOfContents)
@@ -28,7 +28,7 @@ const DocsLayoutTableOfContents: React.FC<DocsLayoutTableOfContentsProps> = ({
   return (
     <div
       className={classNames(
-        'hidden xl:relative xl:block xl:flex-none xl:min-h-screen xl:h-full',
+        'hidden xl:relative xl:block xl:flex-none xl:h-full',
         tableOfContents.length > 0 && 'xl:border-l'
       )}
     >
@@ -92,4 +92,4 @@ const DocsLayoutTableOfContents: React.FC<DocsLayoutTableOfContentsProps> = ({
   )
 }
 
-export default DocsLayoutTableOfContents
+export default BlogLayoutTableOfContents
