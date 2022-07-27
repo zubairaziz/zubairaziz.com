@@ -56,7 +56,11 @@ export const getStaticProps = async () => {
 }
 
 BlogIndexPage.getLayout = function getLayout(page) {
-  return <AppLayout title="Home">{page}</AppLayout>
+  return (
+    <AppLayout title="Blog" description="Read blog posts">
+      {page}
+    </AppLayout>
+  )
 }
 
 export default BlogIndexPage

@@ -2,17 +2,24 @@ import * as React from 'react'
 
 import type { Page } from 'types'
 
+import { PageHeader } from 'core/components'
+import featuredImage from 'core/images/contact.jpg'
 import { AppLayout } from 'core/layouts'
 
 const ContactPage: Page = () => {
   return (
-    <div className="flex flex-col items-center justify-center w-full h-full place-content-center">
-      Hello, World!
+    <div className="flex flex-col w-full h-full">
+      <PageHeader title="Contact" backgroundImage={featuredImage?.src} />
     </div>
   )
 }
 
 ContactPage.getLayout = function getLayout(page) {
-  return <AppLayout title="Home">{page}</AppLayout>
+  return (
+    <AppLayout title="Contact" description="Get in touch with Zubair">
+      {page}
+    </AppLayout>
+  )
 }
+
 export default ContactPage
