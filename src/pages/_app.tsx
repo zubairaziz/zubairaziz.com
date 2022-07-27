@@ -6,8 +6,9 @@ import type { AppProps } from 'next/app'
 import { RenderableTreeNode } from '@markdoc/markdoc'
 import { MarkdocNextJsPageProps } from '@markdoc/next.js'
 
-import type { FrontMatter, GetBlogLayout, Page } from 'types'
+import type { GetBlogLayout, Page } from 'types'
 
+import { useAnalytics } from 'core/hooks'
 import { BlogLayout } from 'core/layouts'
 import 'core/styles/main.css'
 import { collectHeadings } from 'core/utils'
@@ -40,6 +41,8 @@ const CustomApp: React.FC<CustomAppProps> = ({ Component, pageProps }) => {
   const description = frontmatter?.description
   const tableOfContents =
     content && !!((content as RenderableTreeNode[])?.length > 0) ? collectHeadings(content) : []
+
+  useAnalytics()
 
   return (
     <ThemeProvider themes={['light', 'dark']} attribute="class" defaultTheme="dark">
