@@ -15,9 +15,9 @@ const Navbar = () => {
           <nav>
             <ul className="flex items-center space-x-3">
               {navigation.map((item) => (
-                <>
+                <React.Fragment key={item.href}>
                   {item.title !== 'Home' && (
-                    <li key={item.href}>
+                    <li>
                       <AppLink
                         href={item.href}
                         className="hover:text-secondary-8 dark:hover:text-secondary-3"
@@ -26,7 +26,7 @@ const Navbar = () => {
                       </AppLink>
                     </li>
                   )}
-                </>
+                </React.Fragment>
               ))}
             </ul>
           </nav>
