@@ -3,6 +3,8 @@ import * as React from 'react'
 import classNames from 'classnames'
 import type { Navigation } from 'types'
 
+import { AppLink } from 'core/components/common'
+
 import SidebarItem from './SidebarItem'
 
 type SidebarProps = {
@@ -21,6 +23,9 @@ const Sidebar: React.FC<SidebarProps> = ({ navigation, className }) => {
           </SidebarItem>
         ))}
       </ul>
+      <div className="mt-4 md:mt-8">
+        <AppLink href="/blog">Go back to all posts</AppLink>
+      </div>
     </nav>
   )
 }

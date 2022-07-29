@@ -14,11 +14,11 @@
 
   body,
   #__next {
-    @apply h-full min-h-screen w-screen;
+    @apply h-full min-h-screen w-full;
   }
 
   body {
-    @apply flex flex-col;
+    @apply flex flex-col overflow-x-hidden;
   }
 
   #__next {

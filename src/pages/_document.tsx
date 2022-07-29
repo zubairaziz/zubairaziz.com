@@ -65,12 +65,13 @@ const MicrosoftIcons = () => (
     <meta name="msapplication-tap-highlight" content="no" key="msapplication-tap-highlight" />
   </>
 )
+
 export default class Document extends NextDocument {
   render() {
     return (
       <Html
         lang="en"
-        className="min-h-screen max-w-[100vw] w-screen overflow-x-hidden font-sans antialiased bg-primary-1"
+        className="w-full max-w-full min-h-screen overflow-x-hidden font-sans antialiased bg-primary-1"
       >
         <Head>
           <ManifestData />
