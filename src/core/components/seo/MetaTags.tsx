@@ -58,7 +58,6 @@ const MetaTags: React.FC<MetaTagsProps> = ({
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={pageDescription} />
       <meta property="og:type" content="website" />
-      {/* <meta property="og:image" content={featuredImageSrc} /> */}
       <meta property="og:image" content={`${siteUrl}${OGImage.src}`} />
 
       <meta name="twitter:card" content="summary_large_image" />
