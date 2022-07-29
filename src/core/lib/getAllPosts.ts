@@ -18,13 +18,19 @@ export const getAllPosts = async () => {
   for await (const slug of slugs) {
     const data = fs.readFileSync(`./src/pages/blog/${slug}/index.md`)
     const content = await matter(data)
-    const post = { ...content.data, slug }
+    const { publishedAt, updatedAt, ...rest } = content.data as FrontMatter
+    const post = {
+      ...rest,
+      slug,
+      publishedAt: (publishedAt as Date).toDateString(),
+      updatedAt: (updatedAt as Date)?.toDateString() ?? null,
+    }
 
     posts.push(post as FrontMatter)
   }
 
   const sortedPosts = posts.sort((a, b) => {
-    return new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
+    return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   })
 
   return sortedPosts

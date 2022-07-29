@@ -1,7 +1,7 @@
 ---
 title: Hello, World!
 pageTitle: Hello, World!
-publishedDate: 20022-07-25
+publishedAt: 2022-07-25
 categories:
   - Blog
   - Snippets
