@@ -8,8 +8,8 @@ export const navigation: Navigation = [
     title: 'Blog',
     href: '/blog',
     children: [
-      { title: 'Hello World', href: '/blog/hello-world' },
-      { title: 'Post 2', href: '/blog/post-2' },
+      { title: 'Hello, World!', href: '/blog/hello-world' },
+      { title: 'Helpful Git Commands', href: '/blog/helpful-git-commands' },
     ],
   },
 ]

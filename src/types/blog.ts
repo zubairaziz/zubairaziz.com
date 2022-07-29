@@ -12,9 +12,9 @@ export type FrontMatter = {
   title: string
   slug: string
   folder: string
-  publishedDate: string
   description?: string
   pageTitle?: string
   categories?: string[]
-  updatedDate?: string
+  publishedAt: Date | string
+  updatedAt?: Date | string
 }
