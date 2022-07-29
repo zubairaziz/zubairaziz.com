@@ -17,7 +17,7 @@ const BlogIndexPage: Page<BlogIndexPageProps> = ({ posts }) => {
   return (
     <div className="flex flex-col w-full h-full">
       <PageHeader title="Blog" backgroundImage={featuredImage?.src} />
-      <div className="z-10 w-full mx-auto mb-20 max-w-7xl md:-mt-20">
+      <div className="z-10 w-full mx-auto mb-20 max-w-7xl md:-mt-20 space-y-4 md:space-y-8">
         <Card>
           <ul className="divide-y">
             {posts.map((post) => {

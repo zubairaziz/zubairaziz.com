@@ -10,6 +10,7 @@ const ContactPage: Page = () => {
   return (
     <div className="flex flex-col w-full h-full">
       <PageHeader title="Contact" backgroundImage={featuredImage?.src} />
+      <div className="z-10 w-full mx-auto mb-20 max-w-7xl md:-mt-20 space-y-4 md:space-y-8"></div>
     </div>
   )
 }

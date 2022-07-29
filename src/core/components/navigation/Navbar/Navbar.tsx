@@ -5,8 +5,8 @@ import { navigation } from 'core/navigation'
 
 const Navbar = () => {
   return (
-    <header className="w-full p-4 bg-primary-10 dark:bg-primary-2 text-secondary-6 dark:text-secondary-4">
-      <div className="flex items-center justify-between w-full mx-auto max-w-7xl">
+    <header className="w-full max-w-full mx-auto bg-primary-10 dark:bg-primary-2 text-secondary-6 dark:text-secondary-4">
+      <div className="flex items-center justify-between w-full p-4 mx-auto max-w-7xl">
         <div>
           <AppLink href="/">
             <span className="sr-only">Home</span>
