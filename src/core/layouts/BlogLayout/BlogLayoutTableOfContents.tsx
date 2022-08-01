@@ -57,7 +57,7 @@ const BlogLayoutTableOfContents: React.FC<BlogLayoutTableOfContentsProps> = ({
                         className={classNames(
                           isActive(section)
                             ? 'text-primary-500'
-                            : 'font-normal text-zinc-600 dark:text-zinc-400 hover:text-primary-7'
+                            : 'font-normal text-primary-8 hover:text-secondary-7'
                         )}
                       >
                         {section.title}
@@ -72,7 +72,7 @@ const BlogLayoutTableOfContents: React.FC<BlogLayoutTableOfContentsProps> = ({
                               className={
                                 isActive(subSection)
                                   ? 'text-primary-500'
-                                  : 'font-normal text-zinc-600 dark:text-zinc-400 hover:text-primary-7'
+                                  : 'font-normal text-primary-8 hover:text-secondary-7'
                               }
                             >
                               {subSection.title}

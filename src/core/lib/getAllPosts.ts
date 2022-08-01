@@ -2,6 +2,8 @@ import matter from 'gray-matter'
 import fs from 'node:fs'
 import type { FrontMatter } from 'types'
 
+import { getReadTime } from './getReadTime'
+
 /**
  * Gets all blog posts from the './src/core/pages/blog/' directory
  * */
@@ -18,10 +20,12 @@ export const getAllPosts = async () => {
   for await (const slug of slugs) {
     const data = fs.readFileSync(`./src/pages/blog/${slug}/index.md`)
     const content = await matter(data)
+    const readTime = getReadTime(content.content)
     const { publishedAt, updatedAt, ...rest } = content.data as FrontMatter
     const post = {
       ...rest,
       slug,
+      readTime,
       publishedAt: (publishedAt as Date).toDateString(),
       updatedAt: (updatedAt as Date)?.toDateString() ?? null,
     }
