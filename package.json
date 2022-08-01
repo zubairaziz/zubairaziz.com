@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .next dist out .nyc_output coverage",
+    "clean": "rm -rf node_modules && rm -rf .next dist out .nyc_output coverage",
     "dev": "next dev",
     "build": "next build",
     "postbuild": "next-sitemap",

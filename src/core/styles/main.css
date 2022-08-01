@@ -2,6 +2,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import './prism.css';
 
 @layer base {
   * {
@@ -41,7 +42,7 @@
   span,
   dt {
     &[id] {
-      @apply scroll-mt-16;
+      @apply scroll-mt-8;
     }
   }
 }

@@ -28,11 +28,11 @@ const AppLayout: React.FC<AppLayoutProps> = ({ title = '', description = '', chi
 
       {/* Page Contents */}
       <main
-        className="relative flex justify-center flex-1"
+        className="relative flex justify-center flex-1 h-full"
         data-test="page-container"
         id="app-container"
       >
-        <div className="relative flex justify-center flex-auto w-full min-w-0 px-4 mx-auto max-w-8xl lg:px-6 xl:px-8">
+        <div className="relative flex justify-center w-full min-w-0 px-4 mx-auto max-w-8xl lg:px-6 xl:px-8">
           {children}
         </div>
       </main>
