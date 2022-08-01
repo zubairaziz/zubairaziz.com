@@ -18,5 +18,7 @@ export type GetBlogLayout = (
     description?: string
     tableOfContents?: any
     navigation?: any
+    featuredImage?: any
+    frontmatter: Record<string, unknown>
   }
 ) => React.ReactNode

@@ -11,11 +11,11 @@ type PageHeaderProps = {
 const PageHeader: React.FC<PageHeaderProps> = ({ title, backgroundImage = '', as = 'h1' }) => {
   const Component = as
 
-  const headerCls = classNames('w-full mb-4', backgroundImage && 'h-32 md:h-64 xl:h-96')
+  const headerCls = classNames('relative w-full mb-4', backgroundImage && 'h-32 md:h-64 xl:h-96')
   const titleCls = classNames(
     'relative z-10 font-semibold text-primary-10',
     backgroundImage
-      ? 'inset-y-0 text-center text-secondary-6 text-4xl lg:text-5xl mt-8 md:mt-24 xl:mt-40'
+      ? 'inset-y-0 text-center text-secondary-6 text-4xl lg:text-5xl pt-8 md:pt-24 xl:pt-40'
       : 'text-2xl lg:text-3xl'
   )
 

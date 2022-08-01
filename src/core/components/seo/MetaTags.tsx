@@ -35,15 +35,11 @@ const MetaTags: React.FC<MetaTagsProps> = ({
   const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle
   const pageDescription = description || siteDescription
 
-  // const featuredImageSrc = dynamic(() => import(featuredImage).then((mod) => mod.src))
-
   const _pathSliceLength = Math.min.apply(Math, [
     asPath.indexOf('?') > 0 ? asPath.indexOf('?') : asPath.length,
     asPath.indexOf('#') > 0 ? asPath.indexOf('#') : asPath.length,
   ])
   const canonicalUrl = CANONICAL_DOMAIN + asPath.substring(0, _pathSliceLength)
-
-  // console.log({ featuredImageSrc })
 
   return (
     <Head>

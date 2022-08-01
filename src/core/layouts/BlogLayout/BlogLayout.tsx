@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+import type { StaticImageData } from 'next/image'
 import { useRouter } from 'next/router'
 
 import type { Navigation, NavigationItem, TableOfContents } from 'types'
@@ -16,6 +17,8 @@ type BlogLayoutProps = React.PropsWithChildren<{
   pageTitle: string
   description: string
   tableOfContents: TableOfContents
+  featuredImage?: StaticImageData
+  frontmatter: Record<string, unknown>
 }>
 
 const BlogLayout: React.FC<BlogLayoutProps> = ({
@@ -24,6 +27,8 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({
   pageTitle,
   description,
   tableOfContents,
+  featuredImage,
+  frontmatter,
 }) => {
   const blogNavigation = navigation[3]?.children as Navigation
   const { pathname } = useRouter()
@@ -40,6 +45,8 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({
         pageTitle={pageTitle}
         previousPage={previousPage}
         nextPage={nextPage}
+        featuredImage={featuredImage}
+        frontmatter={frontmatter}
       >
         {children}
       </BlogLayoutMain>

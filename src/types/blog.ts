@@ -12,6 +12,7 @@ export type FrontMatter = {
   title: string
   slug: string
   folder: string
+  readTime: number
   description?: string
   pageTitle?: string
   categories?: string[]
