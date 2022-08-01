@@ -26,19 +26,8 @@ const BlogLayoutTableOfContents: React.FC<BlogLayoutTableOfContentsProps> = ({
   }
 
   return (
-    <div
-      className={classNames(
-        'hidden xl:relative xl:block xl:flex-none xl:h-full',
-        tableOfContents.length > 0 && 'xl:border-l'
-      )}
-    >
-      {tableOfContents.length > 0 && (
-        <>
-          <div className="absolute bottom-0 left-0 hidden w-px h-12 top-16 bg-gradient-to-t from-primary-500 to-primary-700 dark:block" />
-          <div className="absolute bottom-0 left-0 hidden w-px top-28 bg-gradient-to-t from-primary-800 to-primary-500 dark:block" />
-        </>
-      )}
-      <div className="sticky top-0 bottom-0 py-20 pl-8 pr-6 2xl:pl-10">
+    <div className="hidden xl:relative xl:block xl:flex-none xl:h-full xl:top-0 xl:border-l">
+      <div className="sticky inset-0 py-20 pl-8 pr-6 2xl:pl-10">
         <nav aria-labelledby="on-this-page-title" className="w-56">
           {tableOfContents.length > 0 && (
             <>
